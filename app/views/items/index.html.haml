@@ -1,1 +1,46 @@
-hellow!!
+= render 'items/sub-header'
+.single-container
+  %main.single-main
+    %section.buy-item-container
+      %h2 購入内容の確認
+      %section.buy-content.buy-item
+        .buy-content-inner
+          %h3.buy-item-image
+            = image_tag "cat.jpeg"
+          %p.buy-item-name.bold
+            ネコの詰め合わせだにゃー
+          %form{action:"http://",class:"buy-form"}
+            %p.buy-price-ja.bold 
+              ¥10.000
+              %span.buy-price-shipping-money 送料込み
+            %ul.buy-accordion
+              %li.accordion-parent
+                .accordion-taggle ポイントを使う
+                %ul.accordion-child
+            %ul.buy-price-table
+              %li.buy-price-row.buy-you-pay.bold
+                .buy-price-cell 支払い金額
+                .buy-price-cell
+                  %span.data-buy-pay ¥10,000
+            %p.has-error-text
+              配送先と支払い方法の入力を完了してください。
+            %button{type:"submit", class:"btn-default btn-red bold"}
+              購入する
+            
+      %section.buy-content.buy-user-info
+        .buy-content-inner
+          %h3 配送先
+          %address.buy-user-info-text
+          %p.buy-user-info-text 〒-000-0000
+          %a{href:"http://", class:"buy-user-info-fix"}
+            %span 変更する
+            %i.icon-arrow-right
+      %section.buy-content.buy-user-info
+        .buy-content-inner
+          %h3 支払い方法
+          %p.buy-user-info-text あいうえお
+          %figure
+          %a{href:"http://", class:"buy-user-info-fix"}
+            %span 変更する
+            %i.icon-arrow-right
+= render 'items/sub-footer'
