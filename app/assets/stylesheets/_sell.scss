@@ -18,6 +18,14 @@
   .sell-container {
     @include container ();
   }
+  .sell-contents {
+    &__title {
+      @include container-title ();
+    }
+    &__form {
+      border-top: $sell_border;
+    }
+  }
   .sell-upload-box {
       width: 620px;
       padding: 40px;
