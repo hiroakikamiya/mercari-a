@@ -101,6 +101,14 @@
   }
 }
 
+@mixin sell-form-box (){
+  .sell-form-box {
+    width: 400px;
+    height: 180px;
+    float: right;
+  }
+}
+
 @mixin sell-tag-default (){
   p {
     margin-top: 8px;

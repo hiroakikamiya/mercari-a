@@ -10,7 +10,7 @@
               %label.sell-image 出品画像
               %span.required 必須
               %p 最大10枚までアップロードできます
-              .sell-upload-box__drop.clearfix
+              .sell-upload-box__drop
                 %pre ドラッグドロップ  またはクリックしてファイルをアップロード
             .sell-content
               .form-group
@@ -38,7 +38,7 @@
                   %select.category-group
                     %option ----
                   %i.icon-arrow-bottom
-            .sell-content--delivery.clearfix
+            .sell-content--delivery
               %h3 配送について
               .sell-form-box
                 .form-group
@@ -59,7 +59,7 @@
                   %select.category-group
                     %option ----
                   %i.icon-arrow-bottom
-            .sell-content--price.clearfix
+            .sell-content--price
               %h3 販売価格(300~9,999,999)
               %ul.sell-form-box
                 %li.form-group.price-menu
@@ -85,7 +85,3 @@
               .gray-btn-box
                 %button.btn-gray{ type: ""} もどる
 = render 'shared/sub-footer'
-
-   
-    
-      
