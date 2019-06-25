@@ -1,9 +1,9 @@
 @import "module/reset";
 @import "config/colors";
 @import "mixins/mixin";
+@import "mixins/mixin_sekiya";
 @import "config/variable";
 @import "sub-header";
 @import "sub-footer";
-@import "items";
-
+@import "purchase_confirmation";
 @include body ();
