@@ -1,0 +1,128 @@
+main {
+  height: 1109px;
+  width: 100%;
+  background: $background;
+}
+.right-side {
+  float: right;
+  width: 700px;
+  .mypage-user {
+    position: relative;
+    img {
+      height: 200px;
+      width: 700px;
+    }
+    .mypage-user-icon {
+      position: absolute;
+      top: 25%;
+      left: 0;
+      right: 0;
+      text-align: center;
+      a {
+        text-decoration: none;
+        color: $black;
+        img {
+          height: 60px;
+          width: 60px;
+          margin: 0 auto;
+          overflow: hidden;
+          border-radius: 50%;
+        }
+        h2 {
+          margin: 8px 0 0;
+          font-size: 14px;
+        }
+        .mypage-number {
+          margin: 8px 0 0;
+        }
+      }
+    }
+  }
+  .mypage-tab {
+    ul {
+      background-color: $white;
+    }
+    .mypage-tabs{
+        li {
+          line-height: 72px;
+          text-align: center;
+          width: 49.5%;
+          display: inline-block;
+          h3 {
+            font-size: 16px;
+          }
+          h3.todo, .current-deal {
+            background-color: #eee;
+          }
+          h3.notification, .past-deal {
+            border-top: 2px solid red;
+          }
+          a {
+            text-decoration: none;
+            color: $black;
+          }
+        }
+    }
+    .tab-content {
+      display: block;
+      a {
+        text-decoration: none;
+        color: $black;
+        li#notification-content {
+          min-height: 60px;
+          padding: 16px;
+          border-bottom: 1px solid #eee;
+          position: relative;
+          display: table-cell;
+          vertical-align: middle;
+          &:hover {
+            background-color: rgb(251, 251, 251);
+          }
+          img {
+            float: left;
+            height: 40px;
+            width: 40px;
+          }
+          .item-body {
+            margin: 0 40px 0 68px;
+            .text {
+              line-height: 1.5;
+            }
+            .time {
+              color: #888;
+            }
+          }
+          .angle-icon {
+            position: absolute;
+            top: 50%;
+            right: 16px;
+          }
+        }
+      }
+    }
+  }
+  .mypage-tab-deal {
+    margin: 40px 0 0;
+    background-color: $white;
+    h3 {
+      font-size: 16px;
+      padding: 0 16px;
+      line-height: 72px;
+      background-color: #fafafa;
+    }
+    ul.mypage-item-list {
+      height: 236px;
+      width: 700px;
+      li.mypage-item-not-found {
+        padding: 160px 0 60px;
+        background: url(logo-gray.svg);
+        background-repeat: no-repeat;
+        background-position: center 40px;
+        background-size: 78px 85px;
+        text-align: center;
+        font-size: 16px;
+        color: #ccc;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@import "module/reset";
+@import "font-awesome";
+@import "config/colors";
+@import "config/variable";
+@import "mixins/mixin";
+@import "mixins/mixin_gotou";
+@import "module/mypage-right";
+@import "module/mypage-sidebav";
+@import "header";
+@import "footer";
+
+@include body();
