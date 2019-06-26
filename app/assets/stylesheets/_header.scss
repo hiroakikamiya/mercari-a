@@ -1,3 +1,6 @@
+header{
+  background: $white;
+}
 .header{
   height: 100px;
   width: 1440px;
@@ -45,8 +48,8 @@
     height: 44px;
     margin: 0 auto;
     margin-top: 5px;
-    margin-bottom: 15px;
     display: flex;
+    padding-bottom: 13px;
     &__left{
       ul{
         font-size: 14px;
