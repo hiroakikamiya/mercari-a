@@ -1,8 +1,12 @@
 @mixin ul-default (){
-  ul {
   color: $white;
   list-style: none;
   font-size: 12px;
   padding-top: 20px;
-  }
 }
+
+@mixin box-default (){
+  width: 700px;
+  height: 600px;
+}
+

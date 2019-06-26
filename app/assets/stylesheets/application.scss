@@ -4,11 +4,11 @@
 @import "mixins/mixin_iwahana";
 @import "mixins/mixin_gotou";
 @import "config/variable";
-@import "./index";
-@import "show";
 @import "header";
 @import "footer";
+@import "show";
 @import "content";
+@import "./index";
 @import "sell";
 @import "sub-header";
 @import "sub-footer";

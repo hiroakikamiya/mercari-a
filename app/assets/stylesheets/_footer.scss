@@ -1,11 +1,7 @@
-@import "config/colors";
-@include ul-default ();
-
 footer{
   color: $white;
   background-color: $footer_black;
   height: 390px;
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   .post-icon{
     width: 160px;
     height: 160px;
@@ -32,7 +28,7 @@ footer{
   }
   .footer__top{
     display: flex;
-    padding-left: 270px;
+    padding-left: 150px;
     padding-top: 25px;
     h2{
       font-size: 16px;
@@ -45,6 +41,7 @@ footer{
         padding-left: 80px;
       }
       ul{
+        @include ul-default();
         padding-left: 80px;
       }
       &__icons{
@@ -59,12 +56,14 @@ footer{
     &__middle-left{
       margin-left: 40px;
       ul{
+        @include ul-default();
         padding-left: 0px;
       }
     }
     &__middle-right{
       margin-left: 40px;
       ul{
+        @include ul-default();
         padding-left: 0px;
       }
     }
@@ -72,24 +71,26 @@ footer{
       padding-top: 40px;
       padding-left: 10px;
       ul{
+        @include ul-default();
         padding-left: 0px;
       }
     }
     &__country{
       margin-left: 40px;
       ul{
+        @include ul-default();
         padding-left: 0px;
       }
     }
   }
   .footer-row{
-    margin-left: 200px;
+    margin-left: 100px;
     display: flex;
     align-items: center;
     font-size: 10px;
     padding-top:50px;
     .footer-row__logo{
-      padding-left: 350px;
+      padding-left: 300px;
     }
   }
 }

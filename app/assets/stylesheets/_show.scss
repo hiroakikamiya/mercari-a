@@ -1,5 +1,4 @@
 .box-header{
-	font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 	height: 49px;
 	width: 100%;
 	border-top: 1px solid #eee;
@@ -14,7 +13,6 @@
 	background-color: $background;
 	height: 3000px;
 .box-main{
-	font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 	width: 700px;
 	height: 950px;
 	background-color: $white;
@@ -67,11 +65,11 @@
 						align-items: center;
 						.good{
 							font-size: 18px;
-							color: pink;
+							color: $goodicon;
 						}
 						.normal{
 							font-size: 18px;
-							color: orange;
+							color: $normalicon;
 							padding-left: 10px;
 						}
 						.bad{
@@ -200,7 +198,6 @@
 	background-color: $white;
 	margin: 0 auto;
 	margin-top: 10px;
-	font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 	padding-top: 15px;
 	.comment-box__top{
 		height: 44px;
@@ -243,7 +240,6 @@
 	background: $background;
 	color: $blue;
 	padding-top: 20px;
-	font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 	font-size: 14px;
 	.page-icon__left{
 		width: 800px;
@@ -306,13 +302,11 @@
 	}
 }
 .many-items-box-top{
-	width: 700px;
-	height: 600px;
+	@include box-default();
 	padding-top: 30px;
 	margin: 0 auto;
 }
 .many-items-box-row{
-	width: 700px;
-	height: 600px;
+	@include box-default();
 	margin: 0 auto;
 }

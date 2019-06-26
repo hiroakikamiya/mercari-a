@@ -1,5 +1,4 @@
 .main-content{
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   background-color: $background;
   height: 1000px;
   &__img-box{
@@ -39,7 +38,7 @@
           height: 213px;
         }
       }
-      &__pickup__items-box__text{
+      &__text{
         background-color: $white;
         margin-top: 0px;
         width: 213px;
@@ -49,6 +48,7 @@
           padding-top: 15px;
           padding-left: 10px;
           height: 3em;
+        }
           &__price{
             font-size: 16px;
             font-weight: bold;
@@ -58,7 +58,6 @@
       }
     }
   }
-}
 .under-content{
   height: 260px;
   img{
