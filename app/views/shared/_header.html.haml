@@ -1,0 +1,28 @@
+%header
+  .header__top
+    .header__top__left
+      = image_tag 'merrcari.svg'
+    .header__top__right
+      %input{placeholder:"何かお探しですか？", type:"search"}
+      .header__top__right__icon
+        %i.fas.fa-search
+  .header__row
+    .header__row__left
+      %ul
+        %li
+          %i.fas.fa-list-ul
+          カテゴリーから探す
+        %li
+          %i.fas.fa-tags
+          ブランドから探す
+    .header__row__right
+      %ul
+        %li
+          %i.far.fa-bell
+          お知らせ
+        %li
+          %i.fas.fa-check
+          やることリスト
+        %li
+          %i.fas.fa-user
+          マイページ
