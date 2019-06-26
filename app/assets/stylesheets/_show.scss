@@ -1,4 +1,3 @@
-@import "config/colors";
 .box-header{
 	font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 	height: 49px;
@@ -144,7 +143,7 @@
 		font-weight: bold;
 		color: $white;
 		text-align: center;
-		padding-top: 10px;
+		padding-top: 20px;
 	}
 }
 .text-box{
@@ -289,7 +288,7 @@
 			font-size: 50px;
 			border-radius: 5px;
 			margin-left: 10px;
-			margin-top: 30px;
+			margin-top: 42px;
 		}
 		.icon-box__main__pinterest{
 			width: 44px;

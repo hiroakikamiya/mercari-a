@@ -1,5 +1,10 @@
 @import "module/reset";
 @import "config/colors";
-@import "config/variable";
 @import "mixins/mixin";
+@import "config/variable";
+@import "header";
+@import "footer";
+@import "show";
+@import "content";
+@import "./index";
 @include body ();
