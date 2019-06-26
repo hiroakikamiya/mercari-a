@@ -2,7 +2,13 @@
 @import "config/colors";
 @import "mixins/mixin";
 @import "mixins/mixin_iwahana";
+@import "mixins/mixin_gotou";
 @import "config/variable";
+@import "./index";
+@import "show";
+@import "header";
+@import "footer";
+@import "content";
 @import "sell";
 @import "sub-header";
 @import "sub-footer";

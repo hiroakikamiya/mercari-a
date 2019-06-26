@@ -1,135 +1,95 @@
 @import "config/colors";
-html{
-	height:100%; 
-	width: 100%;
-}
- 
-body{
-	height:100%;
-	width: 100%;
-}
+@include ul-default ();
+
 footer{
-	color: #FFFFFF;
-	background-color: #212121;
-	height: 390px;
-	font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-	.post-icon{
-		width: 160px;
-		height: 160px;
-		background-color: $red;
-		border-radius: 80px;
-		z-index: 1000;
-		position: fixed;
-		right: 10px;
-		bottom: 50px;
-		margin-right: 50px;
-		margin-top: 200px;
-		.post-icon__text{
-			padding-top: 25px;
-			font-size: 22px;
-			text-align: center;
-		}
-		.post-icon__camera{
-			i{
-				font-size: 60px;
-				padding-left: 50px;
-				padding-bottom: 60px;
-				}
-			}
-	}
-	.footer__top{
-		display: flex;
-		padding-left: 200px;
-		padding-top: 25px;
-		.footer__top__left{
-			h2{
-				font-size: 16px;
-			}
-			ul{
-				color: #fff;
-				list-style: none;
-				font-size: 12px;
-				padding-left: 0px;
-				padding-top: 20px;
-				li{
-					padding-bottom: 10px;
-				}
-			}
-			.footer__top__left__icons{
-				font-size: 30px;
-				padding-top: 20px;
-				i{
-					padding-left: 10px;
-				}
-			}
-		}
-		.footer__top__middle-left{
-			margin-left: 40px;
-			h2{
-				font-size: 16px;
-			}
-			ul{
-				list-style: none;
-				font-size: 12px;
-				padding-left: 0px;
-				padding-top: 20px;
-				li{
-					padding-bottom: 10px;
-				}
-			}
-		}
-		.footer__top__middle-right{
-			margin-left: 40px;
-			h2{
-				font-size: 16px;
-			}
-			ul{
-				list-style: none;
-				font-size: 12px;
-				padding-left: 0px;
-				padding-top: 20px;
-				li{
-					padding-bottom: 10px;
-				}
-			}
-		}
-		.footer__top__right{
-			padding-top: 40px;
-			padding-left: 10px;
-			ul{
-				list-style: none;
-				font-size: 12px;
-				padding-left: 0px;
-				padding-top: 20px;
-				li{
-					padding-bottom: 10px;
-				}
-			}
-		}
-		.footer__top__country{
-			margin-left: 40px;
-			h2{
-				font-size: 16px;
-			}
-			ul{
-				list-style: none;
-				font-size: 12px;
-				padding-left: 0px;
-				padding-top: 20px;
-				li{
-					padding-bottom: 10px;
-				}
-			}
-		}
-	}
-	.footer-row{
-		margin-left: 200px;
-		display: flex;
-		align-items: center;
-		font-size: 10px;
-		padding-top:50px;
-		.footer-row__logo{
-			padding-left: 350px;
-		}
-	}
+  color: $white;
+  background-color: $footer_black;
+  height: 390px;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  .post-icon{
+    width: 160px;
+    height: 160px;
+    background-color: $red;
+    border-radius: 80px;
+    z-index: 1000;
+    position: fixed;
+    right: 10px;
+    bottom: 50px;
+    margin-right: 50px;
+    margin-top: 200px;
+    &__text{
+      padding-top: 25px;
+      font-size: 22px;
+      text-align: center;
+    }
+    &__camera{
+      i{
+        font-size: 60px;
+        padding-left: 50px;
+        padding-bottom: 60px;
+      }
+    }
+  }
+  .footer__top{
+    display: flex;
+    padding-left: 270px;
+    padding-top: 25px;
+    h2{
+      font-size: 16px;
+    }
+    li{
+      padding-bottom: 10px;
+    }
+    &__left{
+      h2{
+        padding-left: 80px;
+      }
+      ul{
+        padding-left: 80px;
+      }
+      &__icons{
+        font-size: 30px;
+        padding-top: 20px;
+        padding-left: 50px;
+        i{
+          padding-left: 20px;
+        }
+      }
+    }
+    &__middle-left{
+      margin-left: 40px;
+      ul{
+        padding-left: 0px;
+      }
+    }
+    &__middle-right{
+      margin-left: 40px;
+      ul{
+        padding-left: 0px;
+      }
+    }
+    &__right{
+      padding-top: 40px;
+      padding-left: 10px;
+      ul{
+        padding-left: 0px;
+      }
+    }
+    &__country{
+      margin-left: 40px;
+      ul{
+        padding-left: 0px;
+      }
+    }
+  }
+  .footer-row{
+    margin-left: 200px;
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    padding-top:50px;
+    .footer-row__logo{
+      padding-left: 350px;
+    }
+  }
 }

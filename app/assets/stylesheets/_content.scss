@@ -1,67 +1,68 @@
 .main-content{
-	font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-	background-color: $background;
-	height: 1000px;
-	.main-content__img-box{
-		img{
-			width: 100%;
-			height: 390px;
-		}
-	}
-	.main-content__pickup{
-		font-size: 28px;
-		font-weight: bold;
-		padding-top: 40px;
-		text-align: center;
-	}
-	.main-content__pickup__title{
-		font-size: 22px;
-		font-weight: bold;
-		color: $blue;
-		padding-top: 35px;
-		text-align: center;
-	}
-	.main-content__items__field{
-		display: flex;
-		margin: 0 auto;
-		width: 900px;
-		height: 330px;
-		.main-content__items__field__pickup__items-box{
-			width: 215px;
-			height: 330px;
-			padding-right: 20px;
-			margin-top: 20px;
-			.main-content__items__field__pickup__items-box__photo{
-				height: 213px;
-				img{
-					width: 213px;
-					height: 213px;
-				}
-			}
-			.main-content__items__field__pickup__items-box__text{
-				background-color: $white;
-				margin-top: 0px;
-				width: 213px;
-				height: 110px;
-				.main-content__items__field__pickup__items-box__text__title{
-					font-size: 16px;
-					padding-top: 15px;
-					padding-left: 10px;
-					height: 3em;
-				}
-				.main-content__items__field__pickup__items-box__text__price{
-					font-size: 16px;
-					font-weight: bold;
-					padding-left: 10px;
-				}
-			}
-		}
-	}
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  background-color: $background;
+  height: 1000px;
+  &__img-box{
+    img{
+      width: 100%;
+      height: 390px;
+    }
+  }
+  &__pickup{
+    font-size: 28px;
+    font-weight: bold;
+    padding-top: 40px;
+    text-align: center;
+    &__title{
+      font-size: 22px;
+      font-weight: bold;
+      color: $blue;
+      padding-top: 35px;
+      text-align: center;
+    }
+  }
+  
+  .main-content__items__field{
+    display: flex;
+    margin: 0 auto;
+    width: 900px;
+    height: 330px;
+    &__pickup__items-box{
+      width: 215px;
+      height: 330px;
+      padding-right: 20px;
+      margin-top: 20px;
+      &__photo{
+        height: 213px;
+        img{
+          width: 213px;
+          height: 213px;
+        }
+      }
+      &__pickup__items-box__text{
+        background-color: $white;
+        margin-top: 0px;
+        width: 213px;
+        height: 110px;
+        &__title{
+          font-size: 16px;
+          padding-top: 15px;
+          padding-left: 10px;
+          height: 3em;
+          &__price{
+            font-size: 16px;
+            font-weight: bold;
+            padding-left: 10px;
+          }
+        }
+      }
+    }
+  }
 }
 .under-content{
-	height: 260px;
-	img{
-		width: 100%;
-		height: 260px;
-	}
+  height: 260px;
+  img{
+    width: 100%;
+    height: 260px;
+  }
 }
