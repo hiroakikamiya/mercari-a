@@ -4,7 +4,7 @@
 	border-top: 1px solid #eee;
 	background-color: $white;
 	box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-	.box-header__text{
+	&__text{
 		margin-left: 200px;
 		line-height: 50px;
 	}
@@ -18,29 +18,29 @@
 	background-color: $white;
 	margin: 0 auto;
 	margin: 40px auto 0;
-	.box-main__name{
+	&__name{
 		font-size: 24px;
 		font-weight: bold;
 		text-align: center;
 		padding-top: 25px;
 	}
-	.box-main__content{
+	&__content{
 		display: flex;
 		padding-top: 25px;
 		text-align: center;
-	.box-main__content__left{
+	&__left{
 		margin-left: 40px;
 		height: 375px;
 		width: 300px;
 		background-color: $background;
-		.box-main__content__left__top-img{
+		&__top-img{
 			img{
 				width: 225px;
 				height: 300px;
 				padding-top: 5px;
 			}
 		}
-		.box-main__content__left__row-img{
+		&__row-img{
 			display: flex;
 			img{
 				width: 60px;
@@ -48,19 +48,19 @@
 					}
 				}
 			}
-			.box-main__content__right{
+			&__right{
 				margin-left: 60px;
 				table{
 					border: 1px solid $background;
 					height: 420px;
 					text-align: left;
 					font-size: 14px;
-					.table-main__buyer__name{
+					&__buyer__name{
 						color: $blue;
 						height: 33px;
 						padding-top: 5px;
 					}
-					.table-main__buyer__review{
+					&__buyer__review{
 						display: flex;
 						align-items: center;
 						.good{
@@ -78,19 +78,19 @@
 							padding-left: 10px;
 						}
 					}
-					.table-main__category__parent{
+					&__category__parent{
 						color: $blue;
 					}
-					.table-main__category__children{
+					&__category__children{
 						color: $blue;
 					}
-					.table-main__category__grandchild{
+					&__category__grandchild{
 						color: $blue;
 					}
-					.table-main__brand__name{
+					&__brand__name{
 						color: $blue;
 					}
-					.table-main__item-prefecture__text{
+					&__item-prefecture__text{
 						color: $blue;
 					}
 					tr{
@@ -118,12 +118,12 @@
 	padding-left: 200px;
 	display: flex;
 	align-items: center;
-	.price-text__tax{
+	&__tax{
 		font-size: 10px;
 		padding-top: 25px;
 		font-weight: normal;
 	}
-	.price-text__status{
+	&__status{
 		font-size: 16px;
 		font-weight: normal;
 		padding-top: 20px;
@@ -136,7 +136,7 @@
 	background-color: $red;
 	margin: 0 auto;
 	margin-top: 15px;
-	.buy-button__text{
+	&__text{
 		font-size: 24px;
 		font-weight: bold;
 		color: $white;
@@ -150,10 +150,10 @@
 	padding-top: 50px;
 	font-size: 18px;
 	margin: 0 auto;
-	.text-box__under-button{
+	&__under-button{
 		display: flex;
 		padding-top: 20px;
-		.text-box__under-button__like{
+		&__like{
 			height: 33px;
 			width: 120px;
 			border-radius: 15px;
@@ -166,7 +166,7 @@
 				margin-right: 5px;
 			}
 		}
-		.text-box__under-button__caution{
+		&__caution{
 			height: 33px;
 			width: 180px;
 			border-radius: 15px;
@@ -180,7 +180,7 @@
 				margin-right: 5px;
 			}
 		}
-		.text-box__under-button__lock{
+		&__lock{
 			font-size: 	14px;
 			color: $blue;
 			padding-left: 80px;
@@ -199,12 +199,12 @@
 	margin: 0 auto;
 	margin-top: 10px;
 	padding-top: 15px;
-	.comment-box__top{
+	&__top{
 		height: 44px;
 		width: 652px;
 		margin: 0 auto;
 		background-color: #fff6de;
-		.comment-box__top__text{
+		&__text{
 			font-size: 14px;
 			padding: 4px;
 		}
@@ -241,13 +241,13 @@
 	color: $blue;
 	padding-top: 20px;
 	font-size: 14px;
-	.page-icon__left{
+	&__left{
 		width: 800px;
 		height: 30px;
 		position: absolute;
 		left: 0;
 	}
-	.page-icon__right{
+	&__right{
 		width: 800px;
 		height: 30px;
 		position: absolute;
@@ -260,11 +260,11 @@
 	height: 140px;
 	background: $white;
 	margin: 0 auto;
-	.icon-box__main{
+	&__main{
 		display: flex;
 		text-align: center;
 		padding-left: 250px;
-		.icon-box__main__facebook{
+		&__facebook{
 			width: 44px;
 			height: 44px;
 			background: #385185;
@@ -276,7 +276,7 @@
 				padding-top: 8px;
 			}
 		}
-		.icon-box__main__twitter{
+		&__twitter{
 			width: 44px;
 			height: 44px;
 			background: $white;
@@ -286,7 +286,7 @@
 			margin-left: 10px;
 			margin-top: 42px;
 		}
-		.icon-box__main__pinterest{
+		&__pinterest{
 			width: 44px;
 			height: 44px;
 			background: #AA262A;
