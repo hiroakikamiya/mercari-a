@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+
   def index
   end
 
@@ -6,5 +7,8 @@ class ItemsController < ApplicationController
   end
 
   def new
+  end
+
+  def edit
   end
 end

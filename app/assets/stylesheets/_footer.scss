@@ -1,4 +1,4 @@
-footer{
+.main-footer{
   color: $white;
   background-color: $footer_black;
   height: 390px;
@@ -84,11 +84,15 @@ footer{
     }
   }
   .footer-row{
-    margin-left: 100px;
+    margin-left: 250px;
     display: flex;
     align-items: center;
     font-size: 10px;
-    padding-top:50px;
+    padding-top:30px;
+    img{
+      height: 50px;
+      width: 70px;
+    }
     &__logo{
       padding-left: 300px;
     }

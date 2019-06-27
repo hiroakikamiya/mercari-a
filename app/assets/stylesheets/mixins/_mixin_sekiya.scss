@@ -1,0 +1,51 @@
+@mixin btn-default () {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid #888;
+  background: #888;
+  color: #fff;
+}
+@mixin inner () {
+  margin: 0;
+  padding: 24px 12.5% 40px;
+  border-top: $sell_border;
+  font-style: normal;
+  display: block;
+}
+@mixin buy-default () {
+  a {
+    color: #0099e8;
+    text-decoration: none;
+  }
+  h2 {
+    @include container-title;
+  }
+  p {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
+  body {
+    @include body;
+  }
+  .bold {
+    font-weight: 600;
+  }
+  .btn {
+    border: 1px solid #c4c3c3;
+    background: #c4c3c3;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    text-align: center;
+    &__red {
+      @include btn-default ();
+      margin: 16px 0 0;
+    }
+  }
+}
