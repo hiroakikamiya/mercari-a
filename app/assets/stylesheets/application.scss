@@ -1,9 +1,17 @@
 @import "module/reset";
 @import "config/colors";
 @import "mixins/mixin";
+@import "mixins/mixin_iwahana";
+@import "mixins/mixin_gotou";
 @import "mixins/mixin_sekiya";
 @import "config/variable";
+@import "header";
+@import "footer";
+@import "show";
+@import "content";
+@import "./index";
+@import "sell";
 @import "sub-header";
 @import "sub-footer";
-@import "purchase_confirmation";
+
 @include body ();

@@ -1,0 +1,158 @@
+@include clearfix ();
+@include listnone ();
+@include sell-tag-default ();
+@include btn-red ();
+@include btn-gray ();
+
+  .required {
+    @include required ();
+    margin: 0 0 0 8px;
+  }
+  .title-box {
+    display: block;
+    float: left;
+  }
+  .sell-image {
+    font-size: 16px;
+  }
+  .sell-container {
+    @include container ();
+  }
+  .sell-contents {
+    &__title {
+      @include container-title ();
+    }
+    &__form {
+      border-top: $sell_border;
+    }
+  }
+  .sell-upload-box {
+      width: 620px;
+      padding: 40px;
+      border-top: $sell_border;
+    &__head {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &__drop {
+      position: relative;
+      min-height: 162px;
+      background: $background;
+      border: 1px dashed #ccc;
+      font-size: 0;
+      text-align: center;
+      cursor: pointer;
+      margin-top: 16px;
+    }
+    pre {
+      position: absolute;
+      top: 50%;
+      left: 16px;
+      right: 16px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.5;
+      transform: translate(0, -50%);
+      pointer-events: none;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  }
+  .sell-form-box {
+    float: right;
+    width: 400px;
+    margin-bottom: 40px;
+    margin: 0;
+    .price-menu {
+      height: 48px;
+      line-height: 48px;
+      padding: 0 0 24px 0;
+    }
+    .center-box {
+      padding-top: 24px ;
+      border-top: $sell_border;
+      .bold {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .left-box {
+        float: left;
+        padding-bottom: 24px;
+      }
+      .right-box {
+        float: right;
+      }
+    }
+  }
+  .sell-content {
+    @include sell-content ();
+    @include sell-form-box ();
+    .item-name {
+      width : 590px;
+      height: 40px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: $sell_border;
+      background: $background;
+      line-height: 1.5;
+      font-size: 16px;
+      margin-top: 8px;
+      margin-bottom: 40px;
+    }
+    &--category {
+      @include sell-content ();
+      @include sell-form-box ();
+      height: 180px;
+      .form-group-under {
+        margin-top : 40px;
+      }
+    }
+    &--delivery {
+      @include sell-content ();
+      @include sell-form-box ();
+      height: 290px;
+      .form-group-under {
+        margin-top : 40px;
+      }
+    }
+    &--price {
+      @include sell-content ();
+      @include sell-form-box ();
+      height: 220px;
+      .price-box {
+        float: right;
+        width: 200px;
+        height: 48px;
+      }
+      .price-box__left {
+        float: left;
+        line-height: 48px;
+      }
+      .price-box__right {
+        float: right;
+        width: 160px;
+        height: 48px;
+        border-radius: 4px;
+        border: $sell_border;
+        background: $white;
+        font-size: 16px;
+        margin-top: 8px;
+        margin-bottom: 40px;
+        line-height: 48px;
+        margin : 0;
+        text-align: right;
+      }
+    }
+  }
+  .btn-box {
+    height: 250px;
+    .upper-box {
+      margin: 0;
+      padding: 0;
+      line-height: 0.9;
+    }
+    .gray-btn-box {
+      width: 45%;
+      margin: 0 auto;
+    }
+  }
