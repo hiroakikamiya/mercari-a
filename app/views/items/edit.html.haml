@@ -31,7 +31,7 @@
           %h3 配送先
           .buy-user-inner__text
           %p.buy-user-inner__text 〒-000-0000
-          %a{href:"http://", class:"buy-user-inner__fix"}
+          = link_to root_path,class: "buy-user-inner__fix" do
             .change-box
               %span 変更する
             %i.icon-arrow-right
@@ -40,7 +40,7 @@
           %h3 支払い方法
           %p.buy-user-inner__text あいうえお
           %figure
-          %a{href:"http://", class:"buy-user-inner__fix"}
+          = link_to root_path,class: "buy-user-inner__fix" do
             .change-box
               %span 変更する
             %i.icon-arrow-right
