@@ -1,0 +1,75 @@
+@include buy-default;
+.single-container {
+  @include container;
+  padding-bottom: 200px;
+  background: $background;
+  .buy-container {
+    background-color: $white;
+    .buy-content {
+      border-top: $sell_border;
+      margin: 0 auto;
+      padding: 40px 12.5%;
+      text-align: center;
+      &__inner {
+        max-width: 320px;
+        margin: 0 auto;
+        .buy-item-image img {
+          width: 148px;
+          vertical-align: middle;
+        }
+        .buy-item-name {
+          margin: 8px 0 0;
+          font-size: 16px;
+          line-height: 1.5;
+        }
+        .buy-price {
+          font-size: 22px;
+          margin-bottom: 10px;
+          span {
+            margin: 0 0 0 8px;
+            font-size: 14px;
+            font-weight: 400;
+          }
+        }
+        .buy-price-table {
+          display: table;
+          width: 100%;
+          &__row {
+            border: 0;
+            display: table-row;
+            border-top: $sell_border;
+            display: flex;
+            font-size: 22px;
+            padding: 16px 0;
+            .buy-parice-table-cell-span {
+              padding-left: 127px;
+            }
+          }
+        }
+        .has-error-text {
+          color: $red;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+  .buy-user-info {
+    @include inner;
+    .buy-user-inner {
+      max-width: 320px;
+      margin: 0 auto;  
+      &__text {
+        margin: 8px 0 0;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+      &__fix {
+        display: block;
+        text-align: right;
+        .change-box {
+          text-align: right;
+        }
+      }
+    } 
+  }
+}

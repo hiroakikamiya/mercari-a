@@ -1,0 +1,100 @@
+.main-footer{
+  color: $white;
+  background-color: $footer_black;
+  height: 390px;
+  .post-icon{
+    width: 160px;
+    height: 160px;
+    background-color: $red;
+    border-radius: 80px;
+    z-index: 1000;
+    position: fixed;
+    right: 10px;
+    bottom: 50px;
+    margin-right: 50px;
+    margin-top: 200px;
+    &__text{
+      padding-top: 25px;
+      font-size: 22px;
+      text-align: center;
+    }
+    &__camera{
+      i{
+        font-size: 60px;
+        padding-left: 50px;
+        padding-bottom: 60px;
+      }
+    }
+  }
+  .footer__top{
+    display: flex;
+    padding-left: 150px;
+    padding-top: 25px;
+    h2{
+      font-size: 16px;
+    }
+    li{
+      padding-bottom: 10px;
+    }
+    &__left{
+      h2{
+        padding-left: 80px;
+      }
+      ul{
+        @include ul-default();
+        padding-left: 80px;
+      }
+      &__icons{
+        font-size: 30px;
+        padding-top: 20px;
+        padding-left: 50px;
+        i{
+          padding-left: 20px;
+        }
+      }
+    }
+    &__middle-left{
+      margin-left: 40px;
+      ul{
+        @include ul-default();
+        padding-left: 0px;
+      }
+    }
+    &__middle-right{
+      margin-left: 40px;
+      ul{
+        @include ul-default();
+        padding-left: 0px;
+      }
+    }
+    &__right{
+      padding-top: 40px;
+      padding-left: 10px;
+      ul{
+        @include ul-default();
+        padding-left: 0px;
+      }
+    }
+    &__country{
+      margin-left: 40px;
+      ul{
+        @include ul-default();
+        padding-left: 0px;
+      }
+    }
+  }
+  .footer-row{
+    margin-left: 250px;
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    padding-top:30px;
+    img{
+      height: 50px;
+      width: 70px;
+    }
+    &__logo{
+      padding-left: 300px;
+    }
+  }
+}
