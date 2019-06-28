@@ -1,0 +1,32 @@
+.left-side {
+  height: 100%;
+  width: 280px;
+  margin: 0 40px 0 0;
+  float: left;
+  a {
+  position: relative;
+  text-decoration: none;
+  color: $black;
+  background-color: $white;
+  display: block;
+  padding: 16px;
+  font-size: 14px;
+  .icon {
+    position: absolute;
+    right: 16px;
+    line-height: 50%;
+    font-size: 20px;
+    color: #ccc;
+    transition: all ease-out.2s;
+  }
+  &:hover {
+    background-color: rgb(251, 251, 251);
+    .icon {
+    color: $black;
+    }
+  }
+  }
+  li {
+  border-top: 1px solid $background;
+  }
+}
