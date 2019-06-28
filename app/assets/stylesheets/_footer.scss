@@ -17,12 +17,15 @@
       padding-top: 25px;
       font-size: 22px;
       text-align: center;
+      color: $white;
     }
     &__camera{
       i{
         font-size: 60px;
         padding-left: 50px;
         padding-bottom: 60px;
+        padding-top: 10px;
+        color: $white;
       }
     }
   }
