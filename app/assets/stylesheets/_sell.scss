@@ -61,6 +61,7 @@
   .sell-form-box {
     float: right;
     width: 400px;
+    height: 100%;
     margin-bottom: 40px;
     margin: 0;
     .price-menu {
@@ -102,7 +103,8 @@
     &--category {
       @include sell-content ();
       @include sell-form-box ();
-      height: 180px;
+      height: 100%;
+      display: flex;
       .form-group-under {
         margin-top : 40px;
       }
@@ -110,7 +112,8 @@
     &--delivery {
       @include sell-content ();
       @include sell-form-box ();
-      height: 290px;
+      height: 100%;
+      display: flex;
       .form-group-under {
         margin-top : 40px;
       }
@@ -118,7 +121,8 @@
     &--price {
       @include sell-content ();
       @include sell-form-box ();
-      height: 220px;
+      height: 100%;
+      display: flex;
       .price-box {
         float: right;
         width: 200px;
@@ -145,14 +149,20 @@
     }
   }
   .btn-box {
-    height: 250px;
+    height: 280px;
+    padding-top: 30px;
+    background: $white;
+    width: 700px;
+    margin: 0 auto;
+    border-top: 1px solid #eee;
     .upper-box {
-      margin: 0;
-      padding: 0;
+      width: 700px;
+      height: 70px;
+      margin: 0 auto;
+      padding-left: 20px;
       line-height: 0.9;
     }
     .gray-btn-box {
-      width: 45%;
-      margin: 0 auto;
+      width: 100%;
     }
   }
