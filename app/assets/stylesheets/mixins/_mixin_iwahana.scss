@@ -1,14 +1,15 @@
 @mixin btn-red (){
   .btn-red {
-    margin: 40px 0 0;
+    margin: 0 auto;
     background: $red;
     border: 1px solid $red;
     color: $white;
     display: block;
-    width: 100%;
+    width: 648px;
     line-height: 48px;
     font-size: 14px;
     border: 1px solid transparent;
+    margin-top: 40px;
     cursor: pointer;
     text-align: center;
   }
@@ -16,11 +17,11 @@
 
 @mixin btn-gray (){
   .btn-gray {
-    margin: 24px auto 0;
+    margin: 25px auto 0;
     background: #aaa;
     color: $white;
     display: block;
-    width: 100%;
+    width: 400px;
     line-height: 48px;
     font-size: 14px;
     border: 1px solid transparent;
@@ -32,7 +33,8 @@
 @mixin sell-form-box (){
   .sell-form-box {
     width: 400px;
-    height: 180px;
+    height: 100%;
+    padding-left: 135px;
     float: right;
   }
 }
