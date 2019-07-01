@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 Status.create(text: '新品、未使用品')
 Status.create(text: '未使用に近い')
 Status.create(text: '目立った傷や汚れなし')
@@ -17,6 +16,16 @@ DeliveryDate.create(date: '1〜2日で発送')
 DeliveryDate.create(date: '2〜3日で発送')
 DeliveryDate.create(date: '4〜7日で発送')
 
+DeliveryWay.create(name: '未定')
+DeliveryWay.create(name: 'らくらくメルカリ便')
+DeliveryWay.create(name: 'ゆうメール')
+DeliveryWay.create(name: 'レターパック')
+DeliveryWay.create(name: '普通郵便（定形・定形外）')
+DeliveryWay.create(name: 'クロネコヤマト')
+DeliveryWay.create(name: 'ゆうパック')
+DeliveryWay.create(name: 'クリックポスト')
+DeliveryCost.create(cost: '送料込み（出品者負担）')
+DeliveryCost.create(cost: '着払い（購入者負担）')
 
 lady = Category.create(name: "レディース")
 lady_tops = lady.children.create(name: "トップス")
