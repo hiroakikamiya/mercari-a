@@ -1,7 +1,9 @@
 $(function(){
-	var category_form = $("item_id");
+	var category_form = $("#child-form");
 	function appendCategory(category){
-		var html =`<%= f.collection_select :id, @children, :id, :name %>`
+		var html =`<select class= category-group>
+							${category.name}
+								</select>`
 		category_form.append(html);
 	}
 
@@ -17,7 +19,6 @@ $("#item_id").on("change",function(){
 	.done(function(data){
 		data.forEach(function(data){
 			appendCategory(data);
-			console.log(data);
 			})
 		})
 	.fail(function() {
