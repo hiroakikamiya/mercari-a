@@ -67,8 +67,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'pry-rails'
+gem 'recaptcha', require: 'recaptcha/rails'
 gem "jquery-rails"
 gem 'ancestry'
+gem 'sorcery'
 
 group :production do
   gem 'unicorn', '5.4.1'

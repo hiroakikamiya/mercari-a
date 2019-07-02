@@ -1,0 +1,48 @@
+@include default-btn();
+.new-user{
+  padding-bottom: 220px;
+  .container{
+    @include container();
+    &__title{
+      @include container-title ();
+      line-height: normal
+    }
+    &__inner{
+      border-top: $user_border;
+      padding: 64px;
+      &__contents{
+        max-width: 320px;
+        margin: 0 auto;
+        &--email{
+          position: relative;
+          background: #eee;
+          color: #000;
+          text-decoration: none;
+          .icon-mail{
+            font-style: initial;
+          }
+        }
+        &--facebook{
+          margin: 16px 0 0;
+          background: $facebook;
+          color: #fff;
+          padding: 0px;
+          .icon-facebook{
+            font-style: initial;
+            font-family: inherit;
+          }
+        }
+        &--google{
+          margin: 16px 0 0;
+          background: #fff url(/jp/assets/img/common/common/google.svg) no-repeat 3px top;
+          border-color: #979797;
+          color: #333;
+          padding: 0px;
+        }
+      }
+    }
+  }
+}
+footer{
+
+}
