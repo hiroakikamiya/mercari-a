@@ -18,6 +18,15 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    respond_to do |format|
+      format.html
+      format.json do
+        @grandchild = Category.find(params[:child_id]).children
+      end
+    end
+  end
+
   def create
     Item.create(item_params)
   end

@@ -30,14 +30,14 @@
                 .form-group
                   %label カテゴリー
                   %span.required 必須
-                  = f.collection_select :id, @parents, :id, :name, {pronpt: "---"}, class: "category-group"
+                  = f.collection_select :id, @parents, :id, :name, {prompt: "---"}, class: "category-group" , id: "parent-form"
                   #child-form
+                  #grandchild-form
                   %i.icon-arrow-bottom
                 .form-group-under
                   %label 商品の状態
                   %span.required 必須
                   = f.collection_select :id, Status.all, :id, :text
-
                   %i.icon-arrow-bottom
             .sell-content--delivery
               %h3 配送について
@@ -47,17 +47,22 @@
                 .form-group
                   %label 配送料の負担
                   %span.required 必須
-                  -# = f.collection_select :delivery_cost_id, DeliveryCost.all, :id, :cost, :prompt '----', class: "category-group"
+                  = f.collection_select :id, DeliveryCost.all, :id, :cost, {prompt: "---"} , class: "category-group"
+                  %i.icon-arrow-bottom
+                .form-group-under
+                  %label 配送の方法
+                  %span.required 必須
+                  = f.collection_select :id, DeliveryWay.all, :id, :name, {prompt: "---"} , class: "category-group"
                   %i.icon-arrow-bottom
                 .form-group-under
                   %label 発送元の地域
                   %span.required 必須
-                  -# = f.collection_select :delivery_type, :prompt '----', class: "category-group"
+                  -# = f.collection_select :id, DeliveryType.all, :id, : :prompt '----', class: "category-group"
                   %i.icon-arrow-bottom
                 .form-group-under
                   %label 発送までの日数
                   %span.required 必須
-                  -# = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :date, :prompt '----', class: "category-group"
+                  = f.collection_select :id, DeliveryDate.all, :id, :date, {prompt: "---"} , class: "category-group"
                   %i.icon-arrow-bottom
             .sell-content--price
               %h3 販売価格(300~9,999,999)
@@ -69,13 +74,13 @@
                     %span.required 必須
                     .price-box
                       .price-box__left ¥
-                      -# = f.number_field :price, placeholder: "例) 300  ", class: "price-box__right"
+                      = f.number_field :price, placeholder: "例) 300  ", class: "price-box__right", id: "price-input"
                 %li.center-box.clearfix
                   .left-box 販売手数料(10%)
-                  .right-box -
+                  #fee.right-box
                 %li.center-box.clearfix
                   .left-box.bold 販売利益
-                  .right-box.bold -  
+                  #total.right-box.bold  
             .sell-content--price.btn-box
               .upper-box
                 %p 禁止されている出品、行為を必ずご確認ください。
@@ -86,3 +91,7 @@
               .gray-btn-box
                 -# = link_to 'もどる', root_path, class: "btn-gray"
 = render 'shared/sub-footer'
+
+
+
+
