@@ -4,7 +4,6 @@ end
 
 crumb :items_show do
   link "これはテスト商品です", items_path
-  # ↓ 親の指定
   parent :root
 end
 
