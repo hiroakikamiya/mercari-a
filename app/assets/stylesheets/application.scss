@@ -1,10 +1,13 @@
 @import "module/reset";
+@import "font-awesome";
 @import "config/colors";
 @import "mixins/mixin";
 @import "mixins/mixin_iwahana";
 @import "mixins/mixin_gotou";
 @import "mixins/mixin_sekiya";
+@import "mixins/mixin_kamiya";
 @import "config/variable";
+@import "config/variable_kamiya";
 @import "header";
 @import "footer";
 @import "show";
@@ -14,4 +17,5 @@
 @import "sub-header";
 @import "sub-footer";
 @import "edit";
+@import "users/registration_index";
 @include body ();
