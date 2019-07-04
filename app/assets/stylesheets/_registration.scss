@@ -62,6 +62,9 @@
           &:first-child{
             margin: 0;
           }
+          .birthday-select-box{
+            display: flex;
+          }
           &--theme {
             font-weight: 600;
             display: inline-block;
@@ -114,6 +117,10 @@
             border: 1px solid $signup-back;
             background: $white;
             font-size: 16px;
+          }
+          &--select-box{
+            width: 76px;
+
           }
           .form-info {
             p {
