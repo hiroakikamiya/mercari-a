@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "items#index"
-  resources :items, only: [:index, :show, :new, :edit]
+  resources :items, only: [:index, :show, :new, :create, :edit, :search]
 
   namespace :users do
     resources :registrations do

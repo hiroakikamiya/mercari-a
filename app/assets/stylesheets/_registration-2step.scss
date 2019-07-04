@@ -1,0 +1,14 @@
+.second-step {
+  &__header{
+    font-size: 24px;
+    padding: 8px 24px;
+  }
+  &__input {
+    padding: 60px;
+  }
+}
+.registration-form, .fourth-step {
+  &__input {
+    padding: 60px;
+  }
+}
