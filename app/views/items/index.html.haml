@@ -1,5 +1,19 @@
 = render 'shared/header'
-= render 'shared/main-items'
+.main-content
+  .main-content__img-box
+    %ul.slider
+      %li
+        = image_tag 'top.png'
+      %li
+        = image_tag 'top2.png'
+      %li
+        = image_tag 'top3.png'
+  .main-content__pickup
+    ピックアップカテゴリー
+  .main-content__pickup__title
+    レディース新着アイテム
+  .main-content__items__field
+    = render @items
 .under-content
   =image_tag 'undercontent.png'
 = render'shared/footer'
