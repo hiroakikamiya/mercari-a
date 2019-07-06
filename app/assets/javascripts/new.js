@@ -1,64 +1,64 @@
 $(function(){
-	
-	function appendCategory(category){
-		let options = ""
-		category.forEach(function(child){
-			options += `<option value="${child.id}">${child.name}</option>`
-		})
-		let html =`<select id="category" class= category-group>
-								 <option value="">---</option>
-									${options}
-								</select>`
-		$('#child-form').append(html)
-	}
+  
+  function appendCategory(category){
+    let options = ""
+    category.forEach(function(child){
+      options += `<option value="${child.id}">${child.name}</option>`
+    })
+    let html =`<select id="category" class= category-group>
+                  <option value="">---</option>
+                  ${options}
+                </select>`
+    $('#child-form').append(html)
+  }
 
-	$("#parent-form").on("change",function(){
-		$("#child-form").empty()
-		var parentValue = document.getElementById("parent-form").value;
-		$.ajax({
-			type: 'GET',
-			url: '/items/new',
-			data: {parent_id: parentValue},
-			dataType: 'json'
-		})
-		.done(function(data){
-			appendCategory(data)
-		})
-		.fail(function() {
-			alert('error');
-		})
-	});
+  $("#parent-form").on("change",function(){
+    $("#child-form").empty()
+    var parentValue = document.getElementById("parent-form").value;
+    $.ajax({
+      type: 'GET',
+      url: '/items/new',
+      data: {parent_id: parentValue},
+      dataType: 'json'
+    })
+    .done(function(data){
+      appendCategory(data)
+    })
+    .fail(function() {
+      alert('error');
+    })
+  });
 });
 
 $(function(){
-	
-	function appendGrandchild(category){
-		let options = ""
-		category.forEach(function(grand){
-			options += `<option value="${grand.id}">${grand.name}</option>`
-		})
-		let html =`<select class= category-group>
-								<option value="">---</option>
-									${options}
-								</select>`
-		$('#grandchild-form').append(html)
-	}
 
-	$("#child-form").on("change",function(){
-		var grandValue = document.getElementById("category").value;
-		$.ajax({
-			type: 'GET',
-			url: '/items/search',
-			data: {child_id: grandValue},
-			dataType: 'json'
-		})
-		.done(function(data){
-			appendGrandchild(data)
-		})
-		.fail(function() {
-			alert('error');
-		})
-	});
+  function appendGrandchild(category){
+    let options = ""
+    category.forEach(function(grand){
+      options += `<option value="${grand.id}">${grand.name}</option>`
+    })
+    let html =`<select class= category-group>
+                <option value="">---</option>
+                  ${options}
+                </select>`
+    $('#grandchild-form').append(html)
+  }
+
+  $("#child-form").on("change",function(){
+    var grandValue = document.getElementById("category").value;
+    $.ajax({
+      type: 'GET',
+      url: '/items/search',
+      data: {child_id: grandValue},
+      dataType: 'json'
+    })
+    .done(function(data){
+      appendGrandchild(data)
+    })
+    .fail(function() {
+      alert('error');
+    })
+  });
 });
 
 $(function(){
