@@ -1,9 +1,10 @@
 .main-content__items__field__pickup__items-box
-  = link_to root_path do
+  = link_to item_path(item.id) do
     .main-content__items__field__pickup__items-box__photo
       = image_tag 'item.jpg'
     .main-content__items__field__pickup__items-box__text
       .main-content__items__field__pickup__items-box__text__title
         = item.name
       .main-content__items__field__pickup__items-box__text__price
+        ¥
         = item.price
