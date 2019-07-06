@@ -31,6 +31,8 @@ class Users::RegistrationsController < ApplicationController
       phone_number: user_params[:phone_number]
     )
     if @user.save
+      session[:user_id] = @user.id
+      redirect_to root_path
     else
       redirect_to step1_users_registrations_path
     end
