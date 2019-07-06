@@ -7,7 +7,7 @@
       .container__inner__contents
         .container__inner__contents--email.default-btn
           = fa_icon "envelope-o", class: "mail-icon"
-          = link_to "メールアドレスで登録", step1_users_registrations_path, method: :get, class: "create_by_mail"
+          = link_to "メールアドレスで登録", basic_information_users_registrations_path, method: :get, class: "create_by_mail"
         %button#facebook-login.container__inner__contents--facebook.default-btn
           %i.icon-facebook
             Facebookで登録

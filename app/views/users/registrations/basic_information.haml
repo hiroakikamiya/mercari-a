@@ -6,7 +6,7 @@
     .registration-form__header
       会員情報入力
     .registration-form__input
-      = form_for @user, url: step2_users_registrations_path, method: :get do |f|
+      = form_for @user, url: basic_information_users_registrations_path, method: :get do |f|
         .input-content
           .input-content__form
             = f.label :nickname, "ニックネーム", class: "input-content__form--theme"

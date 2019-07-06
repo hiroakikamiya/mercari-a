@@ -4,7 +4,7 @@
     .registration-form__header
       電話番号の確認
     .registration-form__input
-      = form_for @user, url: users_registrations_path, method: :post do |f|
+      = form_for @user, url: phone_number_users_registrations_path, method: :post do |f|
         .input-content
           .input-content__form
             = f.label :phone_number, "電話番号", class: "input-content__form--theme"
