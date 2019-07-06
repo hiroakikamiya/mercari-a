@@ -34,114 +34,125 @@
       bottom: 5px;
       height: 2px;
       background: $signup-back;
+      width: 100px;
     }
     .process-mark:last-child::after{
       display: none;
     }
   }
 }
-.registration-form {
-  @include container();
-  &__header {
-    font-size: 22px;
-    font-weight: bold;
-    text-align: center;
-    padding:32px 16px;
-    border-bottom: 1px solid $background;
-  }
-  &__input {
-    padding: 40px 16px;
-    .input-content {
-      max-width: 320px;
-      margin: 0 auto;
-      &__form {
-        margin: 40px 0 0;
-        &:first-child{
-          margin: 0;
-        }
-        &--theme {
-          font-weight: 600;
-          display: inline-block;
-        }
-        &--require {
-          margin: 0 0 0 8px;
-          padding: 2px 4px;
-          border-radius: 2px;
-          color: $white;
-          font-size: 12px;
-          display: inline-block;
-          vertical-align: top;
-          background-color: $red;
-        }
-        &--optional {
-          margin: 0 0 0 8px;
-          padding: 2px 4px;
-          border-radius: 2px;
-          color: $white;
-          font-size: 12px;
-          display: inline-block;
-          vertical-align: top;
-          background-color: $signup-back;
-        }
-        &--default {
-          width: 85%;
-          height: 27px;
-          margin: 8px 0 0;
-          padding: 10px 16px 8px;
-          border-radius: 4px;
-          border: 1px solid $signup-back;
-          background: $white;
-          font-size: 16px;
-        }
-        &--payment  {
-          li {
+.center-card{
+  padding-bottom: 220px;
+  .registration-form {
+    @include container();
+    &__header {
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      padding:32px 16px;
+      border-bottom: 1px solid $background;
+    }
+    &__input {
+      padding: 40px 16px;
+      .input-content {
+        max-width: 320px;
+        margin: 0 auto;
+        &__form {
+          margin: 40px 0 0;
+          &:first-child{
+            margin: 0;
+          }
+          .birthday-select-box{
+            display: flex;
+          }
+          &--theme {
+            font-weight: 600;
             display: inline-block;
-            img {
-              height:30px;
-              width: 40px;
+          }
+          &--require {
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: $white;
+            font-size: 12px;
+            display: inline-block;
+            vertical-align: top;
+            background-color: $red;
+          }
+          &--optional {
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: $white;
+            font-size: 12px;
+            display: inline-block;
+            vertical-align: top;
+            background-color: $signup-back;
+          }
+          &--default {
+            width: 85%;
+            height: 27px;
+            margin: 8px 0 0;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid $signup-back;
+            background: $white;
+            font-size: 16px;
+          }
+          &--payment  {
+            li {
+              display: inline-block;
+              img {
+                height:30px;
+                width: 40px;
+              }
             }
           }
-        }
-        &--select {
-          width: 35%;
-          height: 27px;
-          margin: 8px 0 0;
-          padding: 10px 16px 8px;
-          border-radius: 4px;
-          border: 1px solid $signup-back;
-          background: $white;
-          font-size: 16px;
-        }
-        .form-info {
-          p {
-            font-size: 16px;
-            font-weight: bold;
-          }
-          &__text {
+          &--select {
+            width: 35%;
+            height: 27px;
             margin: 8px 0 0;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid $signup-back;
+            background: $white;
+            font-size: 16px;
+          }
+          &--select-box{
+            width: 76px;
+
+          }
+          .form-info {
+            p {
+              font-size: 16px;
+              font-weight: bold;
+            }
+            &__text {
+              margin: 8px 0 0;
+              line-height: 1.5;
+            }
+          }
+          &--terms {
+            text-align: center;
             line-height: 1.5;
           }
+          .btn-red {
+            @include btn-red();
+            width: 100%;
+          }
         }
-        &--terms {
-          text-align: center;
-          line-height: 1.5;
+        .about-user-info {
+          text-align: right;
         }
-        .btn-red {
-          @include btn-red();
-          width: 100%;
+        a {
+          color: $blue;
+          text-decoration: none;
         }
       }
-      .about-user-info {
-        text-align: right;
+      .identity-verification {
+        color: #888;
+        line-height: 1.5;
       }
-      a {
-        color: $blue;
-        text-decoration: none;
-      }
-    }
-    .identity-verification {
-      color: #888;
-      line-height: 1.5;
     }
   }
 }
