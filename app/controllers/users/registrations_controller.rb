@@ -3,11 +3,11 @@ class Users::RegistrationsController < ApplicationController
   def index
   end
   
-  def step1
+  def basic_information
     @user = User.new
   end
 
-  def step2
+  def phone_number
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
