@@ -48,7 +48,7 @@
             .input-content__form--require
               必須
             .birthday-select-box
-              = f.date_select :birthday, start_year: Time.now.year - 120, end_year: Time.now.year - 8, date_separator: '年' '月', include_blanck: true, class: "input-content__form--select-box"
+              = raw sprintf(f.date_select(:birthday, use_month_numbers: true, start_year: Time.now.year - 120, end_year: Time.now.year, default: Time.now(), class: "input-content__form--select-box" ,date_separator: '%s'), '年 ', '月 ') + '日'
           .identity-verification
             %p ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
           .input-content__form
