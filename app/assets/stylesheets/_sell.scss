@@ -27,13 +27,16 @@
     }
   }
   .sell-upload-box {
-      width: 620px;
+      width: 100%;
       padding: 40px;
       border-top: $sell_border;
     &__head {
       font-size: 16px;
       font-weight: bold;
     }
+    // &__image{
+    //   display: none;
+    // }
     &__drop {
       position: relative;
       min-height: 162px;
@@ -43,7 +46,9 @@
       text-align: center;
       cursor: pointer;
       margin-top: 16px;
+      width: 100%;
     }
+    
     pre {
       position: absolute;
       top: 50%;
@@ -165,5 +170,41 @@
     .gray-btn-box {
       width: 100%;
     }
+    .btn-red{
+      height: 50px;
+      width: 590px;
+    }
   }
+.modal-content{
+  width: 700px;
+  height: 300px;
+  .modal-header{
+    font-weight: bold;
+    line-height: 30px;
+    height: 80px;
+    &__text{
+      font-size: 20px;
+      margin: 0 auto;
+      }
+    }
+  .modal-body{
+    height: 500px;
+    text-align: center;
+    &__text{
+      padding-top: 20px;
+    }
+    &__bottom_text{
+      margin-top: 30px;
+      color: $blue;
+      }
+    .btn-return{
+      background: $gray;
+      color: $white;
+      border: none;
+      width: 100px;
+      height: 30px;
+    }
+    }
+  }
+  
   

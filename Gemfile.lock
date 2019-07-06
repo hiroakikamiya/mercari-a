@@ -280,7 +280,7 @@ PLATFORMS
 DEPENDENCIES
   ancestry
   bootsnap (>= 1.1.0)
-  bootstrap
+  bootstrap (~> 4.1.1)
   byebug
   capistrano
   capistrano-bundler

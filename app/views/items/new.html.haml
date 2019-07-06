@@ -6,14 +6,13 @@
         .sell-contents
           .sell-contents__title 商品の情報を入力
           .sell-contents__form
-          
-          = form_for @item do |f|
+          = form_for @item,{id: :item_form} do |f|
             .sell-upload-box
               %label.sell-image 出品画像
               %span.required 必須
               %p 最大10枚までアップロードできます
-              -# -# = f.fields_for :image, class: "sell-upload-box__drop"
-              -#   %pre ドラッグドロップ  またはクリックしてファイルをアップロード
+              .sell-upload-box__image
+                = f.file_field :image, class: "sell-upload-box__drop"
             .sell-content
               .form-group
                 %label 商品名
@@ -30,7 +29,7 @@
                 .form-group
                   %label カテゴリー
                   %span.required 必須
-                  = f.collection_select :id, @parents, :id, :name, {prompt: "---"}, class: "category-group" , id: "parent-form"
+                  = f.collection_select :category, @parents, :id, :name, {prompt: "---"}, class: "category-group" , id: "parent-form"
                   #child-form
                   #grandchild-form
                   %i.icon-arrow-bottom
@@ -47,22 +46,22 @@
                 .form-group
                   %label 配送料の負担
                   %span.required 必須
-                  = f.collection_select :id, DeliveryCost.all, :id, :cost, {prompt: "---"} , class: "category-group"
+                  = f.collection_select :delivery_cost, DeliveryCost.all, :id, :cost, {prompt: "---"} , class: "category-group"
                   %i.icon-arrow-bottom
                 .form-group-under
                   %label 配送の方法
                   %span.required 必須
-                  = f.collection_select :id, DeliveryWay.all, :id, :name, {prompt: "---"} , class: "category-group"
+                  = f.collection_select :delivery_type, DeliveryWay.all, :id, :name, {prompt: "---"} , class: "category-group"
                   %i.icon-arrow-bottom
                 .form-group-under
                   %label 発送元の地域
                   %span.required 必須
-                  -# = f.collection_select :id, DeliveryType.all, :id, : :prompt '----', class: "category-group"
+                  = f.collection_select :prefecture, Prefecture.all, :id, :name, {prompt: '----'}, class: "category-group"
                   %i.icon-arrow-bottom
                 .form-group-under
                   %label 発送までの日数
                   %span.required 必須
-                  = f.collection_select :id, DeliveryDate.all, :id, :date, {prompt: "---"} , class: "category-group"
+                  = f.collection_select :delivery_date, DeliveryDate.all, :id, :date, {prompt: "---"} , class: "category-group"
                   %i.icon-arrow-bottom
             .sell-content--price
               %h3 販売価格(300~9,999,999)
@@ -87,9 +86,23 @@
                 %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であ
                 %p り処罰される可能性があります。
                 %p また、出品をもちまして加盟店規約に同意したことになります。
-                = f.submit "出品する",id: "item-name"
+                %input.btn-red{"data-target" => "#myModal", "data-toggle" => "modal", :type => "submit",form: :item_form}
+                #myModal.modal.fade
+                  .modal-dialog{style: 'max-width:900px;'}
+                    .modal-content
+                      .modal-header
+                        .modal-header__text
+                          出品が完了しました
+                        %h4.modal-title 
+                      .modal-body 
+                        .modal-body__text
+                          あなたが出品した商品は「出品した用品一覧」からいつでも見ることができます。
+                        .modal-body__button
+                          = f.submit class:"btn-red"
+                        .modal-body__bottom_text
+                          %button.btn-return{ "type"=>"button","onclick"=>"location.href='/items'"} ホームへ戻る
+                        -# %button.btn.btn-primary{"data-dismiss" => "modal", :type => "button"} 閉じる
               .gray-btn-box
-                -# = link_to 'もどる', root_path, class: "btn-gray"
 = render 'shared/sub-footer'
 
 

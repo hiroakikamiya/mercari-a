@@ -71,7 +71,7 @@ gem 'recaptcha', require: 'recaptcha/rails'
 gem "jquery-rails"
 gem 'ancestry'
 gem 'sorcery'
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.1.1'
 
 group :production do
   gem 'unicorn', '5.4.1'
