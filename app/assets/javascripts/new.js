@@ -38,7 +38,7 @@ $(function(){
 			options += `<option value="${grand.id}">${grand.name}</option>`
 		})
 		let html =`<select class= category-group>
-								 <option value="">---</option>
+								<option value="">---</option>
 									${options}
 								</select>`
 		$('#grandchild-form').append(html)
