@@ -1,0 +1,16 @@
+.new-user
+  = render 'shared/sub-header'
+  .container
+    .container__title
+      新規会員登録
+    .container__inner
+      .container__inner__contents
+        .container__inner__contents--email.default-btn
+          = fa_icon "envelope-o", class: "mail-icon"
+          = link_to "メールアドレスで登録", step1_users_registrations_path, method: :get, class: "create_by_mail"
+        %button#facebook-login.container__inner__contents--facebook.default-btn
+          %i.icon-facebook
+            Facebookで登録
+        %button#google-login.container__inner__contents--google.default-btn
+          Googleで登録
+  = render 'shared/sub-footer'

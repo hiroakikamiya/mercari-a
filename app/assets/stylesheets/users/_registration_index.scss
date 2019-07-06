@@ -18,8 +18,16 @@
           background: #eee;
           color: #000;
           text-decoration: none;
-          .icon-mail{
-            font-style: initial;
+          .mail-icon{
+            position: absolute;
+            line-height: 50px;
+            left: 16px;
+            color: #ccc;
+            font-size: 20px;
+          }
+          .create_by_mail{
+            text-decoration: none;
+            color: #000;
           }
         }
         &--facebook{
@@ -43,6 +51,6 @@
     }
   }
 }
-footer{
-
+.sub-footer{
+  position: absolute;
 }
