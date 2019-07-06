@@ -63,17 +63,17 @@ $(function(){
 
 $(function(){
   $("#price-input").on('keyup',function(e){
-		e.preventDefault();
-		var input = $("#price-input").val();
-		if( 300 <= input && input <= 9999999) {
-			var fee = Math.floor(input / 10);
-			var total = (input - fee);
-			$("#fee").text(fee + "円");
-			$("#total").text(total + "円");
-		}
-		else{
-			$("#fee").text("ー");
-			$("#total").text("ー");
-		}
-	});
+    e.preventDefault();
+    var input = $("#price-input").val();
+    if( 300 <= input && input <= 9999999) {
+      var fee = Math.floor(input / 10);
+      var total = (input - fee);
+      $("#fee").text(fee + "円");
+      $("#total").text(total + "円");
+    }
+    else{
+      $("#fee").text("ー");
+      $("#total").text("ー");
+    }
+  });
 });
