@@ -1,7 +1,8 @@
+@import "module/_reset";
 @import "module/reset";
 @import "font-awesome";
 @import "config/colors";
-@import "mixins/mixin";
+@import "mixins/_mixin";
 @import "mixins/mixin_iwahana";
 @import "mixins/mixin_gotou";
 @import "mixins/mixin_sekiya";
@@ -20,5 +21,7 @@
 @import "edit";
 @import "users/registration_index";
 @import "registration";
+@import "registration-2step";
+@import "bootstrap"; 
 @import "users/registration_2step";
 @include body ();

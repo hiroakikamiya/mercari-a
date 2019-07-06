@@ -71,6 +71,7 @@ gem 'jquery-rails'
 gem 'ancestry'
 gem 'gretel'
 gem 'sorcery'
+gem 'bootstrap', '~> 4.1.1'
 gem 'font-awesome-rails'
 
 group :production do
