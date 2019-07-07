@@ -1,4 +1,4 @@
-@import "module/_reset";
+@import "font-awesome";
 @import "module/reset";
 @import "font-awesome";
 @import "config/colors";
@@ -6,6 +6,7 @@
 @import "mixins/mixin_iwahana";
 @import "mixins/mixin_gotou";
 @import "mixins/mixin_sekiya";
+@import "mixins/mixin_yoshida";
 @import "mixins/mixin_kamiya";
 @import "config/variable";
 @import "config/variable_kamiya";
@@ -14,11 +15,12 @@
 @import "footer";
 @import "show";
 @import "content";
-@import "./index";
 @import "sell";
 @import "sub-header";
 @import "sub-footer";
 @import "edit";
+@import "mypage-side-nav";
+@import "mypage-right";
 @import "users/registration_index";
 @import "users/registration_2step";
 @import "registration";
