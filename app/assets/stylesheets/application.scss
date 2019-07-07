@@ -20,8 +20,8 @@
 @import "sub-footer";
 @import "edit";
 @import "users/registration_index";
-@import "registration";
-@import "registration-2step";
-@import "bootstrap"; 
 @import "users/registration_2step";
+@import "registration";
+@import "bootstrap"; 
+@import "users/header/user-header.scss";
 @include body ();
