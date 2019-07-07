@@ -1,0 +1,11 @@
+@mixin bright-hover() {
+  &:hover {
+    opacity: 0.75;
+  }
+}
+@mixin bright-Uline-hover() {
+  &:hover {
+    opacity: 0.75;
+    text-decoration: underline;
+  }
+}

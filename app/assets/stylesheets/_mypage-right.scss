@@ -26,6 +26,7 @@
         a {
           text-decoration: none;
           color: $black;
+          @include bright-Uline-hover();
           img {
             height: 60px;
             width: 60px;
@@ -57,6 +58,7 @@
             display: inline-block;
             font-size: 16px;
             font-weight: bold;
+            @include bright-hover();
           }
       }
       &__content {
