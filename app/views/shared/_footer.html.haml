@@ -1,9 +1,10 @@
 %footer.main-footer
-  .post-icon
-    .post-icon__text
-      出品
-    .post-icon__camera
-      %i.fas.fa-camera
+  = link_to new_item_path do
+    .post-icon
+      .post-icon__text
+        出品
+      .post-icon__camera
+        = fa_icon "camera", class: "fas fa-camera"
   .footer__top
     .footer__top__left
       %h2
@@ -20,8 +21,8 @@
         %li
           メルカリロゴ利用ガイドライン
       .footer__top__left__icons
-        %i.fab.fa-twitter
-        %i.fab.fa-facebook-square
+        = fa_icon "twitter", class: "fab fa-twitter"
+        = fa_icon "facebook-square", class: "fab fa-facebook-square"
     .footer__top__middle-left
       %h2
         ヘルプ&ガイド

@@ -6,61 +6,66 @@
         .sell-contents
           .sell-contents__title 商品の情報を入力
           .sell-contents__form
+          = form_for @item,{id: :item_form} do |f|
             .sell-upload-box
               %label.sell-image 出品画像
               %span.required 必須
               %p 最大10枚までアップロードできます
-              .sell-upload-box__drop
-                %pre ドラッグドロップ  またはクリックしてファイルをアップロード
+              .sell-upload-box__image
+                = f.file_field :image, class: "sell-upload-box__drop"
             .sell-content
               .form-group
                 %label 商品名
                 %span.required 必須
-                %input.item-name{ placeholder: "商品名（最大40文字まで）"}
+                = f.text_field :name,class: "item-name", placeholder: "商品名（最大40文字まで）"
               .form-group
                 %label 商品の説明
                 %span.required 必須
-                %textarea{ placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+                = f.text_area :explain,placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
             .sell-content--category
               .title-box
                 %h3 商品の詳細
-                %i.fa.fa-question-circle
               .sell-form-box
                 .form-group
                   %label カテゴリー
                   %span.required 必須
-                  %select.category-group
-                    %option ----
+                  = f.collection_select :category, @parents, :id, :name, {prompt: "---"}, class: "category-group" , id: "parent-form"
+                  #child-form
+                  #grandchild-form
                   %i.icon-arrow-bottom
                 .form-group-under
                   %label 商品の状態
                   %span.required 必須
-                  %select.category-group
-                    %option ----
+                  = f.collection_select :id, Status.all, :id, :text
                   %i.icon-arrow-bottom
             .sell-content--delivery
               %h3 配送について
+              %i.fa.fa-question-circle
+              -# = link to ''
               .sell-form-box
                 .form-group
                   %label 配送料の負担
                   %span.required 必須
-                  %select.category-group
-                    %option ----
+                  = f.collection_select :delivery_cost, DeliveryCost.all, :id, :cost, {prompt: "---"} , class: "category-group"
+                  %i.icon-arrow-bottom
+                .form-group-under
+                  %label 配送の方法
+                  %span.required 必須
+                  = f.collection_select :delivery_type, DeliveryWay.all, :id, :name, {prompt: "---"} , class: "category-group"
                   %i.icon-arrow-bottom
                 .form-group-under
                   %label 発送元の地域
                   %span.required 必須
-                  %select.category-group
-                    %option ----
+                  = f.collection_select :prefecture, Prefecture.all, :id, :name, {prompt: '----'}, class: "category-group"
                   %i.icon-arrow-bottom
                 .form-group-under
                   %label 発送までの日数
                   %span.required 必須
-                  %select.category-group
-                    %option ----
+                  = f.collection_select :delivery_date, DeliveryDate.all, :id, :date, {prompt: "---"} , class: "category-group"
                   %i.icon-arrow-bottom
             .sell-content--price
               %h3 販売価格(300~9,999,999)
+              %i.fa.fa-question-circle
               %ul.sell-form-box
                 %li.form-group.price-menu
                   .clearfix
@@ -68,20 +73,34 @@
                     %span.required 必須
                     .price-box
                       .price-box__left ¥
-                      %input.price-box__right{ placeholder: "例) 300  "}
+                      = f.number_field :price, placeholder: "例) 300  ", class: "price-box__right", id: "price-input"
                 %li.center-box.clearfix
                   .left-box 販売手数料(10%)
-                  .right-box -
+                  #fee.right-box
                 %li.center-box.clearfix
                   .left-box.bold 販売利益
-                  .right-box.bold -  
+                  #total.right-box.bold  
             .sell-content--price.btn-box
               .upper-box
                 %p 禁止されている出品、行為を必ずご確認ください。
                 %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であ
                 %p り処罰される可能性があります。
                 %p また、出品をもちまして加盟店規約に同意したことになります。
-              %button.btn-red{ type: "submit"} 出品する
+                %input.btn-red{"data-target" => "#myModal", "data-toggle" => "modal", :type => "submit",form: :item_form}
+                #myModal.modal.fade
+                  .modal-dialog{style: 'max-width:900px;'}
+                    .modal-content
+                      .modal-header
+                        .modal-header__text
+                          出品が完了しました
+                        %h4.modal-title 
+                      .modal-body 
+                        .modal-body__text
+                          あなたが出品した商品は「出品した用品一覧」からいつでも見ることができます。
+                        .modal-body__button
+                          = f.submit class:"btn-red"
+                        .modal-body__bottom_text
+                          %button.btn-return{ "type"=>"button","onclick"=>"location.href='/items'"} ホームへ戻る
+                        -# %button.btn.btn-primary{"data-dismiss" => "modal", :type => "button"} 閉じる
               .gray-btn-box
-                %button.btn-gray{ type: ""} もどる
 = render 'shared/sub-footer'

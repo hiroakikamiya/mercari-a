@@ -32,7 +32,7 @@ Things you may want to cover:
 |nickname|string|null: false|
 |birthday|datetime|null: false|
 |phone_number|string|unique: ture, null: false|
-|comment|text|　|
+|comment|text| |
 
 ### Association
 - has_many :messages

@@ -67,8 +67,12 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'pry-rails'
-gem "jquery-rails"
-gem "font-awesome-rails"
+gem 'jquery-rails'
+gem 'ancestry'
+gem 'gretel'
+gem 'sorcery'
+gem 'bootstrap', '~> 4.1.1'
+gem 'font-awesome-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'

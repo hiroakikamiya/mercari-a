@@ -27,7 +27,7 @@
     }
   }
   .sell-upload-box {
-      width: 620px;
+      width: 100%;
       padding: 40px;
       border-top: $sell_border;
     &__head {
@@ -43,7 +43,9 @@
       text-align: center;
       cursor: pointer;
       margin-top: 16px;
+      width: 100%;
     }
+    
     pre {
       position: absolute;
       top: 50%;
@@ -61,6 +63,7 @@
   .sell-form-box {
     float: right;
     width: 400px;
+    height: 100%;
     margin-bottom: 40px;
     margin: 0;
     .price-menu {
@@ -102,7 +105,8 @@
     &--category {
       @include sell-content ();
       @include sell-form-box ();
-      height: 180px;
+      height: 100%;
+      display: flex;
       .form-group-under {
         margin-top : 40px;
       }
@@ -110,7 +114,8 @@
     &--delivery {
       @include sell-content ();
       @include sell-form-box ();
-      height: 290px;
+      height: 100%;
+      display: flex;
       .form-group-under {
         margin-top : 40px;
       }
@@ -118,7 +123,8 @@
     &--price {
       @include sell-content ();
       @include sell-form-box ();
-      height: 220px;
+      height: 100%;
+      display: flex;
       .price-box {
         float: right;
         width: 200px;
@@ -145,14 +151,57 @@
     }
   }
   .btn-box {
-    height: 250px;
+    height: 280px;
+    padding-top: 30px;
+    background: $white;
+    width: 700px;
+    margin: 0 auto;
+    border-top: 1px solid #eee;
     .upper-box {
-      margin: 0;
-      padding: 0;
+      width: 700px;
+      height: 70px;
+      margin: 0 auto;
+      padding-left: 20px;
       line-height: 0.9;
     }
     .gray-btn-box {
-      width: 45%;
-      margin: 0 auto;
+      width: 100%;
+    }
+    .btn-red{
+      height: 50px;
+      width: 590px;
     }
   }
+.modal-content{
+  width: 700px;
+  height: 300px;
+  .modal-header{
+    font-weight: bold;
+    line-height: 30px;
+    height: 80px;
+    &__text{
+      font-size: 20px;
+      margin: 0 auto;
+      }
+    }
+  .modal-body{
+    height: 500px;
+    text-align: center;
+    &__text{
+      padding-top: 20px;
+    }
+    &__bottom_text{
+      margin-top: 30px;
+      color: $blue;
+      }
+    .btn-return{
+      background: $gray;
+      color: $white;
+      border: none;
+      width: 100px;
+      height: 30px;
+    }
+    }
+  }
+  
+  
