@@ -15,7 +15,6 @@
 @import "footer";
 @import "show";
 @import "content";
-@import "./index";
 @import "sell";
 @import "sub-header";
 @import "sub-footer";
@@ -23,8 +22,7 @@
 @import "mypage-side-nav";
 @import "mypage-right";
 @import "users/registration_index";
-@import "registration";
-@import "registration-2step";
-@import "bootstrap"; 
 @import "users/registration_2step";
+@import "registration";
+@import "bootstrap"; 
 @include body ();

@@ -1,11 +1,19 @@
+// ホバーすると明るくなります
 @mixin bright-hover() {
   &:hover {
     opacity: 0.75;
   }
 }
+// ホバーすると明るくなり、アンダーラインもつきます
 @mixin bright-Uline-hover() {
   &:hover {
     opacity: 0.75;
     text-decoration: underline;
+  }
+}
+@mixin bright-hover-tra() {
+  &:hover {
+    opacity: 0.75;
+    transition-duration: 0.3s;
   }
 }
