@@ -3,7 +3,7 @@
     = render 'shared/mypage-side-nav'
   .right-side
     .mypage-user
-      = image_tag "Lights_Blur.jpg"
+      = image_tag "mypage-background.jpeg"
       .mypage-user__icon
         = link_to root_path do
           = image_tag "cat.jpeg"
@@ -26,7 +26,7 @@
                 .item-body__text
                   6/30まで》「200円以下のセブンカフェ」、ファミリーマートの「アイスコーヒーM」が"11円"で買えるクーポンなど配信中！
                 .item-body__time 
-                  = fa_icon "times", class: "clock-icon"
+                  = fa_icon "clock-o", class: "clock-icon"
                   １日前
               = fa_icon "angle-right", class: "angle-icon"
         %ul#mypage-tab-notification
@@ -37,7 +37,7 @@
                 .item-body__text
                   事務局から個別メッセージ「《大感謝祭のお得チケットとあわせて使おう》特別にP100を進呈しました」
                 .item-body__time 
-                  = fa_icon "times", class: "clock-icon"
+                  = fa_icon "clock-o", class: "clock-icon"
                   2日前
               = fa_icon "angle-right", class: "angle-icon"
         %ul#mypage-tab-notification
@@ -48,7 +48,7 @@
                 .item-body__text
                   明日、5%還元お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
                 .item-body__time 
-                  = fa_icon "times", class: "clock-icon"
+                  = fa_icon "clock-o", class: "clock-icon"
                   3日前
               = fa_icon "angle-right", class: "angle-icon"
         %ul#mypage-tab-notification
@@ -59,11 +59,11 @@
                 .item-body__text
                   《今だけ！》「セブンカフェ」、ファミリーマートの「アイスコーヒーM」が"11円"で買えるクーポンなど配信中！
                 .item-body__time 
-                  = fa_icon "times", class: "clock-icon"
+                  = fa_icon "clock-o", class: "clock-icon"
                   4日前
               = fa_icon "angle-right", class: "angle-icon"
     .mypage-tab-deal
-      購入した商品
+      %h3 購入した商品
       .mypage-tab
         .mypage-tab__list
           %ul
