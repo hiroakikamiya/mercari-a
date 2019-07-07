@@ -54,16 +54,16 @@
             padding-top: 5px;
             .good{
               font-size: 18px;
-              color: $goodicon;
+              color: $good-icon;
             }
             .normal{
               font-size: 18px;
-              color: $normalicon;
+              color: $normal-icon;
               padding-left: 10px;
             }
             .bad{
               font-size: 18px;
-              color: $blue;
+              color: $frown-icon;
               padding-left: 10px;
             }
 					}
@@ -172,10 +172,13 @@
   }
   &__lock{
     font-size: 	14px;
-    color: $blue;
     padding-left: 80px;
     display: flex;
     align-items: center;
+    @include text-decoration-none();
+    a {
+      color: $blue;
+    }
     i{
       padding-right: 3px;
     }
@@ -212,6 +215,7 @@
     margin: 0 auto;
     background: #aaa;
     margin-top: 10px;
+    @include text-decoration-none();
     &__text{
       font-size: 14px;
       color: $white;
@@ -292,10 +296,12 @@
 }
 .many-items-box-top{
   @include box-default();
+  height: 100%;
   padding-top: 30px;
   margin: 0 auto;
 }
 .many-items-box-row{
   @include box-default();
-  margin: 0 auto;
+  height: 100%;
+  margin: 0 auto 20px;
 }
