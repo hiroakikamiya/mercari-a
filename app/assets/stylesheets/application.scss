@@ -25,5 +25,6 @@
 @import "users/registration_2step";
 @import "registration";
 @import "bootstrap"; 
-@import "users/header/user-header.scss";
+@import "users/header/user-header";
+@import "users/session/session";
 @include body ();
