@@ -1,0 +1,68 @@
+@include login-page-btn();
+.login-user {
+  padding-bottom: 220px;
+  .container {
+    background-color: $white;
+    padding: 0;
+    width: 456px;
+    &__no-account {
+      padding: 40px 64px;
+      text-align: center;
+      a {
+        background-color: $blue;
+        color: $white;
+        margin: 8px 0 0;
+        line-height: 42px;
+        display: block;
+        text-decoration: none;
+      }
+    }
+    &__login {
+      padding: 32px 64px;
+      border-top: 1px solid #eee;
+      &--facebook {
+        @include icon-set();
+        background-color: $facebook;
+      }
+      &--google {
+        background: #fff url(/jp/assets/img/common/common/google.svg) no-repeat 3px top;
+        border-color: #979797;
+        color: #333;
+        padding: 0px;
+        margin: 16px 0 0;
+        border: 1px solid #979797;
+        a {
+          color: $black;
+          text-decoration: none;
+        }
+        img {
+          position: absolute;
+          top: 13px;
+          left: 16px;
+          height: 20px;
+          width: 20px;
+        }
+      }
+    }
+    &__form {
+      padding: 24px 64px 32px;
+      &--email, &--password {
+        @include form-btn();
+      }
+      &--recaptcha {
+        margin: 24px 0 0;
+      }
+      &--session {
+        @include btn-red();
+        width: 100%;
+        a {
+          color: $white;
+          text-decoration: none;
+        }
+      }
+      &--forgot-password {
+        margin: 40px 0 0;
+      }
+    }
+  }
+}
