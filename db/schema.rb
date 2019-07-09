@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_06_024715) do
+ActiveRecord::Schema.define(version: 2019_07_06_122446) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -40,14 +40,14 @@ ActiveRecord::Schema.define(version: 2019_07_06_024715) do
   end
 
   create_table "delivery_ways", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "way"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id"
-    t.text "image", null: false
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_images_on_item_id"
@@ -55,20 +55,45 @@ ActiveRecord::Schema.define(version: 2019_07_06_024715) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.text "explain", null: false
-    t.integer "category"
-    t.integer "delivery_type"
-    t.integer "delivery_date"
+    t.string "explain", null: false
+    t.bigint "category_id"
+    t.bigint "delivery_cost_id"
+    t.bigint "delivery_date_id"
+    t.bigint "delivery_way_id"
+    t.bigint "prefecture_id"
+    t.bigint "status_id"
     t.integer "price", null: false
-    t.integer "prefecture"
+    t.bigint "buyer_id"
+    t.bigint "seller_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "fk_rails_bac2cf3aef"
+    t.index ["category_id"], name: "fk_rails_89fb86dc8b"
+    t.index ["delivery_cost_id"], name: "fk_rails_93bc4f7885"
+    t.index ["delivery_date_id"], name: "fk_rails_3643350815"
+    t.index ["delivery_way_id"], name: "fk_rails_0416e1a7d5"
+    t.index ["prefecture_id"], name: "fk_rails_5fb69fcd50"
+    t.index ["seller_id"], name: "fk_rails_62a5ac8242"
+    t.index ["status_id"], name: "fk_rails_3eb9c9f730"
   end
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "residences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "post_code", null: false
+    t.bigint "prefecture_id"
+    t.string "city", null: false
+    t.string "address"
+    t.string "detail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["prefecture_id"], name: "index_residences_on_prefecture_id"
+    t.index ["user_id"], name: "index_residences_on_user_id"
   end
 
   create_table "statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -93,4 +118,14 @@ ActiveRecord::Schema.define(version: 2019_07_06_024715) do
   end
 
   add_foreign_key "images", "items"
+  add_foreign_key "items", "categories"
+  add_foreign_key "items", "delivery_costs"
+  add_foreign_key "items", "delivery_dates"
+  add_foreign_key "items", "delivery_ways"
+  add_foreign_key "items", "prefectures"
+  add_foreign_key "items", "statuses"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
+  add_foreign_key "residences", "prefectures"
+  add_foreign_key "residences", "users"
 end

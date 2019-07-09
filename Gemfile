@@ -71,7 +71,10 @@ gem 'jquery-rails'
 gem 'ancestry'
 gem 'gretel'
 gem 'sorcery'
+gem 'bootstrap', '~> 4.1.1'
 gem 'font-awesome-rails'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :production do
   gem 'unicorn', '5.4.1'

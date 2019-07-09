@@ -6,7 +6,11 @@
     .registration-form__header
       会員情報入力
     .registration-form__input
+<<<<<<< HEAD:app/views/users/registrations/basic_information.html.haml
       = form_for @user, url: phone_number_users_registrations_path, method: :get do |f|
+=======
+      = form_for @user, url: basic_information_users_registrations_path, method: :get do |f|
+>>>>>>> master:app/views/users/registrations/basic_information.haml
         .input-content
           .input-content__form
             = f.label :nickname, "ニックネーム", class: "input-content__form--theme"
