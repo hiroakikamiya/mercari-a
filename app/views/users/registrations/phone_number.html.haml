@@ -1,0 +1,22 @@
+= render 'shared/registration-header'
+.center-card
+  .registration-form.second-step
+    .registration-form__header
+      電話番号の確認
+    .registration-form__input
+      = form_for @user, url: phone_number_users_registrations_path, method: :post do |f|
+        .input-content
+          .input-content__form
+            = f.label :phone_number, "電話番号", class: "input-content__form--theme"
+            = f.telephone_field :phone_number, placeholder: "携帯の電話番号を入力", class: "input-content__form--default"
+            .form-info__text
+              本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+          .input-content__form
+            = f.submit 'SMSを送信する', class: "btn-red"
+            .form-info__text
+              ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+          .input-content__form.about-user-info
+            = link_to root_path do
+              電話番号の確認が必要な理由
+              = fa_icon "angle-right", class: "fas fa-angle-right"
+= render 'shared/sub-footer'

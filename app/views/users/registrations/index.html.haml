@@ -6,11 +6,15 @@
     .container__inner
       .container__inner__contents
         .container__inner__contents--email.default-btn
-          = fa_icon "envelope-o", class: "mail-icon"
-          = link_to "メールアドレスで登録", step1_users_registrations_path, method: :get, class: "create_by_mail"
-        %button#facebook-login.container__inner__contents--facebook.default-btn
-          %i.icon-facebook
+          = link_to basic_information_users_registrations_path, method: :get, class: "create_by_mail" do
+            メールアドレスで登録
+            = fa_icon "envelope-o", class: "icon"
+        #facebook-login.container__inner__contents--facebook.default-btn
+          = link_to root_path do
             Facebookで登録
-        %button#google-login.container__inner__contents--google.default-btn
-          Googleで登録
+            = fa_icon "facebook-square", class: "icon"
+        #google-login.container__inner__contents--google.default-btn
+          = link_to root_path do
+            Googleで登録
+            = image_tag "google-icon.svg"
   = render 'shared/sub-footer'
