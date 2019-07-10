@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
   end
 
   def get_grandchild_ids
-    @category_grandchild_ids = Category.find("#{params[:grand_id]}")
+    @category_grandchild_ids = Category.find("#{params[:grandchild_id]}")
   end
 
 
