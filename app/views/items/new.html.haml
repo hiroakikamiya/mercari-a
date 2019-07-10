@@ -12,7 +12,7 @@
               %span.required 必須
               %p 最大10枚までアップロードできます
               .sell-upload-box__image
-                = f.file_field :image, class: "sell-upload-box__drop"
+                = f.file_field :image, class: "sell-upload-box__drop",style: "display:none"
             .sell-content
               .form-group
                 %label 商品名
@@ -51,7 +51,7 @@
                 .form-group-under
                   %label 配送の方法
                   %span.required 必須
-                  = f.collection_select :delivery_type, DeliveryWay.all, :id, :name, {prompt: "---"} , class: "category-group"
+                  -# = f.collection_select :delivery_type, DeliveryWay.all, :id, :name, {prompt: "---"} , class: "category-group"
                   %i.icon-arrow-bottom
                 .form-group-under
                   %label 発送元の地域
@@ -83,10 +83,11 @@
             .sell-content--price.btn-box
               .upper-box
                 %p 禁止されている出品、行為を必ずご確認ください。
-                %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であ
-                %p り処罰される可能性があります。
+                %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪
+                %p であり処罰される可能性があります。
                 %p また、出品をもちまして加盟店規約に同意したことになります。
                 %input.btn-red{"data-target" => "#myModal", "data-toggle" => "modal", :type => "submit",form: :item_form}
+                %button.btn-gray{"data-dismiss" => "modal", :type => "button"} 閉じる
                 #myModal.modal.fade
                   .modal-dialog{style: 'max-width:900px;'}
                     .modal-content
@@ -101,6 +102,5 @@
                           = f.submit class:"btn-red"
                         .modal-body__bottom_text
                           %button.btn-return{ "type"=>"button","onclick"=>"location.href='/items'"} ホームへ戻る
-                        -# %button.btn.btn-primary{"data-dismiss" => "modal", :type => "button"} 閉じる
               .gray-btn-box
 = render 'shared/sub-footer'
