@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-    before_action :parents_set
+    before_action :parents_set, only: [:new]
   def index
     # @items_ladies = Item.where(category: 7..61).order("id ASC")
     # @items_mens = Item.where(category: 75..108).order("id ASC")
@@ -14,7 +14,10 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create(item_params)
+    if Item.create(item_params)
+    else
+      redirect_to root_path
+    end
   end
 
   def get_category_children
