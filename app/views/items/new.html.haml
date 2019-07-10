@@ -51,7 +51,6 @@
                 .form-group-under
                   %label 配送の方法
                   %span.required 必須
-                  -# = f.collection_select :delivery_type, DeliveryWay.all, :id, :name, {prompt: "---"} , class: "category-group"
                   %i.icon-arrow-bottom
                 .form-group-under
                   %label 発送元の地域
