@@ -15,6 +15,11 @@
   .sell-image {
     font-size: 16px;
   }
+  .single-container{
+    &__wrapper{
+    padding-bottom: 220px;
+    }
+  }
   .sell-container {
     @include container ();
   }
@@ -203,6 +208,9 @@
       height: 30px;
     }
     }
+  }
+  .form_id{
+    display: none;
   }
   
   
