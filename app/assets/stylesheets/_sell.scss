@@ -39,18 +39,16 @@
       font-size: 16px;
       font-weight: bold;
     }
-    &__drop {
-      position: relative;
-      min-height: 162px;
-      background: $background;
-      border: 1px dashed #ccc;
-      font-size: 0;
-      text-align: center;
-      cursor: pointer;
-      margin-top: 16px;
-      width: 100%;
-    }
-    
+    &__image{
+        min-height: 162px;
+        background: $background;
+        border: 1px dashed #ccc;
+        font-size: 0;
+        text-align: center;
+        cursor: pointer;
+        margin-top: 16px;
+        width: 100%;
+  }
     pre {
       position: absolute;
       top: 50%;
@@ -175,6 +173,9 @@
     .btn-red{
       height: 50px;
       width: 590px;
+    }
+    .btn-gray{
+      @include btn-gray ();
     }
   }
 .modal-content{
