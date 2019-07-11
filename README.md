@@ -101,7 +101,7 @@ Things you may want to cover:
 - belongs_to :status
 - belongs_to :delivery_type
 - belongs_to :delivery_date
-- belongs_to :saler, class_name: "User"
+- belongs_to :seller, class_name: "User"
 - belongs_to :buyer, class_name: "User"
 - belongs_to :city
 
