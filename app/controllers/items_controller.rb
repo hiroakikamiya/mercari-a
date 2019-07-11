@@ -39,10 +39,16 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @parents = @item.category.root.name
   end
 
   def update
-    Item.update(params[:id])
+    binding.pry
+    if Item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   private

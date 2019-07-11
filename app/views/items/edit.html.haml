@@ -33,7 +33,7 @@
                     = f.collection_select :id, Category.all, :id, :name,class: 'category-group', id: 'parent-form'
                     #child-form
                     #grandchild-form
-                    = f.hidden_field :category_id,class:'form_id' ,type:'form'
+                    -# = f.hidden_field :category_id,class:'form_id' ,type:'form'
                     %i.icon-arrow-bottom
                   .form-group-under
                     %label 商品の状態
@@ -97,7 +97,7 @@
                           %h4.modal-title 
                         .modal-body 
                           .modal-body__text
-                            あなたが出品した商品は「出品した用品一覧」からいつでも見ることができます。
+                            あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
                           .modal-body__button
                             = f.submit class:"btn-red"
                           .modal-body__bottom_text
