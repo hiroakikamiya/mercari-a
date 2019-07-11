@@ -1,6 +1,5 @@
 .main-content{
   background-color: $background;
-  height: 1000px;
   &__img-box{
     img{
       width: 100%;
@@ -68,38 +67,48 @@
   &__items__field{
     display: flex;
     margin: 0 auto;
-    width: 900px;
     height: 330px;
-    &__pickup__items-box{
-      width: 215px;
-      height: 330px;
-      padding-right: 20px;
-      margin-top: 20px;
-      &__photo{
-        height: 213px;
-        img{
-          width: 213px;
+    &__pickup {
+      width: 940px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      &__items-box{
+        width: 215px;
+        height: 330px;
+        margin: 20px 0 20px 0;
+        a {
+          text-decoration: none;
+          color: $black;
+        }
+        &__photo{
           height: 213px;
-        }
-      }
-      &__text{
-        background-color: $white;
-        margin-top: 0px;
-        width: 213px;
-        height: 110px;
-        &__title{
-          font-size: 16px;
-          padding-top: 15px;
-          padding-left: 10px;
-          height: 3em;
-        }
-          &__price{
-            font-size: 16px;
-            font-weight: bold;
-            padding-left: 10px;
+          img{
+            width: 213px;
+            height: 213px;
           }
         }
-      }
+        &__text{
+          background-color: $white;
+          margin-top: 0px;
+          width: 213px;
+          height: 110px;
+          text-align: left;
+            &__title{
+              font-size: 16px;
+              padding-top: 15px;
+              padding-left: 10px;
+              height: 3em;
+            }
+            &__price{
+              font-size: 16px;
+              font-weight: bold;
+              padding-left: 10px;
+            }
+          }
+        }
+    }
     }
   }
 .under-content{
