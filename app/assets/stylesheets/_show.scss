@@ -1,7 +1,7 @@
 .back{
   background-color: $background;
 .box-main{
-  width: 620px;
+  width:700px;
   background-color: $white;
   padding: 24px 40px 40px;
   margin: 40px auto 0;
@@ -125,7 +125,6 @@
   background-color: $red;
   margin: 0 auto;
   margin-top: 15px;
-@include text-decoration-none();
   &__text{
     font-size: 24px;
     font-weight: bold;
@@ -227,24 +226,16 @@
 .page-icon{
   width: 700px;
   height: 30px;
-  margin: 0 auto;
-  display: flex;
-  text-align: center;
-  background: $background;
+  margin: 24px auto 0;
   color: $blue;
-  padding-top: 20px;
-  font-size: 14px;
-  &__left{
-    width: 800px;
-    height: 30px;
-    position: absolute;
-    left: 0;
+  display: flex;
+  &__left {
+    width: 50%;
+    text-align: left;
   }
-  &__right{
-    width: 800px;
-    height: 30px;
-    position: absolute;
-    right: 0;
+  &__right {
+    width: 50%;
+    text-align: right;
   }
 }
 

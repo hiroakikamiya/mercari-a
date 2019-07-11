@@ -6,19 +6,18 @@
     .box-main__content
       .box-main__content__left
         .box-main__content__left__top-img
-          = image_tag 'item.jpg'
+          = image_tag @item.images[0].image.url
         .box-main__content__left__row-img
-          = image_tag 'aj1.jpg'
-          = image_tag 'blueaj1.jpg'
-          = image_tag 'redaj1.jpg'
-          = image_tag 'item.jpg'
-          = image_tag 'blackaj1.jpg'
+          - @item.images.each do |image|
+            = image_tag image.image.url
       .box-main__content__right
         %table
           .table-main__buyer
             %th 出品者
             %td
-              .table-main__buyer__name マイケル・ジョーダン
+              .table-main__buyer__name
+                = link_to root_path do
+                  = @item.seller.nickname
               .table-main__buyer__review
                 .good
                   = fa_icon "smile-o", class: "icon"
@@ -34,11 +33,16 @@
               %th カテゴリー
               %td
                 .table-main__category__parent
-                  メンズ
+                  = link_to root_path do
+                    = @item.category.root.name
                 .table-main__category__children
-                  >スニーカー
+                  = link_to root_path do
+                    = fa_icon "angle-right", class: "icon"
+                    = @item.category.parent.name
                 .table-main__category__grandchild
-                  >ハイカット
+                  = link_to root_path do
+                    = fa_icon "angle-right", class: "icon"
+                    = @item.category.name
           .table-main__brand
             %tr
               %th ブランド
@@ -59,25 +63,26 @@
             %tr	
               %th 配送料の負担
               %td
-                送料込み(出品者負担)
+                = @item.delivery_cost.cost
           .table-main__item-status
             %tr 
               %th 配送の方法
               %td
-                らくらくメルカリ便
+                = @item.delivery_way.way
           .table-main__item-prefecture
             %tr
               %th 配送元地域
               %td
                 .table-main__item-prefecture__text
-                  ロサンゼルス
+                  = @item.prefecture.name
           %tr
             .table-main__item-status
               %th 発送日の目安
               %td
-                1日
+                = @item.delivery_date.date
     .price-box
-      %span.price-box__price   ¥ 35,700 
+      %span.price-box__price
+        = @item.price
       %span.price-box__tax     (税込)
       %span.price-box__status  送料込み
     .buy-button
@@ -108,13 +113,15 @@
       = link_to root_path do
         .comment-box__button__text
           コメントする
-  .page-icon
-    .page-icon__left
-      = fa_icon "chevron-left", class: "icon"
-      テスト商品
-    .page-icon__right
-      テスト商品
-      = fa_icon "chevron-right", class: "icon"
+  %ul.page-icon
+    %li.page-icon__left
+      = link_to root_path do
+        = fa_icon "chevron-left", class: "icon"
+        テスト商品
+    %li.page-icon__right
+      = link_to root_path do
+        テスト商品
+        = fa_icon "chevron-right", class: "icon"
   .icon-box
     .icon-box__main
       .icon-box__main__facebook
