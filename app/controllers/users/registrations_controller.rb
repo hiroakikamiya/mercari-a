@@ -47,7 +47,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       phone_number: session[:phone_number]
     )
     @user.build_residence(user_params[:residences])
-    binding.pry
     if @user.save
       sign_in(@user)
       redirect_to root_path
