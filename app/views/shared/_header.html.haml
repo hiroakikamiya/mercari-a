@@ -23,6 +23,59 @@
         %li
           = fa_icon "check", class: "fas fa-check"
           やることリスト
-        %li
+        %li.mypage-modal
           = fa_icon "user", class: "fas fa-user"
           = link_to "マイページ", user_path , method: :get
+    .header__row__mypage
+      .header__row__mypage__box
+        .header__row__mypage__box__top
+          .header__row__mypage__box__top__icon
+            -# =image_tag 'bbb.jpg'
+        .header__row__mypage__box__middle
+          .header__row__mypage__box__middle__name
+            .header__row__mypage__box__middle__name__text
+              橋川　ブリオ
+          .header__row__mypage__box__middle__user-menu
+            .header__row__mypage__box__middle__user-menu__left
+              評価：０
+            .header__row__mypage__box__middle__user-menu__right
+              出品数：１
+          .header__row__mypage__box__middle__row
+            %ul 
+              .header__row__mypage__box__middle__row__top
+                %li
+                  売上金
+              .header__row__mypage__box__middle__row__bottom
+                %li
+                  ポイント
+        .header__row__mypage__box__bottom
+          .header__row__mypage__box__bottom__list
+            %ul
+              .header__row__mypage__box__bottom__list__block
+                %li
+                  いいね！一覧
+                  %i.fa.fa-chevron-right
+              .header__row__mypage__box__bottom__list__block
+                %li
+                  出品した商品-出品中
+                  %i.fa.fa-chevron-right
+
+              .header__row__mypage__box__bottom__list__block
+                %li
+                  出品した商品-取引中
+                  %i.fa.fa-chevron-right
+
+              .header__row__mypage__box__bottom__list__block
+                %li
+                  出品した商品-売却済み
+                  %i.fa.fa-chevron-right
+
+              .header__row__mypage__box__bottom__list__block
+                %li
+                  購入した商品-取引中
+                  %i.fa.fa-chevron-right
+
+              .header__row__mypage__box__bottom__list__block
+                %li
+                  購入した商品-過去の取引
+                  %i.fa.fa-chevron-right

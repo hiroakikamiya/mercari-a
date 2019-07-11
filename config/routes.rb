@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root "items#index"
   resources :items, only: [:index, :show, :new, :create, :edit] do
     collection do
-      get 'search'
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'get_grandchild_ids', defaults: { format: 'json' }
     end
   end
 
