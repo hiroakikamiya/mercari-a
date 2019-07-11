@@ -26,6 +26,7 @@
         %li.mypage-modal
           = fa_icon "user", class: "fas fa-user"
           = link_to "マイページ", user_path , method: :get
+          = link_to "ログアウt", destroy_user_session_path, method: :delete
     .header__row__mypage
       .header__row__mypage__box
         .header__row__mypage__box__top
