@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
     before_action :parents_set, only: [:new, :edit]
+    before_action :seller_set, only: [:new, :edit]
   def index
     @items = Item.all.order("created_at DESC")
     # @items_ladies = Item.where(category: 7..61).order("id ASC")
@@ -16,8 +17,9 @@ class ItemsController < ApplicationController
 
   def create
     if Item.create(item_params)
-    else
       redirect_to root_path
+    else
+      redirect_to new_item_path
     end
   end
 
@@ -39,7 +41,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    binding.pry
     if Item.update(item_params)
       redirect_to root_path
     else
@@ -54,9 +55,11 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :explain, :status_id, :delivery_cost_id, :delivery_way_id, :delivery_date_id, :price, :category_id, :prefecture_id)
+    params.require(:item).permit(:name, :explain, :status_id, :delivery_cost_id, :delivery_way_id, :delivery_date_id, :price, :category_id, :prefecture_id, :seller_id)
   end
-
+  def seller_set
+    @seller = current_user.id
+  end
   def parents_set
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|

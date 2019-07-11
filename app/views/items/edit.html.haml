@@ -34,6 +34,7 @@
                     #child-form
                     #grandchild-form
                     -# = f.hidden_field :category_id,class:'form_id' ,type:'form'
+                    = f.number_field :seller_id, value: @seller,class:'seller_form', type:'form'
                     %i.icon-arrow-bottom
                   .form-group-under
                     %label 商品の状態
