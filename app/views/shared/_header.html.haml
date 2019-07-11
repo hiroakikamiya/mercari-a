@@ -12,20 +12,46 @@
         %li
           = fa_icon "list_ul", class: "fas fa-list-ul"
           カテゴリーから探す
-        %li
+        %li.brandlist
           = fa_icon "tag", class: "fas fa-tags"
           ブランドから探す
+      .bland-list
+        .bland-list__main
+          %ul
+            .bland-list__main__list
+              %li
+                シャネル
+            .bland-list__main__list
+              %li
+                ナイキ
+            .bland-list__main__list
+              %li
+                ルイヴィトン
+            .bland-list__main__list
+              %li
+                シュプリーム
+            .bland-list__main__list
+              %li
+                アディダス
+            .bland-list__main__list
+              %li
+                ブランド一覧
     .header__row__right
       %ul
         %li
           = fa_icon "bell", class: "far fa-bell"
           お知らせ
-        %li
+        %li.dolist
           = fa_icon "check", class: "fas fa-check"
           やることリスト
         %li.mypage-modal
           = fa_icon "user", class: "fas fa-user"
           = link_to "マイページ", users_registrations_path 
+      .do-list
+        .do-list__image
+          =image_tag 'logo-gray.svg'
+          .do-list__text
+            現在、やることリストはありません
     .header__row__mypage
       .header__row__mypage__box
         .header__row__mypage__box__top

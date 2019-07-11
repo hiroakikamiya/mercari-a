@@ -45,12 +45,13 @@
     }
   &__row{
     width: 1020px;
-    height: 44px;
+    height: 50px;
     margin: 0 auto;
     margin-top: 5px;
     display: flex;
     padding-bottom: 13px;
     &__left{
+      z-index: 10;
       ul{
         font-size: 14px;
         padding-left: 0px;
@@ -72,13 +73,14 @@
       }
     }
     &__right{
-      padding-left: 60px;
+      padding-left: 50px;
+      z-index: 10;
       ul{
         list-style: none;
         display: flex;
         color: $gray;
         font-size: 14px;
-        padding-left: 245px;
+        padding-left: 170px;
         margin-top: 20px;
         li{
           padding-left: 35px;
@@ -192,7 +194,6 @@
             height: 45px;
             border: 1px solid #eee;
             text-align: left;
-            // padding-left: 10px;
             li{
               width: 100%;
               height: 100%;
@@ -223,4 +224,60 @@
 .content{
   height: 900px;
 }
+.bland-list{
+  width: 240px;
+  height: 240px;
+  position: absolute;
+  margin-left: 150px;
+  background: $white;
+  top: 83px;
+  z-index: 3;
+  display: none;
+  &__main{
+    &__list{
+      width: 100%;
+      height: 40px;
+    }
+    &__list:hover{
+      background: $red;
+      li:hover{
+        color: $white;
+      }
+    }
+  }
+  ul{
+    font-weight: normal;
+    font-size: 15px;
+    display: block;
+    padding-top: 0px;
+    line-height: 40px;
+    li{
+      padding-left: 10px;
+      width: 240px;
+    }
+  }
+}
+.do-list{
+  width: 290px;
+  height: 230px;
+  background: $white;
+  z-index: 10;
+  position: absolute;
+  right: 330px;
+  top: 90px;
+  display: none;
+  &__image{
+    height: 70px;
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+    font-weight: bold;
+    color: $signup-back;
+    img{
+      width: 70px;
+      height: 70px;
+    }
+  }
+}
+
 
