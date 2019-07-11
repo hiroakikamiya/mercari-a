@@ -6,7 +6,7 @@
     .container__inner
       .container__inner__contents
         .container__inner__contents--email.default-btn
-          = link_to basic_information_users_registrations_path, method: :get, class: "create_by_mail" do
+          = link_to user_basic_path, method: :get, class: "create_by_mail" do
             メールアドレスで登録
             = fa_icon "envelope-o", class: "icon"
         #facebook-login.container__inner__contents--facebook.default-btn

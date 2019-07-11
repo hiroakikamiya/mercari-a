@@ -6,7 +6,7 @@
     .registration-form__header
       会員情報入力
     .registration-form__input
-      = form_for @user, url: basic_information_users_registrations_path, method: :get do |f|
+      = form_for @user, url: user_phone_number_path, method: :get do |f|
         .input-content
           .input-content__form
             = f.label :nickname, "ニックネーム", class: "input-content__form--theme"
@@ -22,12 +22,26 @@
             = f.label :password, "パスワード", class: "input-content__form--theme"
             .input-content__form--require
               必須
-            = f.password_field :password, placeholder: "6文字以上", class: "input-content__form--default"
+            - if @validatable
+              %em
+                (#{@minimum_password_length} characters minimum)
+            = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上", class: "input-content__form--default"
           .input-content__form
-            = f.label :password_confirmation, "パスワード（確認）", class: "input-content__form--theme"
+            = f.label :password_confirmation, "パスワード（確認用）", class: "input-content__form--theme"
             .input-content__form--require
               必須
-            = f.password_field :password_confirmation, placeholder: "6文字以上", class: "input-content__form--default"
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上", class: "input-content__form--default"
+
+          -# .input-content__form
+          -#   = f.label :password, "パスワード", class: "input-content__form--theme"
+          -#   .input-content__form--require
+          -#     必須
+          -#   = f.password_field :password, placeholder: "6文字以上", class: "input-content__form--default"
+          -# .input-content__form
+          -#   = f.label :password_confirmation, "パスワード（確認）", class: "input-content__form--theme"
+          -#   .input-content__form--require
+          -#     必須
+          -#   = f.password_field :password_confirmation, placeholder: "6文字以上", class: "input-content__form--default"
             .input-content__form
               .form-info
                 %p 本人確認
