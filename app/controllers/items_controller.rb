@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-    before_action :parents_set, only: [:new]
+    before_action :parents_set, only: [:new, :edit]
   def index
     # @items_ladies = Item.where(category: 7..61).order("id ASC")
     # @items_mens = Item.where(category: 75..108).order("id ASC")
@@ -38,10 +38,11 @@ class ItemsController < ApplicationController
 
 
   def edit
-
+    @item = Item.find(params[:id])
   end
 
   def update
+    Item.update(params[:id])
   end
 
   private
