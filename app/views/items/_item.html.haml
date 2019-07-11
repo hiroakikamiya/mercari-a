@@ -2,7 +2,7 @@
   .main-content__items__field__pickup__items-box
     = link_to item_path(item.id) do
       .main-content__items__field__pickup__items-box__photo
-        = image_tag item.images[0].image.url
+        = image_tag(item.images[0].image.url)
       .main-content__items__field__pickup__items-box__text
         .main-content__items__field__pickup__items-box__text__title
           = item.name
