@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
     before_action :parents_set, only: [:new]
   def index
+    @items = Item.all.order("created_at DESC")
     # @items_ladies = Item.where(category: 7..61).order("id ASC")
     # @items_mens = Item.where(category: 75..108).order("id ASC")
-    @items_parent = Category.where(ancestry: nil)
+    # @items_parent = Category.where(ancestry: nil)
     # @items_children = @items_parent.each do |parent|
     #   Category.where{ancestry: inculude?(parent.id)} ここ２行はビューで定義、renderは1つずつに変更
     # end
@@ -32,16 +33,11 @@ class ItemsController < ApplicationController
     @category_grandchild_ids = Category.find("#{params[:grandchild_id]}")
   end
 
+  def edit
+  end
 
   def show
-  end
-
-
-  def edit
-
-  end
-
-  def update
+    @item = Item.find(params[:id])
   end
 
   private

@@ -7,7 +7,7 @@ class CreateResidences < ActiveRecord::Migration[5.2]
       t.string     :city, null: false
       t.string     :address
       t.string     :detail
-      t.timestamps 
+      t.timestamps
     end
   end
 end

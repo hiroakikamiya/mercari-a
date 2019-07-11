@@ -1,7 +1,8 @@
 %header.main-header
   .header__top
     .header__top__left
-      = image_tag 'merrcari.svg'
+      = link_to root_path do
+        = image_tag 'merrcari.svg'
     .header__top__right
       %input{placeholder:"何かお探しですか？", type:"search"}
       .header__top__right__icon
@@ -46,12 +47,13 @@
           やることリスト
         %li.mypage-modal
           = fa_icon "user", class: "fas fa-user"
-          = link_to "マイページ", users_registrations_path 
       .do-list
         .do-list__image
           =image_tag 'logo-gray.svg'
           .do-list__text
             現在、やることリストはありません
+          = link_to "マイページ", user_path , method: :get
+          = link_to "ログアウt", destroy_user_session_path, method: :delete
     .header__row__mypage
       .header__row__mypage__box
         .header__row__mypage__box__top
