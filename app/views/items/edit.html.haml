@@ -30,9 +30,11 @@
                   .form-group
                     %label カテゴリー
                     %span.required 必須
-                    = f.collection_select :id, Category.all, :id, :name,class: 'category-group', id: 'parent-form'
-                    #child-form
-                    #grandchild-form
+                    = f.collection_select :id, @parents, :id, :name, {}, class: "category-group", id: 'parent-edit'
+                    = f.collection_select :id, @children ,:id, :name, {}, class: 'category-group', id: 'child-edit'
+                    = f.collection_select :category_id, @grandchildren ,:id, :name, {}, class: 'category-group', id: 'grand-edit'
+                    #child-new
+                    #grandchild-new
                     -# = f.hidden_field :category_id,class:'form_id' ,type:'form'
                     = f.number_field :seller_id, value: @seller,class:'seller_form', type:'form'
                     %i.icon-arrow-bottom

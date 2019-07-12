@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
-    before_action :parents_set, only: [:new, :edit]
+    before_action :parents_set, only: [:new]
     before_action :seller_set, only: [:new, :edit]
+    before_action :move_to_index, except: [:show, :index]
   def index
     @items = Item.all.order("created_at DESC")
     # @items_ladies = Item.where(category: 7..61).order("id ASC")
@@ -22,6 +23,14 @@ class ItemsController < ApplicationController
       redirect_to new_item_path
     end
   end
+  
+  def edit_category_children
+    @edit_children = Category.find("#{params[:parent_id]}").children
+  end
+  
+  def edit_category_grandchildren
+    @edit_grandchildren = Category.find("#{params[:child_id]}").children
+  end
 
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
@@ -36,12 +45,15 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
-    @parents = @item.category.root.name
+    @item = Item.find(params[:id]) 
+    @grandchildren = @item.category.siblings
+    @children = @item.category.parent.siblings
+    @parents = @item.category.root.siblings
   end
 
   def update
-    if Item.update(item_params)
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
       redirect_to root_path
     else
       render :edit
@@ -65,5 +77,8 @@ class ItemsController < ApplicationController
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
+  end
+  def move_to_index
+    redirect_to user_path unless user_signed_in?
   end
 end
