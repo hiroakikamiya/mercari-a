@@ -33,7 +33,13 @@ class ItemsController < ApplicationController
     @category_grandchild_ids = Category.find("#{params[:grandchild_id]}")
   end
 
-  def edit
+  def buy
+    @buyed_item = Item.find(1)
+    @buyer_id = current_user.id
+  end
+
+  def buy_update
+    item.update(item_params)
   end
 
   def show

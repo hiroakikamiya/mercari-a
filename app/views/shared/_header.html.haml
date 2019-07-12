@@ -47,8 +47,8 @@
           やることリスト
         %li.mypage-modal
           = fa_icon "user", class: "fas fa-user"
-          = link_to "マイページ", user_path , method: :get
-          = link_to "ログアウト", destroy_user_session_path, method: :delete
+          -# = link_to "マイページ", user_path , method: :get
+          -# = link_to "ログアウト", destroy_user_session_path, method: :delete
       .do-list
         .do-list__image
           =image_tag 'logo-gray.svg'
