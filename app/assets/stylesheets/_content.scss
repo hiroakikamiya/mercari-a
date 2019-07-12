@@ -9,14 +9,15 @@
       display:none;
     }
     .slick-dots{
-      width: 100px;
       height: 30px;
       display: flex;
-      padding-left: 635px;
       position: absolute !important;
         bottom: 5px !important;
+        left: 50%;
+        transform: translateX(-50%);
       li{
-        margin-left: 25px;
+        margin-left: 12px;
+        margin-right: 12px;
         button{
           border-radius: 60%;
           width: 15px;
