@@ -16,95 +16,75 @@
         %li.brandlist
           = fa_icon "tag", class: "fas fa-tags"
           ブランドから探す
-      .bland-list
-        .bland-list__main
-          %ul
-            .bland-list__main__list
-              %li
-                シャネル
-            .bland-list__main__list
-              %li
-                ナイキ
-            .bland-list__main__list
-              %li
-                ルイヴィトン
-            .bland-list__main__list
-              %li
-                シュプリーム
-            .bland-list__main__list
-              %li
-                アディダス
-            .bland-list__main__list
-              %li
-                ブランド一覧
-    .header__row__right
-      %ul
-        %li
-          = fa_icon "bell", class: "far fa-bell"
-          お知らせ
-        %li.dolist
-          = fa_icon "check", class: "fas fa-check"
-          やることリスト
-        %li.mypage-modal
-          = fa_icon "user", class: "fas fa-user"
-          -# = link_to "マイページ", user_path , method: :get
-          -# = link_to "ログアウト", destroy_user_session_path, method: :delete
-      .do-list
-        .do-list__image
-          =image_tag 'logo-gray.svg'
-          .do-list__text
-            現在、やることリストはありません
-    .header__row__mypage
-      .header__row__mypage__box
-        .header__row__mypage__box__top
-          .header__row__mypage__box__top__icon
-            -# =image_tag 'bbb.jpg'
-        .header__row__mypage__box__middle
-          .header__row__mypage__box__middle__name
-            .header__row__mypage__box__middle__name__text
-              = current_user.nickname
-          .header__row__mypage__box__middle__user-menu
-            .header__row__mypage__box__middle__user-menu__left
-              評価：０
-            .header__row__mypage__box__middle__user-menu__right
-              -# -if current_user.id == @items.seller_id
-              -#   = ああ
-          .header__row__mypage__box__middle__row
-            %ul 
-              .header__row__mypage__box__middle__row__top
-                %li
-                  売上金
-              .header__row__mypage__box__middle__row__bottom
-                %li
-                  ポイント
-        .header__row__mypage__box__bottom
-          .header__row__mypage__box__bottom__list
-            %ul
-              .header__row__mypage__box__bottom__list__block
-                %li
-                  いいね！一覧
-                  %i.fa.fa-chevron-right
-              .header__row__mypage__box__bottom__list__block
-                %li
-                  出品した商品-出品中
-                  %i.fa.fa-chevron-right
+    - if user_signed_in?
+      .header__row__right
+        %ul
+          %li
+            = fa_icon "bell", class: "far fa-bell"
+            = link_to "お知らせ", root_path, class: "header_link" 
+          %li
+            = fa_icon "check", class: "fas fa-check"
+            = link_to "やることリスト", root_path, class: "header_link"
+          %li.mypage-modal
+            = fa_icon "user", class: "fas fa-user"
+            = link_to "マイページ", root_path, class: "header_link"
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "user_sign_in__link"
+      .header__row__mypage
+        .header__row__mypage__box
+          .header__row__mypage__box__top
+            .header__row__mypage__box__top__icon
+              -# =image_tag 'bbb.jpg'
+          .header__row__mypage__box__middle
+            .header__row__mypage__box__middle__name
+              .header__row__mypage__box__middle__name__text
+                橋川　ブリオ
+            .header__row__mypage__box__middle__user-menu
+              .header__row__mypage__box__middle__user-menu__left
+                評価：０
+              .header__row__mypage__box__middle__user-menu__right
+                出品数：１
+            .header__row__mypage__box__middle__row
+              %ul 
+                .header__row__mypage__box__middle__row__top
+                  %li
+                    売上金
+                .header__row__mypage__box__middle__row__bottom
+                  %li
+                    ポイント
+          .header__row__mypage__box__bottom
+            .header__row__mypage__box__bottom__list
+              %ul
+                .header__row__mypage__box__bottom__list__block
+                  %li
+                    いいね！一覧
+                    %i.fa.fa-chevron-right
+                .header__row__mypage__box__bottom__list__block
+                  %li
+                    出品した商品-出品中
+                    %i.fa.fa-chevron-right
+                .header__row__mypage__box__bottom__list__block
+                  %li
+                    出品した商品-取引中
+                    %i.fa.fa-chevron-right
 
-              .header__row__mypage__box__bottom__list__block
-                %li
-                  出品した商品-取引中
-                  %i.fa.fa-chevron-right
+                .header__row__mypage__box__bottom__list__block
+                  %li
+                    出品した商品-売却済み
+                    %i.fa.fa-chevron-right
 
-              .header__row__mypage__box__bottom__list__block
-                %li
-                  出品した商品-売却済み
-                  %i.fa.fa-chevron-right
+                .header__row__mypage__box__bottom__list__block
+                  %li
+                    購入した商品-取引中
+                    %i.fa.fa-chevron-right
 
-              .header__row__mypage__box__bottom__list__block
-                %li
-                  購入した商品-取引中
-                  %i.fa.fa-chevron-right
-
-              .header__row__mypage__box__bottom__list__block
-                %li
-                  購入した商品-過去の取引
-                  %i.fa.fa-chevron-right
+                .header__row__mypage__box__bottom__list__block
+                  %li
+                    購入した商品-過去の取引
+                    %i.fa.fa-chevron-right
+    - else
+      .header__row__right
+        %ul.new
+          %li.new_user_create
+            = link_to "新規会員登録", user_path , method: :get, class: "new_user_create__link"
+          %li.user_sign_in
+            = link_to "ログイン", new_user_session_path, method: :get, class: "user_sign_in__link"

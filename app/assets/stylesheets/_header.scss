@@ -2,16 +2,13 @@
   background: $white;
 }
 .header{
-  height: 100px;
-  width: 1440px;
   &__top{
-    height: 40px;
-    width: 1020px;
     margin: 0 auto;
     display: flex;
     align-items: center;
+    width: calc(100% - 200px);
     &__left{
-      padding-top: 20px;
+      padding-top: 8px;
       img{
         height: 36px;
         width: 134px;
@@ -19,46 +16,52 @@
     }
     &__right{
       display: flex;
+      width: calc(100% - 140px);
+      margin-top: 8px;
       input{
         height: 40px;
-        width: 800px;
+        width: calc(100% - 40px);
         font-size: 16px;
         padding-left: 10px;
         border-radius: 5px;
         margin-left: 45px;
-        margin-top: 20px;
         border: 1px solid #ccc;
         }
         &__icon{
+          position: relative;
           width: 40px;
           height: 40px;
           border-radius: 5px;
           background-color: $gray;
-          margin-top: 20px;
           i{
-            padding-left: 10px;
-            padding-top: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            margin: auto;
             color: $white;
+            
            }
         }
       }
     }
   &__row{
-    width: 1020px;
-    height: 50px;
     margin: 0 auto;
     margin-top: 5px;
     display: flex;
-    padding-bottom: 13px;
+    width: calc(100% - 200px);
+    height: 60px;
+    line-height: 60px;
     &__left{
-      z-index: 10;
+      float: left;
       ul{
+        margin-bottom: 0;
         font-size: 14px;
         padding-left: 0px;
         list-style: none;
         display: flex;
         font-weight: bold;
-        padding-top: 20px;
+        // margin-top: 20px;
         li{
           margin-right: 20px;
           i{
@@ -73,19 +76,23 @@
       }
     }
     &__right{
-      padding-left: 50px;
-      z-index: 10;
+      margin-right: 0;
+      margin-left: auto;
       ul{
         list-style: none;
         display: flex;
         color: $gray;
         font-size: 14px;
-        padding-left: 170px;
-        margin-top: 20px;
+        // margin-top: 20px;
         li{
-          padding-left: 35px;
-          i{
+          margin-left: 35px;
+          .fa{
             font-size: 17px;
+            color: $gray;
+          }
+          .header_link{
+            text-decoration: none;
+            color: $black;
           }
         }
         li:hover{
@@ -224,60 +231,58 @@
 .content{
   height: 900px;
 }
-.bland-list{
-  width: 240px;
-  height: 240px;
-  position: absolute;
-  margin-left: 150px;
-  background: $white;
-  top: 83px;
-  z-index: 3;
-  display: none;
-  &__main{
-    &__list{
-      width: 100%;
-      height: 40px;
-    }
-    &__list:hover{
-      background: $red;
-      li:hover{
+.new_user_cretae{
+  height: 30px;
+  width: 100px;
+  background-color: $red;
+  border: solid $red ;
+  border-radius: 2px;
+}
+.header__row__right{
+  height: 60px;
+  .new{
+    .new_user_create{
+      height: 34px;
+      width: 110px;
+      background-color: $red;
+      text-align: center;
+      margin-top: 13px;
+      margin-bottom: 0;
+      position: relative;
+      border-radius: 3px;
+      &__link{
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
         color: $white;
+        vertical-align: middle;
+        position: absolute;
+        top: -16px;
+        left: 0px;
+        line-height: 70px;
+        font-size: 15px;
+      }
+    }
+    .user_sign_in{
+      height: 34px;
+      width: 95px;
+      text-align: center;
+      margin-top: 13px;
+      margin-bottom: 0;
+      position: relative;
+      border: $blue solid 1px;
+      border-radius: 3px;
+      &__link{
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        vertical-align: middle;
+        position: absolute;
+        top: -18px;
+        left: 0px;
+        line-height: 70px;
+        font-size: 15px;
       }
     }
   }
-  ul{
-    font-weight: normal;
-    font-size: 15px;
-    display: block;
-    padding-top: 0px;
-    line-height: 40px;
-    li{
-      padding-left: 10px;
-      width: 240px;
-    }
-  }
 }
-.do-list{
-  width: 290px;
-  height: 230px;
-  background: $white;
-  z-index: 10;
-  position: absolute;
-  right: 330px;
-  top: 90px;
-  display: none;
-  &__image{
-    height: 70px;
-    width: 100%;
-    text-align: center;
-    padding-top: 50px;
-    font-weight: bold;
-    color: $signup-back;
-    img{
-      width: 70px;
-      height: 70px;
-    }
-  }
-}
-
-
