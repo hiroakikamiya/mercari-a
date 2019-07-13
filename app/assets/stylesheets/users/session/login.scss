@@ -47,14 +47,23 @@
     &__form {
       padding: 24px 64px 32px;
       &--email, &--password {
-        @include form-btn();
+        margin: 22px 0 0;
+        input {
+          @include form-btn();
+          width: 100%;
+        }
+      }
+      &--email {
+        margin: 0;
       }
       &--recaptcha {
         margin: 24px 0 0;
       }
       &--session {
-        @include btn-red();
-        width: 100%;
+        .btn-red {
+          @include btn-red();
+          width: 100%;
+        }
         a {
           color: $white;
           text-decoration: none;
