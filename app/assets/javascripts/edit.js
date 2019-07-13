@@ -48,7 +48,6 @@ $(function(){
   });
   $('#child-new').on('change', function(){
     var childId = $('#child-new option:selected').data('category');
-    console.log(childId)
     var url = "/items/edit_category_grandchildren"
     $.ajax({
         url: url,

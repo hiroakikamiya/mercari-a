@@ -26,9 +26,10 @@ $(function(){
 
   $("#parent-form").on('change', function(){
     var parentCategory = document.getElementById('parent-form').value;
+    var url = "/items/get_category_children";
     if (parentCategory != '---'){
       $.ajax({
-        url: 'get_category_children',
+        url: url,
         type: 'GET',
         data: { parent_name: parentCategory },
         dataType: 'json'
@@ -52,9 +53,11 @@ $(function(){
   });
   $('#child-form').on('change', function(){
     var childId = $('#child-form option:selected').data('category');
+    console.log(category)
+    var url = "/items/get_category_grandchildren";
     if (childId != "---"){
       $.ajax({
-        url: 'get_category_grandchildren',
+        url: url,
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json'
@@ -79,8 +82,9 @@ $(function(){
   $(function(){
     $('#grandchild-form').on('change', function(){
       var grandchildId = $('#grandchild-form option:selected').data('category');
+      var url = "/items/get_grandchild_ids";
         $.ajax({
-          url: 'get_grandchild_ids',
+          url: url,
           type: 'GET',
           data: { grandchild_id: grandchildId },
           dataType: 'json'
