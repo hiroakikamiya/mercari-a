@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :seller, class_name: "User"  
   belongs_to :buyer, class_name: "User"
+
   belongs_to :prefecture
   belongs_to :user
 end

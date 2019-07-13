@@ -22,9 +22,9 @@
         支払い金額
       .buy-content__main__buy-price__number
         6800¥
-    = form_for @buyed_item, url: baka_items_path(@buyed_item),html: {method: "patch"} do |f|
-      = f.number_field :buyer_id, value: @buyer_id, class: "buyed_form"
-      = f.submit class:"buy-content__main__buy-button", value: "購入する",type:"submit"
+    .buy-content__main__buy-button
+      .buy-content__main__buy-button__text
+        購入する
   .buy-content__middle
     .buy-content__middle__adless
       .buy-content__middle__adless__title
