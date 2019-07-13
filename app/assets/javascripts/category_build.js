@@ -53,7 +53,6 @@ $(function(){
   });
   $('#child-form').on('change', function(){
     var childId = $('#child-form option:selected').data('category');
-    console.log(category)
     var url = "/items/get_category_grandchildren";
     if (childId != "---"){
       $.ajax({
