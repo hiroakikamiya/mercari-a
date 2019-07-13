@@ -32,13 +32,13 @@
                     %span.required 必須
                     .category-select__wrapper
                       = fa_icon "chevron-down", class: "arrow_icon"
-                      .category-select__fake= @parent
+                      .category-select__fake= @item.category.root.name
                     .category-select__wrapper
                       = fa_icon "chevron-down", class: "arrow_icon"
-                      .category-select__fake= @child
-                    = f.collection_select :id, @parents, :id, :name, {include_blank: '---'}, class: 'category-select__box', id: 'parent-edit'
-                    = f.collection_select :id, @children,:id, :name, {include_blank: '---'}, class: 'category-select__box', id: 'child-edit'
-                    = f.collection_select :category_id, @grandchildren,:id, :name, {}, class: 'category-select__box', id: 'grand-edit'
+                      .category-select__fake=  @item.category.parent.name
+                    = f.collection_select :id, @item.category.root.siblings, :id, :name, {include_blank: '---'}, class: 'category-select__box', id: 'parent-edit'
+                    = f.collection_select :id, @item.category.parent.siblings, :id, :name, {include_blank: '---'}, class: 'category-select__box', id: 'child-edit'
+                    = f.collection_select :category_id, @item.category.siblings, :id, :name, {}, class: 'category-select__box', id: 'grand-edit'
                     = f.number_field :category_id,class:'form_edit_category' ,type:'form'
                     #child-new
                     #grandchild-new

@@ -50,11 +50,6 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id]) 
-    @grandchildren =@item.category.siblings
-    @children = @item.category.parent.siblings
-    @parents = @item.category.root.siblings
-    @parent = @item.category.root.name
-    @child = @item.category.parent.name
   end
 
   def update
