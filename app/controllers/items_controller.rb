@@ -34,12 +34,14 @@ class ItemsController < ApplicationController
   end
 
   def buy
-    @buyed_item = Item.find(1)
+    @buyed_item = Item.find(params[:id])
     @buyer_id = current_user.id
   end
 
   def buy_update
-    item.update(item_params)
+    @buyer_id = current_user.id
+    @buyed_item = Item.find(params[:id])
+    @buyed_item.update(buy_params)
   end
 
   def show
@@ -50,6 +52,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :explain, :status_id, :delivery_cost_id, :delivery_way_id, :delivery_date_id, :price, :category_id, :prefecture_id)
+  end
+  def buy_params
+    params.require(:item).permit(:buyer_id).merge(params[:buyer_id])
+    binding.pry
   end
 
   def parents_set
