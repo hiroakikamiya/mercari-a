@@ -25,27 +25,27 @@ class ItemsController < ApplicationController
   end
   
   def edit_category_children
-    @edit_children = Category.find("#{params[:parent_id]}").children
+    @edit_children = Category.find(params[:parent_id]).children
   end
   
   def edit_category_grandchildren
-    @edit_grandchildren = Category.find("#{params[:child_id]}").children
+    @edit_grandchildren = Category.find(params[:child_id]).children
   end
 
   def edit_category_grandchild_id
-    @edit_grandchildren_id = Category.find("#{params[:grandchild_id]}")
+    @edit_grandchildren_id = Category.find(params[:grandchild_id])
   end
 
   def get_category_children
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    @category_children = Category.find_by(name: params[:parent_name], ancestry: nil).children
   end
 
   def get_category_grandchildren
-    @category_grandchildren = Category.find("#{params[:child_id]}").children
+    @category_grandchildren = Category.find(params[:child_id]).children
   end
 
   def get_grandchild_ids
-    @category_grandchild_ids = Category.find("#{params[:grandchild_id]}")
+    @category_grandchild_ids = Category.find(params[:grandchild_id])
   end
 
   def edit
