@@ -89,6 +89,8 @@
       = link_to root_path do
         .buy-button__text
           購入画面に進む
+    .edit_btn
+      = link_to "編集する", edit_item_path 
     .text-box
       = simple_format(@item.explain)
       .bottom-btn
