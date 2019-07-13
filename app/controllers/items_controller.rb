@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
     before_action :parents_set, only: [:new]
     before_action :seller_set, only: [:new, :edit]
     before_action :move_to_index, except: [:show, :index]
+    before_action :set_item, only: [:show, :edit, :update]
   def index
     @items = Item.all.order("created_at DESC")
     # @items_ladies = Item.where(category: 7..61).order("id ASC")
@@ -49,11 +50,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id]) 
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else
@@ -62,7 +61,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   private
@@ -78,6 +76,9 @@ class ItemsController < ApplicationController
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
+  end
+  def set_item
+    @item = Item.find(params[:id])
   end
   def move_to_index
     redirect_to user_path unless user_signed_in?
