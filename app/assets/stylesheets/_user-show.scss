@@ -1,0 +1,15 @@
+
+.right-side {
+  float: right;
+  width: 700px;
+  .mypage-content {
+    margin: 0;
+    background-color: $white;
+    font-size: 16px;
+    h3 {
+      font-size: 16px;
+      padding: 0 16px;
+      line-height: 72px;
+    }
+  }
+}

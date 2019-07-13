@@ -25,4 +25,6 @@
 @import "users/registration_2step";
 @import "registration";
 @import "bootstrap"; 
+@import "user-edit";
+@import "user-show";
 @include body ();

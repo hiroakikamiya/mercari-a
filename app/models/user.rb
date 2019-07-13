@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :residence
   accepts_nested_attributes_for :residence
-  
+  has_many :items
 end

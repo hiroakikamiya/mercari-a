@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   get "user/card", :to => "users/registrations#card"
   end
 
+  resources :users, only: [:index, :show, :edit]
+
 end
