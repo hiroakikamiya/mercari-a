@@ -1,0 +1,37 @@
+= render 'shared/registration-header'
+.center-card
+  .registration-form.third-step
+    .registration-form__header
+      会員情報入力
+    .registration-form__input
+      = form_for @user, url: user_registration_path, method: :post do |f|
+        = f.fields_for :residences do |b|
+          .input-content
+            .input-content__form
+              = b.label :post_code, "郵便番号", class: "input-content__form--theme"
+              .input-content__form--require
+                必須
+              = b.text_field :post_code, placeholder: "例）123-4567", class: "input-content__form--default"
+            .input-content__form
+              = b.label :prefecture_id, "都道府県", class: "input-content__form--theme"
+              .input-content__form--require
+                必須
+              = b.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, class: "input-content__form--default"
+            .input-content__form
+              = b.label :city, "市町村", class: "input-content__form--theme"
+              .input-content__form--require
+                必須
+              = b.text_field :city, placeholder: '例)横浜市緑区', class: "input-content__form--default"
+            .input-content__form
+              = b.label :address, "番地", class: "input-content__form--theme"
+              .input-content__form--require
+                必須
+              = b.text_field :address, placeholder: '例)青山1-1-1', class: "input-content__form--default"
+            .input-content__form
+              = b.label :detail, "建物名", class: "input-content__form--theme"
+              .input-content__form--optional
+                任意
+              = b.text_field :detail, placeholder: '例)柳ビル103', class: "input-content__form--default"
+        .input-content__form
+          = f.submit 'SMSを送信する', class: "btn-red"
+= render 'shared/sub-footer'

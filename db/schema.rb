@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_06_122446) do
+ActiveRecord::Schema.define(version: 2019_07_09_090044) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2019_07_06_122446) do
     t.bigint "delivery_date_id"
     t.bigint "delivery_way_id"
     t.bigint "prefecture_id"
+    t.bigint "status_id"
     t.integer "price", null: false
     t.bigint "buyer_id"
     t.bigint "seller_id"
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 2019_07_06_122446) do
     t.index ["delivery_way_id"], name: "fk_rails_0416e1a7d5"
     t.index ["prefecture_id"], name: "fk_rails_5fb69fcd50"
     t.index ["seller_id"], name: "fk_rails_62a5ac8242"
+    t.index ["status_id"], name: "fk_rails_3eb9c9f730"
   end
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -101,18 +103,21 @@ ActiveRecord::Schema.define(version: 2019_07_06_122446) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "email", null: false
+    t.string "email", default: "", null: false
     t.string "name_kanji", null: false
     t.string "name_kana", null: false
     t.string "nickname", null: false
     t.date "birthday", null: false
     t.string "phone_number", null: false
     t.text "comment"
-    t.string "crypted_password"
-    t.string "salt"
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "images", "items"
@@ -121,6 +126,7 @@ ActiveRecord::Schema.define(version: 2019_07_06_122446) do
   add_foreign_key "items", "delivery_dates"
   add_foreign_key "items", "delivery_ways"
   add_foreign_key "items", "prefectures"
+  add_foreign_key "items", "statuses"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "residences", "prefectures"

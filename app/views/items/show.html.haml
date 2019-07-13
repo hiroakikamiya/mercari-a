@@ -1,145 +1,135 @@
-- breadcrumb :items_show
 = render 'shared/header'
-= render 'shared/breadcrumbs'
 .back
   .box-main
     .box-main__name
-      これはテスト商品です
+      = @item.name
     .box-main__content
       .box-main__content__left
         .box-main__content__left__top-img
-          = image_tag 'item.jpg'
+          = image_tag @item.images[0].image.url
         .box-main__content__left__row-img
-          = image_tag 'aj1.jpg'
-          = image_tag 'blueaj1.jpg'
-          = image_tag 'redaj1.jpg'
-          = image_tag 'item.jpg'
-          = image_tag 'blackaj1.jpg'
+          - @item.images.each do |image|
+            = image_tag image.image.url
       .box-main__content__right
         %table
-          %tr
           .table-main__buyer
-            %th
-              出品者
+            %th 出品者
             %td
               .table-main__buyer__name
-                マイケルジョーダン
+                = link_to root_path do
+                  = @item.seller.nickname
               .table-main__buyer__review
                 .good
-                  %i.fas.fa-smile
+                  = fa_icon "smile-o", class: "icon"
                 156
                 .normal
-                  %i.fas.fa-meh
+                  = fa_icon "meh-o", class: "icon"
                 18
                 .bad
-                  %i.fas.fa-frown
+                  = fa_icon "frown-o", class: "icon"
                 2
           .table-main__category
             %tr
-              %th
-                カテゴリー
+              %th カテゴリー
               %td
                 .table-main__category__parent
-                  メンズ
+                  = link_to root_path do
+                    = @item.category.root.name
                 .table-main__category__children
-                  >スニーカー
+                  = link_to root_path do
+                    = fa_icon "angle-right", class: "icon"
+                    = @item.category.parent.name
                 .table-main__category__grandchild
-                  >ハイカット
+                  = link_to root_path do
+                    = fa_icon "angle-right", class: "icon"
+                    = @item.category.name
           .table-main__brand
             %tr
-              %th
-                ブランド
+              %th ブランド
               %td
                 .table-main__brand__name
                   NIKE
           .table-main__item-status
             %tr
-              %th
-                商品のサイズ
+              %th 商品のサイズ
               %td
                 M
           .table-main__item-status
             %tr
-              %th
-                商品の状態
+              %th 商品の状態
               %td
                 目立った傷汚れなし
           .table-main__item-status
             %tr	
-              %th
-                配送料の負担
+              %th 配送料の負担
               %td
-                送料込み(出品者負担)
+                = @item.delivery_cost.cost
           .table-main__item-status
             %tr 
-              %th
-                配送の方法
+              %th 配送の方法
               %td
-                らくらくメルカリ便
+                = @item.delivery_way.way
           .table-main__item-prefecture
             %tr
-              %th
-                配送元地域
+              %th 配送元地域
               %td
                 .table-main__item-prefecture__text
-                  ロサンゼルス
+                  = @item.prefecture.name
           %tr
             .table-main__item-status
-              %th
-                発送日の目安
+              %th 発送日の目安
               %td
-                1~2日で発送
-    .price-text
-      ¥ 35,700 
-      .price-text__tax
-        (税込）
-      .price-text__status
-        送料込み
+                = @item.delivery_date.date
+    .price-box
+      %span.price-box__price
+        = @item.price
+      %span.price-box__tax     (税込)
+      %span.price-box__status  送料込み
     .buy-button
-      .buy-button__text
-        購入画面に進む
+      = link_to root_path do
+        .buy-button__text
+          購入画面に進む
     .text-box
-      [新品未使用] NIKE ナイキ スニーカー
-      [26.5サイズ] 黒色
-      •こちらはアメリカ旅行の時、プレゼントに購入しました。サイズを間違えたため出品します。サイズの確認の時だけ履きました。
-      •購入価格より安く設定しましたので、価格交渉は致しません。
-      •正規箱はありません。靴のみの発送です。
-      発送の際には丁寧に梱包してお送りします
-      .text-box__under-button
-        .text-box__under-button__like
-          %i.far.fa-heart
-          .text-box__under-button__like__text
+      = simple_format(@item.explain)
+      .bottom-btn
+        .bottom-btn__like
+          = fa_icon "heart", class: "icon"
+          .bottom-btn__like--text
             いいね！１
-        .text-box__under-button__caution
-          %i.far.fa-flag
-          .text-box__under-button__caution__text
+        .bottom-btn__caution
+          = fa_icon "flag", class: "icon"
+          .bottom-btn__caution--text
             不適切な商品の報告
-        .text-box__under-button__lock
-          %i.fas.fa-lock
-          あんしん・あんぜんへの取り組み
+        .bottom-btn__lock
+          = link_to root_path do
+            = fa_icon "lock", class: "icon"
+            あんしん・あんぜんへの取り組み
   .comment-box
     .comment-box__top
       .comment-box__top__text
         相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     .comment-box__center
     .comment-box__button
-      .comment-box__button__text
-        コメントする
-  .page-icon
-    .page-icon__left
-      %i.fas.fa-chevron-left
-      テスト商品
-    .page-icon__right
-      テスト商品
-      %i.fas.fa-chevron-right
+      = link_to root_path do
+        .comment-box__button__text
+          コメントする
+  %ul.page-icon
+    %li.page-icon__left
+      = link_to root_path do
+        = fa_icon "chevron-left", class: "icon"
+        テスト商品
+    %li.page-icon__right
+      = link_to root_path do
+        テスト商品
+        = fa_icon "chevron-right", class: "icon"
   .icon-box
     .icon-box__main
       .icon-box__main__facebook
-        %i.fab.fa-facebook-square
+        = fa_icon "facebook-square", class: "icon"
       .icon-box__main__twitter
-        %i.fab.fa-twitter-square
+        = fa_icon "twitter-square", class: "icon"
       .icon-box__main__pinterest
-        %i.fab.fa-pinterest-square
+        = fa_icon "pinterest-square", class: "icon"
   = render'shared/another-user-items'
   = render'shared/another-category-items'
 .under-content
