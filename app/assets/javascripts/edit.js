@@ -6,17 +6,17 @@ $(function(){
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
     childSelectHtml = `<div class='child-form__wrapper' id= 'children_wrapper'>
-                        <select class= category-group>
+                        <select class= category-select__box>
                           <option value="">---</option>
                             ${insertHTML}
                         </select>
                       </div>`;
     $('#child-new').append(childSelectHtml);
   }
-  function appendGrandchidrenBox(insertHTML){
+  function appendGrandChildrenBox(insertHTML){
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class='grandchild-form__wrapper' id= 'grandchildren_wrapper'>
-                              <select class= category-group>
+                              <select class= category-select__box>
                                 <option value="">---</option>
                                   ${insertHTML}
                               </select>
@@ -47,7 +47,7 @@ $(function(){
     })
   });
   $('#child-new').on('change', function(){
-    var childId = document.getElementById('child-new').value;
+    var childId = $('#child-new option:selected').data('category');
     console.log(childId)
     var url = "/items/edit_category_grandchildren"
     $.ajax({
@@ -63,28 +63,38 @@ $(function(){
       grandchildren.forEach(function(grandchild){
         insertHTML += appendOption(grandchild);
       });
-      appendGrandChidrenBox(insertHTML);
+      appendGrandChildrenBox(insertHTML);
     })
     .fail(function(){
       alert('カテゴリー取得に失敗しました');
     })
   });
-  // $(function(){
-  //   $('#grandchild-form').on('change', function(){
-  //     var grandchildId = $('#grandchild-form option:selected').data('category');
-  //       $.ajax({
-  //         url: 'get_grandchild_ids',
-  //         type: 'GET',
-  //         data: { grandchild_id: grandchildId },
-  //         dataType: 'json'
-  //       })
-  //       .done(function(grand){
-  //         $('.form_id').val(grand.id);
-
-  //       })
-  //       .fail(function(){
-  //         alert('カテゴリー取得に失敗しました');
-  //       })
-  //   });
-  // })
+  $(function(){
+    $('#grandchild-new').on('change', function(){
+      var grandchildId = $('#grandchild-new option:selected').data('category');
+      var url = "/items/edit_category_grandchild_id"
+        $.ajax({
+          url: url,
+          type: 'GET',
+          data: { grandchild_id: grandchildId },
+          dataType: 'json'
+        })
+        .done(function(grand){
+          $('.form_edit_category').val(grand.id);
+        })
+        .fail(function(){
+          alert('カテゴリー取得に失敗しました');
+        })
+    });
+  })
+});
+$(function () {
+  $('.category-select__fake').click(function () {
+      $('.category-select__wrapper').hide();
+      $("#parent-edit").css("display", "block");
+      $("#child-edit").css("display", "block");
+      $('#child-edit').remove();
+      $('#grand-edit').remove();
+      $('#child-new').empty();
+  });
 });

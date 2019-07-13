@@ -32,6 +32,10 @@ class ItemsController < ApplicationController
     @edit_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
+  def edit_category_grandchild_id
+    @edit_grandchildren_id = Category.find("#{params[:grandchild_id]}")
+  end
+
   def get_category_children
     @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
@@ -46,9 +50,11 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id]) 
-    @grandchildren = @item.category.siblings
+    @grandchildren =@item.category.siblings
     @children = @item.category.parent.siblings
     @parents = @item.category.root.siblings
+    @parent = @item.category.root.name
+    @child = @item.category.parent.name
   end
 
   def update

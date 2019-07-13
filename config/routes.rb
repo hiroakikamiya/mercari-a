@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get 'get_grandchild_ids', defaults: { format: 'json' }
       get 'edit_category_children', defaults: { format: 'json' }
       get 'edit_category_grandchildren', defaults: { format: 'json' }
+      get 'edit_category_grandchild_id', defaults: { format: 'json' }
     end
   end
 
