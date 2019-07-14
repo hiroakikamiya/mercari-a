@@ -8,6 +8,6 @@ class Item < ApplicationRecord
   belongs_to :delivery_cost
   belongs_to :prefecture
   belongs_to :seller, class_name: "User"
-  # belongs_to :buyer, class_name: "User"
+  belongs_to :buyer, class_name: "User"
   belongs_to :prefecture
 end
