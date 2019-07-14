@@ -22,7 +22,7 @@
         .container__form--password
           = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード"
         .container__form--recaptcha
-          = recaptcha_tags
+          -# = recaptcha_tags
         .container__form--session
           = f.submit "ログイン", class: "btn-red"
         .container__form--forgot-password
