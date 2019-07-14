@@ -6,12 +6,13 @@
   .buy-content__main
     .buy-content__main__top
       .buy-content__main__top__img
-        =image_tag'aj1.jpg'
+        = image_tag @item.images[0].image.url
       .buy-content__main__top__text
-        エアジョーダンスニーカー
+        = @item.name
     .buy-content__main__price
       .buy-content__main__price__text
-        6800¥
+        = @item.price
+        ¥
       .buy-content__main__price__tax
         送料込み  
     .buy-content__main__button
@@ -21,10 +22,11 @@
       .buy-content__main__buy-price__title
         支払い金額
       .buy-content__main__buy-price__number
-        6800¥
+        = @item.price
+        ¥
     = form_for @buyed_item, url: baka_items_path(@buyed_item),html: {method: "patch"} do |f|
-      = f.number_field :buyer_id, value: @buyer_id, class: "buyed_form"
-      = f.submit class:"buy-content__main__buy-button", value: "購入する",type:"submit"
+      -# = f.number_field :buyer_id, value: @buyer_id, class: "buyed_form"
+      = f.submit class:"buy-content__main__buy-button", value: "購入する"
   .buy-content__middle
     .buy-content__middle__adless
       .buy-content__middle__adless__title

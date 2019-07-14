@@ -18,9 +18,13 @@ class ItemsController < ApplicationController
   end
 
   def create
-    if Item.create(item_params)
-      redirect_to root_path
+    @item = Item.create(item_params)
+    if @item.save && new_image_params[:images][0] != " "
+      new_image_params[:images].each do |image|
+        @item.images.create(image: image, item_id: @item.id)
+      end
     else
+      @item.images.build
       redirect_to new_item_path
     end
   end
@@ -50,6 +54,7 @@ class ItemsController < ApplicationController
   end
 
   def buy
+    @item = Item.find(params[:id]) 
     @buyed_item = Item.find(params[:id])
     @buyer_id = current_user.id
   end
@@ -57,7 +62,8 @@ class ItemsController < ApplicationController
   def buy_update
     @buyer_id = current_user.id
     @buyed_item = Item.find(params[:id])
-    @buyed_item.update(buy_params)
+    @buyed_item.update(buyer_id: current_user.id)
+    redirect_to root_path
   end
 
   def update
@@ -79,10 +85,12 @@ class ItemsController < ApplicationController
   def seller_set
     @seller = current_user.id
   end
-  def buy_params
-    params.require(:item).permit(:buyer_id).merge(params[:buyer_id])
-    binding.pry
-  end
+  # def buy_params
+  #   params.require(:item).permit(:buyer_id).merge(params[:buyer_id])
+  # end
+  def image_params
+    params.require(:images).permit({images: []})
+ end
 
   def parents_set
     @category_parent_array = ["---"]
