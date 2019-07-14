@@ -11,7 +11,6 @@ Item.create(
       status_id: 1,
       price: 1000,
       buyer_id: 1,
-      seller_id: 2,
     },
     {
       name: "bbbb",
@@ -36,7 +35,7 @@ Item.create(
       prefecture_id: 3,
       status_id: 3,
       price: 3000,
-      buyer_id: 1,
+      seller_id: 2,
     },
     {
       name: "dddd",
@@ -86,6 +85,7 @@ Item.create(
       status_id: 1,
       price: 7000,
       buyer_id: 3,
+      seller_id: 1,
     },
     {
       name: "hhhh",
@@ -122,6 +122,7 @@ Item.create(
       status_id: 4,
       price: 10000,
       buyer_id: 2,
+      seller_id: 3,
     }
   ]
 )
