@@ -12,8 +12,19 @@
                 %label.sell-image 出品画像
                 %span.required 必須
                 %p 最大10枚までアップロードできます
-                .sell-upload-box__image
-                  = f.file_field :image, class: "sell-upload-box__drop"
+              .sell-upload-box__image
+                -# = f.fields_for :images do |image|
+                -#   .dropzone-container.clearfix
+                -#     #preview
+                -#     .dropzone-area
+                -#       = image.label :image, class: "dropzone-box", for: "upload-image" do
+                -#         .input_area
+                -#           = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                -#         %p ここをクリックしてください
+                -#       #preview2
+                -#       .dropzone-area2
+                -#         = image.label :image, class: "dropzone-box", for: "upload-image" do
+                -#           %p ここをクリックしてください
               .sell-content
                 .form-group
                   %label 商品名

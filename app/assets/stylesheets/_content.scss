@@ -119,3 +119,26 @@
     height: 260px;
   }
 }
+.main-content__items__field__pickup__items-box__sold{
+  width: 100px;
+  height: 100px;
+  z-index: 10000;
+  position: absolute;
+  border-color: #ea352d transparent transparent transparent;
+  border-width: 65px 65px 0 0;
+  border-width: 100px 100px 0 0;
+  display: block;
+  border-style: solid;
+  &__text{
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    color: #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    letter-spacing: 2px;
+    font-weight: 600;
+    top: -80px;
+    font-size: 26px;
+  }
+}
