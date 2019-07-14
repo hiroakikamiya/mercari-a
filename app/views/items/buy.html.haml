@@ -24,8 +24,7 @@
       .buy-content__main__buy-price__number
         = @item.price
         ¥
-    = form_for @buyed_item, url: baka_items_path(@buyed_item),html: {method: "patch"} do |f|
-      -# = f.number_field :buyer_id, value: @buyer_id, class: "buyed_form"
+    = form_for @buyed_item, url: update_items_path(@buyed_item),html: {method: "patch"} do |f|
       = f.submit class:"buy-content__main__buy-button", value: "購入する"
   .buy-content__middle
     .buy-content__middle__adless
