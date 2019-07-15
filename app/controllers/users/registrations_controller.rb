@@ -53,7 +53,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_residence(user_params[:residences])
     if @user.save
       sign_in(@user)
-      redirect_to root_path
+      redirect_to new_card_path
     else
       redirect_to user_basic_path
     end
