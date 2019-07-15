@@ -75,8 +75,10 @@ gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
+gem 'recaptcha', require: "recaptcha/rails"
+gem 'dotenv-rails'
+gem 'fog-aws'
 
 group :production do
   gem 'unicorn', '5.4.1'
 end
-

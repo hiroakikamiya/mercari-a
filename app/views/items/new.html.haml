@@ -12,8 +12,19 @@
                 %label.sell-image 出品画像
                 %span.required 必須
                 %p 最大10枚までアップロードできます
-                .sell-upload-box__image
-                  = f.file_field :image, class: "sell-upload-box__drop"
+              .sell-upload-box__image
+                -# = f.fields_for :images do |image|
+                -#   .dropzone-container.clearfix
+                -#     #preview
+                -#     .dropzone-area
+                -#       = image.label :image, class: "dropzone-box", for: "upload-image" do
+                -#         .input_area
+                -#           = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                -#         %p ここをクリックしてください
+                -#       #preview2
+                -#       .dropzone-area2
+                -#         = image.label :image, class: "dropzone-box", for: "upload-image" do
+                -#           %p ここをクリックしてください
               .sell-content
                 .form-group
                   %label 商品名
@@ -30,16 +41,15 @@
                   .form-group
                     %label カテゴリー
                     %span.required 必須
-                    = f.select :id, @category_parent_array, {}, {class: 'category-group', id: 'parent-form'}
+                    = f.select :id, @category_parent_array, {}, {class: 'category-select__box', id: 'parent-form'}
                     #child-form
                     #grandchild-form
                     = f.hidden_field :category_id,class:'form_id' ,type:'form'
-                    %i.icon-arrow-bottom
+                    = f.number_field :seller_id, value: @seller,class:'seller_form', type:'form'
                   .form-group-under
                     %label 商品の状態
                     %span.required 必須
-                    = f.collection_select :status_id, Status.all, :id, :text, {prompt: "---"} 
-                    %i.icon-arrow-bottom
+                    = f.collection_select :status_id, Status.all, :id, :text, {prompt: "---"} , class: 'category-select__box'
               .sell-content--delivery
                 %h3 配送について
                 = fa_icon "question-circle", class: "icon"
@@ -47,23 +57,19 @@
                   .form-group
                     %label 配送料の負担
                     %span.required 必須
-                    = f.collection_select :delivery_cost_id, DeliveryCost.all, :id, :cost, {prompt: "---"} , class: "category-group"
-                    %i.icon-arrow-bottom
+                    = f.collection_select :delivery_cost_id, DeliveryCost.all, :id, :cost, {prompt: "---"} , class: 'category-select__box'
                   .form-group-under
                     %label 配送の方法
                     %span.required 必須
-                    = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :way, {prompt: "---"} , class: "category-group"
-                    %i.icon-arrow-bottom
+                    = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :way, {prompt: "---"} , class: 'category-select__box'
                   .form-group-under
                     %label 発送元の地域
                     %span.required 必須
-                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '---'}, class: "category-group"
-                    %i.icon-arrow-bottom
+                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '---'}, class: 'category-select__box'
                   .form-group-under
                     %label 発送までの日数
                     %span.required 必須
-                    = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :date, {prompt: "---"} , class: "category-group"
-                    %i.icon-arrow-bottom
+                    = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :date, {prompt: "---"} , class: 'category-select__box'
               .sell-content--price
                 %h3 販売価格(300~9,999,999)
                 = fa_icon "question-circle", class: "icon"
