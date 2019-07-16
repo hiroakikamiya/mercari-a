@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :parents_set, only: [:new]
-  before_action :seller_set, only: [:new, :edit]
-  before_action :move_to_index, except: [:show, :index]
-  before_action :set_item, only: [:show, :edit, :update]
+    before_action :parents_set, only: [:new]
+    before_action :seller_set, only: [:new, :edit]
+    before_action :move_to_index, except: [:show, :index]
+    before_action :set_item, only: [:show, :edit, :update]
   def index
     @items = Item.all.order("created_at DESC")
     # @items_ladies = Item.where(category: 7..61).order("id ASC")
@@ -26,6 +26,7 @@ class ItemsController < ApplicationController
       # @item.images.create(image: image, item_id: @item.id)
       # end
     else
+      @item.images.build
       redirect_to new_item_path
     end
   end
@@ -54,12 +55,20 @@ class ItemsController < ApplicationController
     @category_grandchild_ids = Category.find(params[:grandchild_id])
   end
 
-  def edit
+  def buy
     @item = Item.find(params[:id]) 
+    @buyed_item = Item.find(params[:id])
+    @buyer_id = current_user.id
+  end
+
+  def buy_update
+    @buyer_id = current_user.id
+    @buyed_item = Item.find(params[:id])
+    @buyed_item.update(buyer_id: current_user.id)
+    redirect_to root_path
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else
@@ -68,7 +77,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   private
@@ -76,14 +84,27 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :explain, :status_id, :delivery_cost_id, :delivery_way_id, :delivery_date_id, :price, :category_id, :prefecture_id, :seller_id, images_attributes: [:image =>[]])
   end
+  # def image_params
+  #   params.require(:images).permit({images_attributes: []})
+  # end
   def seller_set
     @seller = current_user.id
   end
+  # def buy_params
+  #   params.require(:item).permit(:buyer_id).merge(params[:buyer_id])
+  # end
+  def image_params
+    params.require(:images).permit({images: []})
+ end
+
   def parents_set
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
+  end
+  def set_item
+    @item = Item.find(params[:id])
   end
   def move_to_index
     redirect_to user_path unless user_signed_in?

@@ -4,10 +4,11 @@
     .single-container__wrapper
       .sell-container
         .sell-container-inner
-          .sell-contents#new_item
+          .sell-contents
             .sell-contents__title 商品の情報を入力
             .sell-contents__form
-            = form_for @item,html: { id: :form_id} do |f|
+            #new_item
+            = form_for @item do |f|
               .sell-upload-box
                 %label.sell-image 出品画像
                 %span.required 必須

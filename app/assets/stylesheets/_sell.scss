@@ -61,8 +61,8 @@
         font-size: 0;
         text-align: center;
         cursor: pointer;
-        margin-top: 16px;
-        width: 100%;
+        width: 80%;
+        margin: 0 auto;
   }
     pre {
       position: absolute;
@@ -253,3 +253,11 @@
       font-size: 16px;
     }
   }
+  .item__img__dropzone__input__description{
+    width: 620px;
+    height: 130px;
+  }
+.upload-image{
+  width: 100px;
+  height: 100px;
+}

@@ -13,7 +13,7 @@
         %li
           = fa_icon "list_ul", class: "fas fa-list-ul"
           カテゴリーから探す
-        %li
+        %li.brandlist
           = fa_icon "tag", class: "fas fa-tags"
           ブランドから探す
     - if user_signed_in?
@@ -62,7 +62,6 @@
                   %li
                     出品した商品-出品中
                     %i.fa.fa-chevron-right
-
                 .header__row__mypage__box__bottom__list__block
                   %li
                     出品した商品-取引中
