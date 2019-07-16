@@ -14,14 +14,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
     
   def phone_number
-    session[:nickname] = user_params[:nickname]
-    session[:email] = user_params[:email]
-    session[:password] = user_params[:password]
-    session[:password_confirmation] = user_params[:password_confirmation]
-    session[:name_kanji] = user_params[:name_kanji]
-    session[:name_kana] = user_params[:name_kana]
-    session[:birthday] = user_params["birthday(1i)"] + "-" +  user_params["birthday(2i)"] + "-" + user_params["birthday(3i)"]
-
+    if verify_recaptcha
+      session[:nickname] = user_params[:nickname]
+      session[:email] = user_params[:email]
+      session[:password] = user_params[:password]
+      session[:password_confirmation] = user_params[:password_confirmation]
+      session[:name_kanji] = user_params[:name_kanji]
+      session[:name_kana] = user_params[:name_kana]
+      session[:birthday] = user_params["birthday(1i)"] + "-" +  user_params["birthday(2i)"] + "-" + user_params["birthday(3i)"]
+    else
+      self.resource = resource_class.new
+      respond_with_navigational(resource) { render :basic }
+    end
     @user = User.new
   end
 
