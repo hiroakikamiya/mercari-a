@@ -11,7 +11,7 @@
               カード番号
             .input-content__form--require
               必須
-            = text_field_tag "number", 4242424242424242, class: "number input-content__form--default", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+            = text_field_tag "number", "", class: "number input-content__form--default", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
             %ul.input-content__form--payment
               %li
                 = image_tag 'payment-icons/visa.svg'
@@ -33,38 +33,38 @@
             .input-content__form--require
               必須
             %select.input-content__form--select#exp_month{name: "exp_month", type: "text"}
-              -# %option{value: ""} --
-              -# %option{value: "1"}01
-              -# %option{value: "2"}02
-              -# %option{value: "3"}03
-              -# %option{value: "4"}04
-              -# %option{value: "5"}05
-              -# %option{value: "6"}06
-              -# %option{value: "7"}07
-              -# %option{value: "8"}08
-              -# %option{value: "9"}09
-              -# %option{value: "10"}10
-              -# %option{value: "11"}11
+              %option{value: ""} --
+              %option{value: "1"}01
+              %option{value: "2"}02
+              %option{value: "3"}03
+              %option{value: "4"}04
+              %option{value: "5"}05
+              %option{value: "6"}06
+              %option{value: "7"}07
+              %option{value: "8"}08
+              %option{value: "9"}09
+              %option{value: "10"}10
+              %option{value: "11"}11
               %option{value: "12"}12
             %select#exp_year.input-content__form--select{name: "exp_year", type: "text"}
-              -# %option{value: ""} --
-              -# %option{value: "2019"}19
+              %option{value: ""} --
+              %option{value: "2019"}19
               %option{value: "2020"}20
-              -# %option{value: "2021"}21
-              -# %option{value: "2022"}22
-              -# %option{value: "2023"}23
-              -# %option{value: "2024"}24
-              -# %option{value: "2025"}25
-              -# %option{value: "2026"}26
-              -# %option{value: "2027"}27
-              -# %option{value: "2028"}28
-              -# %option{value: "2029"}29
+              %option{value: "2021"}21
+              %option{value: "2022"}22
+              %option{value: "2023"}23
+              %option{value: "2024"}24
+              %option{value: "2025"}25
+              %option{value: "2026"}26
+              %option{value: "2027"}27
+              %option{value: "2028"}28
+              %option{value: "2029"}29
           .input-content__form
             .input-content__form--theme
               セキュリティコード
             .input-content__form--require
               必須
-            = text_field_tag "cvc", 123, class: "cvc input-content__form--default", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "cvc"
+            = text_field_tag "cvc", "", class: "cvc input-content__form--default", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "cvc"
             .form-info__text
               カード裏面の番号とは？
           .input-content__form
