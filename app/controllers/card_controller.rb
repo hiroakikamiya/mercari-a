@@ -27,6 +27,7 @@ class CardController < ApplicationController
     if card.blank?
       redirect_to new_card_path
     else
+      card = card[0]
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
