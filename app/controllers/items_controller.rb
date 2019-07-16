@@ -75,6 +75,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @another_items = Item.where(seller_id: @item.seller_id).where.not(id: @item.id)
   end
 
   private
