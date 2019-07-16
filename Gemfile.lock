@@ -323,7 +323,6 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  dotenv-rails
   fog-aws
   font-awesome-rails
   gretel
