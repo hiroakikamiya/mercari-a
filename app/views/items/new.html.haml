@@ -7,15 +7,15 @@
           .sell-contents
             .sell-contents__title 商品の情報を入力
             .sell-contents__form
-            #new_item
             = form_for @item do |f|
               .sell-upload-box
                 %label.sell-image 出品画像
                 %span.required 必須
                 %p 最大10枚までアップロードできます
-                = f.fields_for :images do |img|
-                  = img.label :image, for: "upload-image" do
-                    = img.file_field :image, multiple: true, type: 'file'
+                = f.fields_for :images do |i|
+                  = i.file_field :image
+                -# = f.fields_for :images do |i|
+                -#   = i.file_field :image
               .sell-content
                 .form-group
                   %label 商品名
