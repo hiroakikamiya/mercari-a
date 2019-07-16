@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
     before_action :parents_set, only: [:new]
     before_action :seller_set, only: [:new, :edit]
-    before_action :move_to_index, except: [:show, :index]
+    before_action :move_to_sign_in, except: [:show, :index]
     before_action :set_item, only: [:show, :edit, :update]
   def index
     @items = Item.all.order("created_at DESC")
@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.save
+    redirect_to root_path
   end
 
   def update
@@ -104,7 +105,7 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-  def move_to_index
-    redirect_to user_path unless user_signed_in?
+  def move_to_sign_in
+    redirect_to new_user_session_path unless user_signed_in?
   end
 end
