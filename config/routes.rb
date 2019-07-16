@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "items#index"
-  resources :items, only: [:index, :show, :new, :create, :edit] do
+  resources :items, only: [:index, :show, :new, :create, :edit, :destroy] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -21,5 +21,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index, :show, :edit]
+  resources :users do
+    member do
+      get 'logout'
+    end
+  end
 
 end

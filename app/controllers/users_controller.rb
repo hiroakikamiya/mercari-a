@@ -6,10 +6,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    
+    @items = Item.where(seller_id: current_user.id)
   end
 
   def edit
-
+    @item = Item.find(params[:id])
   end
+
+  def logout
+    user = current_user.id
+  end
+
 end

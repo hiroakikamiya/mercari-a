@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   has_many :messages
-  has_many :images
+  has_many :images, dependent: :destroy
   belongs_to :category
   belongs_to :status
   belongs_to :delivery_way

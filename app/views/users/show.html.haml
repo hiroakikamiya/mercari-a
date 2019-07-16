@@ -5,23 +5,17 @@
   .right-side
     .mypage-content
       %h3 出品した商品
-      .mypage-content__tab
-        %ul
-          = link_to root_path do
-            .current-deal 出品中
-          = link_to root_path do
-            .past-deal 取引中
-          = link_to root_path do
-            .past-deal 売却済
-      - seller.id == current_user.id
-       - @items.each do |item|
-        %ul.content-list
-          %li
-            = link_to users_edit_path(current_user[:item]) do
-              .item-box
-                = image_tag(item.images[0].image.url)
-                .item-box__text
-                  = item.name
-          
-            
+      %ul
+        = link_to root_path do
+          %li.active 出品中
+        = link_to root_path do
+          %li 取引中
+        = link_to root_path do
+          %li 売却済
+      - @items.each do |item|
+        .item-list
+          = link_to edit_user_path(item.id) do
+            .item-list__image
+              = image_tag(item.images[0].image.url)
+              = item.name
 = render 'shared/footer'

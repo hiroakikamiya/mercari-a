@@ -1,0 +1,23 @@
+.logout-container {
+  width: 700px;
+  height: 180px;
+  background: $white;
+  .logout-box {
+    width: 320px;
+    height: 48px;
+    margin: 0 auto;
+    padding-top: 66px;
+    .logout-box__btn{
+        background: $red;
+        border: 1px solid $red;
+        color: $white;
+        display: block;
+        width: 320px;
+        line-height: 48px;
+        font-size: 14px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        text-align: center;
+    }
+  }
+}
