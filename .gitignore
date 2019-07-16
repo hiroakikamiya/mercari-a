@@ -30,3 +30,4 @@
 config/secrets.yml
 .env.development
 .env.production
+/public/uploads/image
