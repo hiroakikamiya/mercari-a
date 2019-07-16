@@ -11,9 +11,15 @@
   .main-content__pickup
     ピックアップカテゴリー
   .main-content__pickup__title
-    レディース新着アイテム
+    #top-page.ladies
+      = link_to "レディース新着アイテム", root_path
     .main-content__items__field__pickup
-      = render @items
+      = render partial: 'item', collection: @items_ladies, as: :item
+  .main-content__pickup__title
+    #top-page.mens
+      = link_to "メンズ新着アイテム", root_path
+    .main-content__items__field__pickup
+      = render partial: 'item', collection: @items_mens, as: :item
 .under-content
   =image_tag 'undercontent.png'
 = render'shared/footer'
