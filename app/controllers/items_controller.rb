@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
     before_action :parents_set, only: [:new]
-    before_action :seller_set, only: [:new, :edit]
     before_action :move_to_sign_in, except: [:show, :index]
+    before_action :seller_set, only: [:new, :edit]
     before_action :set_item, only: [:show, :edit, :update]
   def index
     @items = Item.all.order("created_at DESC")
