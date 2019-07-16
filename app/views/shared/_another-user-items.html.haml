@@ -1,29 +1,15 @@
-.many-items-box-top
-  .main-content
-    .main-content__pickup__title
-      マイケルジョーダンさんのその他の出品
-    .main-content__items__field
-      .main-content__items__field__pickup__items-box
-        .main-content__items__field__pickup__items-box__photo
-          = image_tag 'item.jpg'
-        .main-content__items__field__pickup__items-box__text
-          .main-content__items__field__pickup__items-box__text__title
-            テスト商品
-          .main-content__items__field__pickup__items-box__text__price
-            ¥1,000
-      .main-content__items__field__pickup__items-box
-        .main-content__items__field__pickup__items-box__photo
-          = image_tag 'item.jpg'
-        .main-content__items__field__pickup__items-box__text
-          .main-content__items__field__pickup__items-box__text__title
-            テスト商品
-          .main-content__items__field__pickup__items-box__text__price
-            ¥1,000
-      .main-content__items__field__pickup__items-box
-        .main-content__items__field__pickup__items-box__photo
-          = image_tag 'item.jpg'
-        .main-content__items__field__pickup__items-box__text
-          .main-content__items__field__pickup__items-box__text__title
-            テスト商品
-          .main-content__items__field__pickup__items-box__text__price
-            ¥1,000
+.main-content__items__field
+  = link_to item_path(item.id) do
+    - if item.buyer_id.present?
+      .soldout-badge
+        .soldout-badge__text
+          SOLD
+    .main-content__items__field__pickup__items-box
+      .main-content__items__field__pickup__items-box__photo
+        = image_tag(item.images[0].image.url)
+      .main-content__items__field__pickup__items-box__text
+        .main-content__items__field__pickup__items-box__text__title
+          = item.name
+        .main-content__items__field__pickup__items-box__text__price
+          ¥
+          = item.price

@@ -27,5 +27,6 @@
 /config/master.key
 
 .DS_Store
-.env
 config/secrets.yml
+.env.development
+.env.production

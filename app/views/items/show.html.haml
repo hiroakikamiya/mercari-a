@@ -5,6 +5,10 @@
       = @item.name
     .box-main__content
       .box-main__content__left
+        - if @item.seller_id && @item.buyer_id.present?
+          .soldout-badge
+            .soldout-badge__text
+              SOLD
         .box-main__content__left__top-img
           = image_tag @item.images[0].image.url
         .box-main__content__left__row-img
@@ -43,22 +47,11 @@
                   = link_to root_path do
                     = fa_icon "angle-right", class: "icon"
                     = @item.category.name
-          .table-main__brand
-            %tr
-              %th ブランド
-              %td
-                .table-main__brand__name
-                  NIKE
-          .table-main__item-status
-            %tr
-              %th 商品のサイズ
-              %td
-                M
           .table-main__item-status
             %tr
               %th 商品の状態
               %td
-                目立った傷汚れなし
+                = @item.status.text
           .table-main__item-status
             %tr	
               %th 配送料の負担
@@ -74,7 +67,8 @@
               %th 配送元地域
               %td
                 .table-main__item-prefecture__text
-                  = @item.prefecture.name
+                  = link_to root_path do
+                    = @item.prefecture.name
           %tr
             .table-main__item-status
               %th 発送日の目安
@@ -86,10 +80,15 @@
         ¥
       %span.price-box__tax     (税込)
       %span.price-box__status  送料込み
-    .buy-button
-      = link_to buy_items_path(@item) do
-        .buy-button__text
-          購入画面に進む
+    - if @item.seller_id && @item.buyer_id.present?
+      .pay-button#soldout
+        .pay-button__text
+          売り切れました
+    - else
+      .pay-button#buy
+        = link_to buy_items_path(@item) do
+          .pay-button__text
+            購入画面に進む
     .edit_btn
       = link_to "編集する", edit_item_path 
     .text-box
@@ -133,8 +132,13 @@
         = fa_icon "twitter-square", class: "icon"
       .icon-box__main__pinterest
         = fa_icon "pinterest-square", class: "icon"
-  = render'shared/another-user-items'
-  = render'shared/another-category-items'
+  .many-items-box-top
+    .main-content
+      .main-content__pickup__title
+        #show
+          = link_to root_path do
+            = @item.seller.nickname + "さんのその他の出品"
+      = render partial: 'shared/another-user-items', collection: @another_items, as: :item
 .under-content
   =image_tag 'undercontent.png'
 = render'shared/footer'
