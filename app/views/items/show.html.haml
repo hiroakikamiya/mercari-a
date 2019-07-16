@@ -43,22 +43,11 @@
                   = link_to root_path do
                     = fa_icon "angle-right", class: "icon"
                     = @item.category.name
-          .table-main__brand
-            %tr
-              %th ブランド
-              %td
-                .table-main__brand__name
-                  NIKE
-          .table-main__item-status
-            %tr
-              %th 商品のサイズ
-              %td
-                M
           .table-main__item-status
             %tr
               %th 商品の状態
               %td
-                目立った傷汚れなし
+                = @item.status.text
           .table-main__item-status
             %tr	
               %th 配送料の負担
@@ -133,8 +122,13 @@
         = fa_icon "twitter-square", class: "icon"
       .icon-box__main__pinterest
         = fa_icon "pinterest-square", class: "icon"
-  = render'shared/another-user-items'
-  = render'shared/another-category-items'
+  .many-items-box-top
+    .main-content
+      .main-content__pickup__title
+        #show
+          = @item.seller.nickname + "さんのその他の出品"
+      = render partial: 'shared/another-user-items', collection: @another_items, as: :item
+  -# = render'shared/another-category-items'
 .under-content
   =image_tag 'undercontent.png'
 = render'shared/footer'
