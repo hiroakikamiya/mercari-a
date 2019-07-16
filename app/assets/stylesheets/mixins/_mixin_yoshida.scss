@@ -51,3 +51,25 @@
     margin: 0;
   }
 }
+// 詳細ページ購入ボタン
+@mixin show-btn() {
+  .pay-button{
+    height: 60px;
+    width: 620px;
+    background-color: $red;
+    margin: 0 auto;
+    margin-top: 15px;
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    &__text{
+      font-size: 24px;
+      font-weight: bold;
+      color: $white;
+      text-align: center;
+      padding-top: 20px;
+    }
+  }
+}

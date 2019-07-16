@@ -1,8 +1,8 @@
 .main-content__items__field
   = link_to item_path(item.id) do
     - if item.buyer_id.present?
-      .main-content__items__field__pickup__items-box__sold
-        .main-content__items__field__pickup__items-box__sold__text
+      .soldout-badge
+        .soldout-badge__text
           SOLD
     .main-content__items__field__pickup__items-box
       .main-content__items__field__pickup__items-box__photo
