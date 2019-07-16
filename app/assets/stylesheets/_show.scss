@@ -125,6 +125,11 @@
   background-color: $red;
   margin: 0 auto;
   margin-top: 15px;
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
   &__text{
     font-size: 24px;
     font-weight: bold;
@@ -247,7 +252,7 @@
   &__main{
     display: flex;
     text-align: center;
-    padding-left: 250px;
+    justify-content: center;
     &__facebook{
       width: 44px;
       height: 44px;
