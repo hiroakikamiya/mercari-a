@@ -15,19 +15,12 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    3.times{@item.images.build}
+    10.times{@item.images.build}
   end 
 
   def create
     @item = Item.new(item_params)
-    if @item.save
-    #   item_params[:images_attributes][:image].each do |image|
-    #   @item.images.create(image: image, item_id: @item.id)
-    #   end
-    # else
-    #   @item.images.build
-    #   redirect_to new_item_path
-    end
+    @item.save
   end
 
   def update
@@ -101,9 +94,6 @@ class ItemsController < ApplicationController
   def seller_set
     @seller = current_user.id
   end
-#   def image_params
-#     params.require(:images).permit({images: []})
-#  end
 
   def parents_set
     @category_parent_array = ["---"]
