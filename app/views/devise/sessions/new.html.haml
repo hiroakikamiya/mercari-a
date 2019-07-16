@@ -16,13 +16,13 @@
           Googleでログイン
           = image_tag "google-icon.svg"
     .container__form
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = form_for(resource, as: resource_name, url: user_session_path) do |f|
         .container__form--email
           = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス"
         .container__form--password
           = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード"
         .container__form--recaptcha
-          -# = recaptcha_tags
+          = recaptcha_tags
         .container__form--session
           = f.submit "ログイン", class: "btn-red"
         .container__form--forgot-password
