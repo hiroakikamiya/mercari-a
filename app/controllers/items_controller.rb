@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
-    before_action :parents_set, only: [:new]
-    before_action :seller_set, only: [:new, :edit]
-    before_action :move_to_index, except: [:show, :index]
+  before_action :parents_set, only: [:new]
+  before_action :seller_set, only: [:new, :edit]
+  before_action :move_to_index, except: [:show, :index]
+  before_action :set_item, only: [:show, :edit, :update]
   def index
     @items = Item.all.order("created_at DESC")
     # @items_ladies = Item.where(category: 7..61).order("id ASC")
@@ -14,20 +15,25 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    2.times{@item.images.build}
   end
 
   def create
-    if Item.create(item_params)
-      redirect_to root_path
+    binding.pry
+    @item = Item.new(item_params)
+    if @item.save
+      # item_params[:images_attributes].each do |image|
+      # @item.images.create(image: image, item_id: @item.id)
+      # end
     else
       redirect_to new_item_path
     end
   end
-  
+
   def edit_category_children
     @edit_children = Category.find(params[:parent_id]).children
   end
-  
+
   def edit_category_grandchildren
     @edit_grandchildren = Category.find(params[:child_id]).children
   end
@@ -68,7 +74,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :explain, :status_id, :delivery_cost_id, :delivery_way_id, :delivery_date_id, :price, :category_id, :prefecture_id, :seller_id)
+    params.require(:item).permit(:name, :explain, :status_id, :delivery_cost_id, :delivery_way_id, :delivery_date_id, :price, :category_id, :prefecture_id, :seller_id, images_attributes: [:image =>[]])
   end
   def seller_set
     @seller = current_user.id

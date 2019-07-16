@@ -12,8 +12,9 @@
                 %label.sell-image 出品画像
                 %span.required 必須
                 %p 最大10枚までアップロードできます
-                .sell-upload-box__image
-                  = f.file_field :image, class: "sell-upload-box__drop"
+                = f.fields_for :images do |img|
+                  = img.label :image, for: "upload-image" do
+                    = img.file_field :image, multiple: true, type: 'file'
               .sell-content
                 .form-group
                   %label 商品名
