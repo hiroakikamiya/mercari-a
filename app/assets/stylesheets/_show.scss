@@ -1,3 +1,4 @@
+@include show-btn();
 .back{
   background-color: $background;
 .box-main{
@@ -118,20 +119,9 @@
     font-size: 16px;
 	}
 }
-
-.buy-button{
-	height: 60px;
-  width: 620px;
-  background-color: $red;
-  margin: 0 auto;
-  margin-top: 15px;
-  &__text{
-    font-size: 24px;
-    font-weight: bold;
-    color: $white;
-    text-align: center;
-    padding-top: 20px;
-  }
+#soldout {
+  background: #888;
+  cursor: not-allowed;
 }
 .text-box{
   width: 620px;
@@ -247,7 +237,7 @@
   &__main{
     display: flex;
     text-align: center;
-    padding-left: 250px;
+    justify-content: center;
     &__facebook{
       width: 44px;
       height: 44px;

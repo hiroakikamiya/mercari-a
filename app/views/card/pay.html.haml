@@ -1,0 +1,15 @@
+= render 'shared/registration-header'
+.center-card
+  .registration-form.fourth-step
+    .registration-form__header
+      会員登録完了
+    .registration-form__input
+      .input-content
+        .input-content__form
+          .input-content__form--terms
+            ありがとうございます。
+            %br 会員登録が完了しました。
+        .input-content__form
+          .btn-red
+            = link_to "メルカリをはじめる", root_path, class: "root-link"
+= render 'shared/sub-footer'

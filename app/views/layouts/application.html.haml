@@ -3,13 +3,13 @@
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title MercariA
+    %script{src: "https://js.pay.jp/", type: "text/javascript"}
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %link{href: "http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600", rel: "stylesheet", type: "text/css"}/
     %link{ rel: "stylesheet", type: "text/css", href: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"}
-    = javascript_include_tag 'application', data: { turbolinks: { track: true }}
     %script{ type: "text/javascript", src: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"}
 
   %body

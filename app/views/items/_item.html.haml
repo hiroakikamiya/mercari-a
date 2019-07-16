@@ -1,6 +1,10 @@
 - if item.seller_id.present?
   .main-content__items__field__pickup__items-box
     = link_to item_path(item.id) do
+      - if item.buyer_id.present?
+        .soldout-badge
+          .soldout-badge__text
+            SOLD
       .main-content__items__field__pickup__items-box__photo
         = image_tag(item.images[0].image.url)
       .main-content__items__field__pickup__items-box__text
