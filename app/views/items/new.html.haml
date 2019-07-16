@@ -14,8 +14,6 @@
                 %p 最大10枚までアップロードできます
                 = f.fields_for :images do |i|
                   = i.file_field :image
-                -# = f.fields_for :images do |i|
-                -#   = i.file_field :image
               .sell-content
                 .form-group
                   %label 商品名
