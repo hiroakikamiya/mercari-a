@@ -60,15 +60,27 @@
       font-size: 22px;
       font-weight: bold;
       color: $blue;
-      padding-top: 35px;
       text-align: center;
+      #top-page {
+        margin: 26px 11px;
+        a {
+          @include bright-Uline-hover();
+          &:hover {
+            color: $blue;
+          }
+        }
+      }
+      #show {
+        margin: 24px 0 8px 0;
+        text-align: left;
+      }
     }
   }
   
   &__items__field{
-    display: flex;
-    margin: 0 auto;
-    height: 330px;
+    display: inline-block;
+    margin: 0 20px 20px 0;
+    @include text-decoration-none-hover();
     &__pickup {
       width: 940px;
       margin: 0 auto;
@@ -77,12 +89,7 @@
       justify-content: space-evenly;
       &__items-box{
         width: 215px;
-        height: 330px;
-        margin: 20px 0 20px 0;
-        a {
-          text-decoration: none;
-          color: $black;
-        }
+        @include text-decoration-none-hover();
         &__photo{
           height: 213px;
           img{
@@ -120,21 +127,13 @@
   }
 }
 .main-content__items__field__pickup__items-box__sold{
-  width: 100px;
-  height: 100px;
-  z-index: 10000;
   position: absolute;
-  border-color: #ea352d transparent transparent transparent;
-  border-width: 65px 65px 0 0;
+  border-color: #ea352d transparent;
   border-width: 100px 100px 0 0;
-  display: block;
   border-style: solid;
   &__text{
     position: absolute;
-    left: 0;
-    z-index: 2;
-    color: #fff;
-    -webkit-transform: rotate(-45deg);
+    color: $white;
     transform: rotate(-45deg);
     letter-spacing: 2px;
     font-weight: 600;
