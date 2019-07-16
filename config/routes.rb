@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'card/new'
+  get 'card/show'
   root "items#index"
   resources :items, only: [:index, :show, :new, :create, :edit, :update] do
     collection do
@@ -24,6 +26,13 @@ Rails.application.routes.draw do
   get "user/phone_number", :to => "users/registrations#phone_number"
   get "user/address", :to => "users/registrations#address"
   get "user/card", :to => "users/registrations#card"
+  end
+
+  resources :card, only: [:new, :show] do
+    collection do
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
   end
 
 end
