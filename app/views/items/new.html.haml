@@ -4,27 +4,16 @@
     .single-container__wrapper
       .sell-container
         .sell-container-inner
-          .sell-contents#new_item
+          .sell-contents
             .sell-contents__title 商品の情報を入力
             .sell-contents__form
-            = form_for @item,html: { id: :form_id} do |f|
+            = form_for @item do |f|
               .sell-upload-box
                 %label.sell-image 出品画像
                 %span.required 必須
                 %p 最大10枚までアップロードできます
-              .sell-upload-box__image
-                -# = f.fields_for :images do |image|
-                -#   .dropzone-container.clearfix
-                -#     #preview
-                -#     .dropzone-area
-                -#       = image.label :image, class: "dropzone-box", for: "upload-image" do
-                -#         .input_area
-                -#           = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
-                -#         %p ここをクリックしてください
-                -#       #preview2
-                -#       .dropzone-area2
-                -#         = image.label :image, class: "dropzone-box", for: "upload-image" do
-                -#           %p ここをクリックしてください
+                = f.fields_for :images do |i|
+                  = i.file_field :image
               .sell-content
                 .form-group
                   %label 商品名

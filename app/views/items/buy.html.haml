@@ -6,13 +6,12 @@
   .buy-content__main
     .buy-content__main__top
       .buy-content__main__top__img
-        = image_tag @item.images[0].image.url
+        =image_tag @item.images[0].image.url
       .buy-content__main__top__text
-        = @item.name
+        エアジョーダンスニーカー
     .buy-content__main__price
       .buy-content__main__price__text
-        = @item.price
-        ¥
+        6800¥
       .buy-content__main__price__tax
         送料込み  
     .buy-content__main__button
@@ -22,10 +21,10 @@
       .buy-content__main__buy-price__title
         支払い金額
       .buy-content__main__buy-price__number
-        = @item.price
-        ¥
-    = form_for @buyed_item, url: update_items_path(@buyed_item),html: {method: "patch"} do |f|
-      = f.submit class:"buy-content__main__buy-button", value: "購入する"
+        6800¥
+    .buy-content__main__buy-button
+      .buy-content__main__buy-button__text
+        購入する
   .buy-content__middle
     .buy-content__middle__adless
       .buy-content__middle__adless__title

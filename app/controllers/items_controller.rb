@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
     before_action :parents_set, only: [:new]
+    before_action :move_to_sign_in, except: [:show, :index]
     before_action :seller_set, only: [:new, :edit]
-    before_action :move_to_index, except: [:show, :index]
     before_action :set_item, only: [:show, :edit, :update]
   def index
     @items = Item.all.order("created_at DESC")
@@ -15,24 +15,36 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-  end
+    10.times{@item.images.build}
+  end 
 
   def create
-    @item = Item.create(item_params)
-    if @item.save && new_image_params[:images][0] != " "
-      new_image_params[:images].each do |image|
-        @item.images.create(image: image, item_id: @item.id)
-      end
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
     else
-      @item.images.build
-      redirect_to new_item_path
+      render :new
     end
   end
-  
+
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def edit
+  end
+
+  def show
+  end
+
   def edit_category_children
     @edit_children = Category.find(params[:parent_id]).children
   end
-  
+
   def edit_category_grandchildren
     @edit_grandchildren = Category.find(params[:child_id]).children
   end
@@ -81,17 +93,11 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :explain, :status_id, :delivery_cost_id, :delivery_way_id, :delivery_date_id, :price, :category_id, :prefecture_id, :seller_id)
+    params.require(:item).permit(:name, :explain, :status_id, :delivery_cost_id, :delivery_way_id, :delivery_date_id, :price, :category_id, :prefecture_id, :seller_id, images_attributes:[:image])
   end
   def seller_set
     @seller = current_user.id
   end
-  # def buy_params
-  #   params.require(:item).permit(:buyer_id).merge(params[:buyer_id])
-  # end
-  def image_params
-    params.require(:images).permit({images: []})
- end
 
   def parents_set
     @category_parent_array = ["---"]
@@ -102,7 +108,7 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-  def move_to_index
-    redirect_to user_path unless user_signed_in?
+  def move_to_sign_in
+    redirect_to new_user_session_path unless user_signed_in?
   end
 end
