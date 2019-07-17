@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
     before_action :parents_set, only: [:new]
     before_action :move_to_sign_in, except: [:show, :index]
     before_action :seller_set, only: [:new, :edit]
-    before_action :set_item, only: [:show, :edit, :update]
+    before_action :set_item, only: [:show, :edit, :update, :destroy]
   def index
     @items = Item.all.order("created_at DESC")
     @items_ladies = Item.where(category: 7..61).order("id ASC")
@@ -91,7 +91,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
     if @item.seller_id == current_user.id
       @item.destroy
     end

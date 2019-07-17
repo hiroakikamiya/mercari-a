@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def index
-    users = current_user.id
     @nickname = current_user.nickname
   end
 

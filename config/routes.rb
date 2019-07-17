@@ -32,11 +32,12 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get 'logout'
+    end
+  end
   resources :card, only: [:new, :show] do
     collection do
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
     end
   end
-
 end
