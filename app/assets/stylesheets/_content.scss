@@ -82,7 +82,7 @@
     margin: 0 20px 20px 0;
     @include text-decoration-none-hover();
     &__pickup {
-      width: 940px;
+      width: calc(100% - 400px);
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
@@ -92,9 +92,13 @@
         @include text-decoration-none-hover();
         &__photo{
           height: 213px;
+          background-color: $box-background;  
+          line-height: 213px;
+          text-align: center;
           img{
-            width: 213px;
             height: 213px;
+            width: 215px;
+            object-fit: cover;
           }
         }
         &__text{
@@ -125,6 +129,9 @@
     width: 100%;
     height: 260px;
   }
+}
+.link_item{
+  
 }
 .soldout-badge{
   position: absolute;

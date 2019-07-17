@@ -11,6 +11,7 @@ Item.create(
       status_id: 1,
       price: 1000,
       buyer_id: 1,
+      seller_id: 3,
     },
     {
       name: "bbbb",
@@ -22,7 +23,6 @@ Item.create(
       prefecture_id: 2,
       status_id: 2,
       price: 2000,
-      buyer_id: 2,
       seller_id: 1,
     },
     {
@@ -64,7 +64,7 @@ Item.create(
     {
       name: "ffff",
       explain: "fffffffff",
-      category_id: 46,
+      category_id: 75,
       delivery_cost_id: 2,
       delivery_date_id: 3,
       delivery_way_id: 6,
@@ -77,7 +77,7 @@ Item.create(
     {
       name: "gggg",
       explain: "ggggggggg",
-      category_id: 46,
+      category_id: 76,
       delivery_cost_id: 1,
       delivery_date_id: 1,
       delivery_way_id: 7,
@@ -90,7 +90,7 @@ Item.create(
     {
       name: "hhhh",
       explain: "hhhhhhhhh",
-      category_id: 47,
+      category_id: 77,
       delivery_cost_id: 2,
       delivery_date_id: 3,
       delivery_way_id: 8,
@@ -102,7 +102,7 @@ Item.create(
     {
       name: "iiii",
       explain: "iiiiiiiii",
-      category_id: 48,
+      category_id: 78,
       delivery_cost_id: 1,
       delivery_date_id: 3,
       delivery_way_id: 3,
@@ -114,7 +114,7 @@ Item.create(
     {
       name: "jjjj",
       explain: "jjjjjjjjj",
-      category_id: 49,
+      category_id: 79,
       delivery_cost_id: 1,
       delivery_date_id: 2,
       delivery_way_id: 4,
