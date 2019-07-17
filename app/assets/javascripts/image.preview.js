@@ -5,8 +5,8 @@ $(function(){
     $(".image-form__hidden").css('display', 'block');
   });
 });
-$(function () {
-  $(".sell-upload-box__change").on("click", function () {
-      $("#image-form").val();
-  });
-});
+// $(function () {
+//   $(".sell-upload-box__change").on("click", function () {
+//       $("#image-form").val();
+//   });
+// });

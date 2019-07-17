@@ -29,7 +29,8 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @img = @item.images
+    # @img = @item.images
+    # # @img.build
     # @count = @item.images.length
     # (image_count - @count).times{@item.images.build}
   end

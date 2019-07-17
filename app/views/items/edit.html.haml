@@ -18,9 +18,8 @@
                     = image_tag i.image.url
               .sell-upload-box__change 画像を変更する
               .image-form__hidden
-                = f.fields_for :images, @img do |img|
-                  = img.label :image, for: "image-form" do
-                    = img.file_field :image, id:"image-form"
+                = f.fields_for :images, @item.images do |img|
+                  = img.file_field :image, type: "file", class:"image-form"
               .sell-content
                 .form-group
                   %label 商品名
