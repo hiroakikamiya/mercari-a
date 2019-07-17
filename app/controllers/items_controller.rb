@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
     before_action :parents_set, only: [:new]
     before_action :move_to_sign_in, except: [:show, :index]
     before_action :seller_set, only: [:new, :edit]
-    before_action :set_item, only: [:show, :edit, :update]
+    before_action :set_item, only: [:show, :edit, :update, :destroy,:pay,:payed]
   def index
     @parents = Category.where(ancestry: nil)
     # @parents.each do |parent|
@@ -67,6 +67,29 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id]) 
     @buyed_item = Item.find(params[:id])
     @buyer_id = current_user.id
+    card = Card.where(user_id: current_user.id).first
+
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    customer = Payjp::Customer.retrieve(card.customer_id)
+    @default_card_information = customer.cards.retrieve(card.card_id)
+  end
+
+  def pay
+    @buyed_item = Item.find(params[:id])
+    @buyer_id = current_user.id
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp::Charge.create(
+    :amount => @item.price, 
+    :customer => card.customer_id, 
+    :currency => 'jpy', 
+  ) 
+  redirect_to payed_items_path
+  end
+
+  def payed
+    @buyed_item = Item.find(params[:id])
+    card = Card.where(user_id: current_user.id).first
   end
 
   def buy_update
@@ -86,6 +109,13 @@ class ItemsController < ApplicationController
 
   def show
     @another_items = Item.where(seller_id: @item.seller_id).where.not(id: @item.id)
+  end
+
+  def destroy
+    if @item.seller_id == current_user.id
+      @item.destroy
+    end
+    redirect_to root_path
   end
 
   private

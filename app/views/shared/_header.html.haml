@@ -27,7 +27,7 @@
             = link_to "やることリスト", root_path, class: "header_link"
           %li.mypage-modal
             = fa_icon "user", class: "fas fa-user"
-            = link_to "マイページ", root_path, class: "header_link"
+            = link_to "マイページ", users_path, class: "header_link"
             = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "user_sign_in__link"
       .header__row__mypage
         .header__row__mypage__box
@@ -37,7 +37,7 @@
           .header__row__mypage__box__middle
             .header__row__mypage__box__middle__name
               .header__row__mypage__box__middle__name__text
-                橋川　ブリオ
+                = current_user.nickname
             .header__row__mypage__box__middle__user-menu
               .header__row__mypage__box__middle__user-menu__left
                 評価：０
