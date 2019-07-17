@@ -27,8 +27,6 @@
       .buy-content__main__buy-price__button
         = form_tag(action: :pay, method: :post) do
           %button 購入する
-    -# = form_for @buyed_item, url: update_items_path(@buyed_item),html: {method: "patch"} do |f|
-    -#   = f.submit class:"buy-content__main__buy-button", value: "購入する"
   .buy-content__middle
     .buy-content__middle__adless
       .buy-content__middle__adless__title

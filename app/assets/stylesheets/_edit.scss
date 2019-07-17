@@ -74,7 +74,6 @@
         width: 320px;
         height: 60px;
         margin: 0 auto;
-        // padding-left: 50px;
         display: flex;
         align-items: center;
         &__title{
@@ -107,17 +106,6 @@
             border: 0px;
           }
         }
-        // button{
-        //   background: #aaa;
-        //   color: $white;
-        //   position: absolute;
-        //   width: 320px;
-        //   height: 48px;
-        //   line-height: 48px;
-        //   font-size: 14px;
-        //   border: 1px solid transparent;
-        //   text-align: center;
-        // }    
       }
       &__buy-button{
         width: 320px;

@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
     before_action :parents_set, only: [:new]
     before_action :move_to_sign_in, except: [:show, :index]
     before_action :seller_set, only: [:new, :edit]
-    before_action :set_item, only: [:show, :edit, :update, :destroy]
+    before_action :set_item, only: [:show, :edit, :update, :destroy,:pay,:payed]
   def index
     @items = Item.all.order("created_at DESC")
     @items_ladies = Item.where(category: 7..61).order("id ASC")
@@ -77,7 +77,6 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    @item = Item.find(params[:id]) 
     @buyed_item = Item.find(params[:id])
     @buyer_id = current_user.id
     card = Card.where(user_id: current_user.id).first
@@ -91,9 +90,7 @@ class ItemsController < ApplicationController
   end
 
   def payed
-    @item = Item.find(params[:id]) 
     @buyed_item = Item.find(params[:id])
-    @buyer_id = current_user.id
     card = Card.where(user_id: current_user.id).first
   end
 
