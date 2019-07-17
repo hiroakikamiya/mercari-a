@@ -1,3 +1,4 @@
+= render 'shared/header'
 .mypage
   .left-side
     = render 'shared/mypage-side-nav'
@@ -7,7 +8,8 @@
       .mypage-user__icon
         = link_to root_path do
           = image_tag "cat.jpeg"
-          .mypage-user__icon--name よしだじゅんき
+          .mypage-user__icon--name
+            = current_user.nickname
           .mypage-user__icon--number
             評価 37 出品数 27
     .mypage-tab
@@ -75,3 +77,4 @@
           %ul.mypage-item-list
             .mypage-item-not-found
               過去取引した商品がありません
+= render 'shared/footer'

@@ -92,6 +92,7 @@
         @include text-decoration-none-hover();
         &__photo{
           height: 213px;
+          background: $white;
           img{
             width: 213px;
             height: 213px;
@@ -101,7 +102,8 @@
           background-color: $white;
           margin-top: 0px;
           width: 213px;
-          height: 110px;
+          height: 100px;
+          margin-bottom: 25px;
           text-align: left;
             &__title{
               font-size: 16px;

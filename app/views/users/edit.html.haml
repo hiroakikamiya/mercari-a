@@ -1,0 +1,223 @@
+- breadcrumb :items_show
+= render 'shared/header'
+= render 'shared/breadcrumbs'
+.back{style: 'height: auto;'}
+  .box-main{style: 'margin-left: 528px; height: auto;'}
+    .box-main__name
+      = @item.name
+    .box-main__content
+      .box-main__content__left
+        .box-main__content__left__top-img
+          = image_tag @item.images[0].image.url
+        .box-main__content__left__row-img
+          - @item.images.each do |image|
+            = image_tag image.image.url
+      .box-main__content__right
+        %table
+          .table-main__buyer
+            %th 出品者
+            %td
+              .table-main__buyer__name
+                = link_to root_path do
+                  = @item.seller.nickname
+              .table-main__buyer__review
+                .good
+                  = fa_icon "smile-o", class: "icon"
+                156
+                .normal
+                  = fa_icon "meh-o", class: "icon"
+                18
+                .bad
+                  = fa_icon "frown-o", class: "icon"
+                2
+          .table-main__category
+            %tr
+              %th カテゴリー
+              %td
+                .table-main__category__parent
+                  = link_to root_path do
+                    = @item.category.root.name
+                .table-main__category__children
+                  = link_to root_path do
+                    = fa_icon "angle-right", class: "icon"
+                    = @item.category.parent.name
+                .table-main__category__grandchild
+                  = link_to root_path do
+                    = fa_icon "angle-right", class: "icon"
+                    = @item.category.name
+          .table-main__brand
+            %tr
+              %th ブランド
+              %td
+                .table-main__brand__name
+                  NIKE
+          .table-main__item-status
+            %tr
+              %th 商品のサイズ
+              %td
+                M
+          .table-main__item-status
+            %tr
+              %th 商品の状態
+              %td
+                目立った傷汚れなし
+          .table-main__item-status
+            %tr	
+              %th 配送料の負担
+              %td
+                = @item.delivery_cost.cost
+          .table-main__item-status
+            %tr 
+              %th 配送の方法
+              %td
+                = @item.delivery_way.way
+          .table-main__item-prefecture
+            %tr
+              %th 配送元地域
+              %td
+                .table-main__item-prefecture__text
+                  = @item.prefecture.name
+          %tr
+            .table-main__item-status
+              %th 発送日の目安
+              %td
+                = @item.delivery_date.date
+    .price-box
+      %span.price-box__price
+        = @item.price
+      %span.price-box__tax     (税込)
+      %span.price-box__status  送料込み
+    .text-box
+      = simple_format(@item.explain)
+  .edit-box
+    %button.button-red
+      .edit-box__text
+        商品の編集
+    %p or
+    %button
+      .edit-box__text
+        出品を一時停止する
+    %button#openModal
+      商品の削除
+    %secton#modalArea.modalArea
+      #modalBg.modalBg
+        .modal-box
+          .modal-head
+            .modal-head__text
+              確認
+          .modal-body2 
+            .modal-body2__text
+              削除すると二度と復活できません。
+              %br
+              削除する代わりに停止することもできます。
+              %br
+              %br
+              本当に削除しますか？
+            %ul
+              %li
+                = link_to '削除', "/items/#{@item.id}", method: :delete
+              %li#closeModal
+                キャンセル
+  .comment-box.box{style: 'margin-left: 528px; margin-bottom: 50px;'}
+    .comment-box__top
+      .comment-box__top__text
+        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .comment-box__center
+    .comment-box__button
+      .comment-box__button__text
+        コメントする
+%footer.main-footer
+  .footer__top
+    .footer__top__left
+      %h2 メルカリについて
+      %ul
+        %li
+          = link_to root_path do
+            会社概要（運営会社）
+        %li
+          = link_to root_path do
+            採用情報
+        %li
+          = link_to root_path do
+            プレスリリース
+        %li
+          = link_to root_path do
+            公式ブログ
+        %li
+          = link_to root_path do
+            メルカリロゴ利用ガイドライン
+      .footer__top__left__icons
+        = fa_icon "twitter", class: "fab fa-twitter"
+        = fa_icon "facebook-square", class: "fab fa-facebook-square"
+    .footer__top__middle-left
+      %h2 ヘルプ&ガイド
+      %ul
+        %li
+          = link_to root_path do
+            メルカリガイド
+        %li
+          = link_to root_path do
+            らくらくメルカリ便
+        %li
+          = link_to root_path do
+            ゆうゆうメルカリ便
+        %li
+          = link_to root_path do
+            大型メルカリ便
+        %li
+          = link_to root_path do
+            車体取引ガイド
+        %li
+          = link_to root_path do
+            メルカリあんしん・あんぜん宣言！
+        %li
+          = link_to root_path do
+            偽ブランド品撲滅への取り組み
+        %li
+          = link_to root_path do
+            メルカリボックス
+    .footer__top__middle-right
+      %h2 プライバシーと利用規約
+      %ul
+        %li
+          = link_to root_path do
+            プライバシーポリシー
+        %li
+          = link_to root_path do
+            メルカリ利用規約
+        %li
+          = link_to root_path do
+            あんしんスマホサポート制度に関する利用特約
+        %li
+          = link_to root_path do
+            コンプライアンスポリシー
+    .footer__top__right
+      %ul
+        %li
+          = link_to root_path do
+            個人データの安全管理に係る基本方針
+        %li
+          = link_to root_path do
+            特定商取引に関する表記
+        %li
+          = link_to root_path do
+            資金決済法に基づく表示
+        %li
+          = link_to root_path do
+            法令遵守と犯罪抑止のために
+        %li
+          = link_to root_path do
+            返品・返金ポリシー
+    .footer__top__country
+      %h2 国
+      %ul
+        %li
+          = link_to root_path do
+            日本
+        %li
+          = link_to root_path do
+            UnitedStatus
+  .footer-row
+    = image_tag 'logo-gray.svg'
+    .footer-row__logo
+    © 2019 Mercari
