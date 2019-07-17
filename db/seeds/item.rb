@@ -3,7 +3,7 @@ Item.create(
     {
       name: "aaaa",
       explain: "aaaaaaaaa",
-      category_id: 18,
+      category_id: 22,
       delivery_cost_id: 1,
       delivery_date_id: 1,
       delivery_way_id: 1,
@@ -16,7 +16,7 @@ Item.create(
     {
       name: "bbbb",
       explain: "bbbbbbbbb",
-      category_id: 18,
+      category_id: 23,
       delivery_cost_id: 2,
       delivery_date_id: 2,
       delivery_way_id: 2,
@@ -28,7 +28,7 @@ Item.create(
     {
       name: "cccc",
       explain: "ccccccccc",
-      category_id: 19,
+      category_id: 24,
       delivery_cost_id: 1,
       delivery_date_id: 3,
       delivery_way_id: 3,
@@ -40,7 +40,7 @@ Item.create(
     {
       name: "dddd",
       explain: "ddddddddd",
-      category_id: 20,
+      category_id: 25,
       delivery_cost_id: 2,
       delivery_date_id: 1,
       delivery_way_id: 4,
@@ -52,7 +52,7 @@ Item.create(
     {
       name: "eeee",
       explain: "eeeeeeeee",
-      category_id: 21,
+      category_id: 26,
       delivery_cost_id: 2,
       delivery_date_id: 2,
       delivery_way_id: 5,
@@ -64,7 +64,7 @@ Item.create(
     {
       name: "ffff",
       explain: "fffffffff",
-      category_id: 75,
+      category_id: 100,
       delivery_cost_id: 2,
       delivery_date_id: 3,
       delivery_way_id: 6,
@@ -77,7 +77,7 @@ Item.create(
     {
       name: "gggg",
       explain: "ggggggggg",
-      category_id: 76,
+      category_id: 101,
       delivery_cost_id: 1,
       delivery_date_id: 1,
       delivery_way_id: 7,
@@ -90,7 +90,7 @@ Item.create(
     {
       name: "hhhh",
       explain: "hhhhhhhhh",
-      category_id: 77,
+      category_id: 102,
       delivery_cost_id: 2,
       delivery_date_id: 3,
       delivery_way_id: 8,
@@ -102,7 +102,7 @@ Item.create(
     {
       name: "iiii",
       explain: "iiiiiiiii",
-      category_id: 78,
+      category_id: 103,
       delivery_cost_id: 1,
       delivery_date_id: 3,
       delivery_way_id: 3,
@@ -114,7 +114,7 @@ Item.create(
     {
       name: "jjjj",
       explain: "jjjjjjjjj",
-      category_id: 79,
+      category_id: 104,
       delivery_cost_id: 1,
       delivery_date_id: 2,
       delivery_way_id: 4,
