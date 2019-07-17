@@ -1,0 +1,43 @@
+.right-side {
+  float: right;
+  width: 700px;
+  .mypage-content {
+    margin: 0;
+    background-color: $white;
+    font-size: 16px;
+    h3 {
+      font-size: 16px;
+      padding: 0 16px;
+      line-height: 72px;
+      margin: 0;
+    }
+    ul {
+      display: flex;
+      background: #eee;
+      height: 74px;
+      margin: 0;
+      a {
+        width: 33.3%;
+        text-decoration: none;
+        color: black;
+      }
+      li {
+        text-align: center;
+        line-height: 5;
+        @include bright-hover();
+      }
+      .active {
+        border-top: 2px solid #ea352d;
+        background-color: #fff
+      }
+    }
+    .item-list__image {
+      @include bright-hover();
+      padding: 15px;
+      img {
+      width: 55px;
+      height: 55px;
+      }
+    }
+  }
+}
