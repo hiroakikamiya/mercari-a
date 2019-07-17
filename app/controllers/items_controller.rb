@@ -69,6 +69,32 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id]) 
     @buyed_item = Item.find(params[:id])
     @buyer_id = current_user.id
+    card = Card.where(user_id: current_user.id).first
+
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    customer = Payjp::Customer.retrieve(card.customer_id)
+    @default_card_information = customer.cards.retrieve(card.card_id)
+  end
+
+  def pay
+    @item = Item.find(params[:id]) 
+    @buyed_item = Item.find(params[:id])
+    @buyer_id = current_user.id
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp::Charge.create(
+    :amount => @item.price, 
+    :customer => card.customer_id, 
+    :currency => 'jpy', 
+  ) 
+  redirect_to payed_items_path
+  end
+
+  def payed
+    @item = Item.find(params[:id]) 
+    @buyed_item = Item.find(params[:id])
+    @buyer_id = current_user.id
+    card = Card.where(user_id: current_user.id).first
   end
 
   def buy_update
