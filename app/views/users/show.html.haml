@@ -1,0 +1,21 @@
+= render 'shared/header'
+.mypage
+  .left-side
+    = render 'shared/mypage-side-nav'
+  .right-side
+    .mypage-content
+      %h3 出品した商品
+      %ul
+        = link_to root_path do
+          %li.active 出品中
+        = link_to root_path do
+          %li 取引中
+        = link_to root_path do
+          %li 売却済
+      - @items.each do |item|
+        .item-list
+          = link_to edit_user_path(item.id) do
+            .item-list__image
+              = image_tag(item.images[0].image.url)
+              = item.name
+= render 'shared/footer'
