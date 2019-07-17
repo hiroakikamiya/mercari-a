@@ -6,6 +6,7 @@ $(function(){
 
 	$(function() {
 		$('.main-content__items__field__pickup__items-box').mouseover(function() {
+			$('.category-select__wrapper').hide();
 			$('.main-content__items__field__pickup__items-box__sold').css('display', 'block');
 		});
 	});

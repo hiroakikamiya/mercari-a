@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
     before_action :move_to_sign_in, except: [:show, :index]
     before_action :seller_set, only: [:new, :edit]
     before_action :set_item, only: [:show, :edit, :update]
+    before_action :image_count, only: [:new, :edit]
   def index
     @items = Item.all.order("created_at DESC")
     @items_ladies = Item.where(category: 7..61).order("id ASC")
@@ -15,7 +16,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    10.times{@item.images.build}
+    image_count.times{@item.images.build}
   end 
 
   def create
@@ -27,15 +28,18 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @img = @item.images
+    # @count = @item.images.length
+    # (image_count - @count).times{@item.images.build}
+  end
+
   def update
     if @item.update(item_params)
       redirect_to root_path
     else
       render :edit
     end
-  end
-
-  def edit
   end
 
   def show
@@ -78,14 +82,6 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
-  def update
-    if @item.update(item_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
-  end
-
   def show
     @another_items = Item.where(seller_id: @item.seller_id).where.not(id: @item.id)
   end
@@ -110,5 +106,8 @@ class ItemsController < ApplicationController
   end
   def move_to_sign_in
     redirect_to new_user_session_path unless user_signed_in?
+  end
+  def image_count
+    image_count = 5
   end
 end

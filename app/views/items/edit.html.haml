@@ -4,18 +4,23 @@
     .single-container__wrapper
       .sell-container
         .sell-container-inner
-          .sell-contents
+          .sell-contents#new_item
             .sell-contents__title 商品の情報を入力
             .sell-contents__form
-            = form_for @item do |f|
+            = form_for @item, url: item_path, method: :patch do |f|
               .sell-upload-box
                 %label.sell-image 出品画像
                 %span.required 必須
-                %p 最大5枚までアップロードできます
-                #item-images
-                  = f.fields_for :images do |img|
-                    = img.label :image, for: "image-form" do
-                      = img.file_field :image, id:"image-form"
+                %p 最大10枚までアップロードできます
+                #image-preview
+                .sell-upload-box__preview
+                  - @item.images.each do |i|
+                    = image_tag i.image.url
+              .sell-upload-box__change 画像を変更する
+              .image-form__hidden
+                = f.fields_for :images, @img do |img|
+                  = img.label :image, for: "image-form" do
+                    = img.file_field :image, id:"image-form"
               .sell-content
                 .form-group
                   %label 商品名
@@ -32,15 +37,23 @@
                   .form-group
                     %label カテゴリー
                     %span.required 必須
-                    = f.select :id, @category_parent_array, {}, {class: 'category-select__box', id: 'parent-form'}
-                    #child-form
-                    #grandchild-form
-                    = f.hidden_field :category_id,class:'form_id' ,type:'form'
+                    .category-select__wrapper
+                      = fa_icon "chevron-down", class: "arrow_icon"
+                      .category-select__fake= @item.category.root.name
+                    .category-select__wrapper
+                      = fa_icon "chevron-down", class: "arrow_icon"
+                      .category-select__fake=  @item.category.parent.name
+                    = f.collection_select :id, @item.category.root.siblings, :id, :name, {include_blank: '---'}, class: 'category-select__box', id: 'parent-edit'
+                    = f.collection_select :id, @item.category.parent.siblings, :id, :name, {include_blank: '---'}, class: 'category-select__box', id: 'child-edit'
+                    = f.collection_select :category_id, @item.category.siblings, :id, :name, {}, class: 'category-select__box', id: 'grand-edit'
+                    = f.number_field :category_id,class:'form_edit_category' ,type:'form'
+                    #child-new
+                    #grandchild-new
                     = f.number_field :seller_id, value: @seller,class:'seller_form', type:'form'
                   .form-group-under
                     %label 商品の状態
                     %span.required 必須
-                    = f.collection_select :status_id, Status.all, :id, :text, {prompt: "---"} , class: 'category-select__box'
+                    = f.collection_select :status_id, Status.all, :id, :text, {prompt: "---"},class: 'category-select__box' 
               .sell-content--delivery
                 %h3 配送について
                 = fa_icon "question-circle", class: "icon"
@@ -90,11 +103,11 @@
                       .modal-content
                         .modal-header
                           .modal-header__text
-                            出品が完了しました
+                            変更が完了しました
                           %h4.modal-title 
                         .modal-body 
                           .modal-body__text
-                            あなたが出品した商品は「出品した用品一覧」からいつでも見ることができます。
+                            あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
                           .modal-body__button
                             = f.submit class:"btn-red"
                           .modal-body__bottom_text
