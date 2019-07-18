@@ -1,10 +1,28 @@
 = render 'items/sub-header'
-.payed-message
-	.payed-message__top
-		ThankYou！
-	.payed-message__bottom
-		購入が完了しました！
-	.payed-message__button
-		-# = form_for @buyed_item, url: update_items_path(@buyed_item),html: {method: "patch"} do |f|
-		-# 	= f.submit class:"buy-content__main__buy-button", value: "トップへ戻る"
+.buy-content
+  .buy-content__title
+    .buy-content__title__text__buyed
+      購入が完了しました！
+  .buy-content__main
+    .buy-content__main__top
+      .buy-content__main__top__img
+        = image_tag @item.images[0].image.url
+      .buy-content__main__top__text
+        = @item.name
+    .buy-content__main__price
+      .buy-content__main__price__text
+        ¥
+        = @item.price
+      .buy-content__main__price__tax
+        送料込み  
+    .buy-content__main__buy-price
+      .buy-content__main__buy-price__title
+        支払い金額
+      .buy-content__main__buy-price__number
+        ¥
+        = @item.price
+    .buy-content__main__button__top
+      .buy-content__main__button__top__text
+        = link_to root_path do
+          トップページへ戻る
 = render 'items/sub-footer'
