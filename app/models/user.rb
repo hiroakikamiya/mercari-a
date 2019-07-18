@@ -10,4 +10,11 @@ class User < ApplicationRecord
   has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
   has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
   has_one  :card
+
+  validates :email, presence: true, uniqueness: true
+  validates :name_kanji, presence: true
+  validates :name_kana, presence: true
+  validates :nickname, presence: true
+  validates :birthday, presence: true
+  validates :phone_number, presence: true, uniqueness: true
 end
