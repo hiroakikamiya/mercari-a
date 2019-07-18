@@ -12,7 +12,7 @@
     ピックアップカテゴリー
   - @parents.each do |parent|
     .main-content__pickup__title
-      - category = Category.where('ancestry LIKE(?)', "%#{parent.id}/%")
+      - category = Category.where('ancestry LIKE(?)', "#{parent.id}/%")
       #top-page.ladies
         - if Item.exists?(category_id: category.first.id..category.last.id)
           = link_to "#{parent.name}新着アイテム", root_path
