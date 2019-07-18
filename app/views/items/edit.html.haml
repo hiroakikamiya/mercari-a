@@ -20,6 +20,7 @@
               .image-form__hidden
                 = f.fields_for :images, @item.images do |img|
                   = img.file_field :image, type: "file", class:"image-form"
+                  -# = link_to '削除',img.object, method: :delete, data: { confirm: "写真を削除します"}
               .sell-content
                 .form-group
                   %label 商品名
