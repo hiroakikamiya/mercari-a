@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
     before_action :set_item, only: [:show, :edit, :update]
     before_action :image_count, only: [:new, :edit]
   def index
+    @parents =  Category.where(ancestry: nil)
     @items = Item.all.order("created_at DESC")
     @items_ladies = Item.where(category: 7..61).order("id ASC")
     @items_mens = Item.where(category: 75..108).order("id ASC")
@@ -29,10 +30,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    # @img = @item.images
-    # # @img.build
-    # @count = @item.images.length
-    # (image_count - @count).times{@item.images.build}
+    @item_index = Item.find(params[:id])
+    @count = @item.images.length
+    (image_count - @count).times{@item.images.build}
   end
 
   def update
@@ -120,7 +120,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :explain, :status_id, :delivery_cost_id, :delivery_way_id, :delivery_date_id, :price, :category_id, :prefecture_id, :seller_id, images_attributes:[:image])
+    params.require(:item).permit(:name, :explain, :status_id, :delivery_cost_id, :delivery_way_id, :delivery_date_id, :price, :category_id, :prefecture_id, :seller_id, images_attributes:[:id, :image])
   end
   def seller_set
     @seller = current_user.id

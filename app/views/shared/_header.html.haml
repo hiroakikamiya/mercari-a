@@ -7,10 +7,11 @@
       %input{placeholder:"何かお探しですか？", type:"search"}
       .header__top__right__icon
         = fa_icon "search", class: "fas fa-search"
+  .header__category
   .header__row
     .header__row__left
       %ul
-        %li
+        %li#category-box
           = fa_icon "list_ul", class: "fas fa-list-ul"
           カテゴリーから探す
         %li.brandlist
@@ -88,3 +89,16 @@
             = link_to "新規会員登録", user_path , method: :get, class: "new_user_create__link"
           %li.user_sign_in
             = link_to "ログイン", new_user_session_path, method: :get, class: "user_sign_in__link"
+.category-index
+  .category-index__parents#parents-box
+    %ul.category-index__parents__ul
+      - @parents.each do |parent|
+        %li.category-index__parents__list#parents-list
+          = parent.name
+  .category-index__children#children-box
+    %ul.category-index__children__ul
+      -# - parent.children.each do |child|
+        %li.category-index__children__list#children-list
+          -# = child.name
+  .category-index__grandchildren#grandchildren-box
+    %ul.category-index__grandchildren__ul
