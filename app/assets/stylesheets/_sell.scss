@@ -9,6 +9,21 @@
   #child-edit{
     display: none;
   }
+  #item_images_attributes_0_remove_image{
+    display: none;
+  }
+  #item_images_attributes_1_remove_image{
+    display: none;
+  }
+  #item_images_attributes_2_remove_image{
+    display: none;
+  }
+  #item_images_attributes_3_remove_image{
+    display: none;
+  }
+  #item_images_attributes_4_remove_image{
+    display: none;
+  }
   .form_id{
     display: none;
   }
@@ -21,7 +36,10 @@
   .image-form__hidden{
     display: none;
     margin-left: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+  }
+  .remove-box{
+   -webkit-appearance: radio;
   }
   .required {
     @include required ();
@@ -82,7 +100,20 @@
         cursor: pointer;
         width: 80%;
         margin: 0 auto;
-  }
+    }
+    &__delete{
+      display: flex;
+      font-size: 18px;
+      &__box{
+        width: 115px;
+        height: 35px;
+        margin-left: 9px;
+        background: $background;
+        input{
+          margin-left: 9px;
+        }
+      }
+    }
     pre {
       position: absolute;
       top: 50%;

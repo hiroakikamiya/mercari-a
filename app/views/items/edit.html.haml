@@ -16,11 +16,27 @@
                 .sell-upload-box__preview
                   - @item_index.images.each do |i|
                     = image_tag i.image.url, id: "image-form"
+                .sell-upload-box__delete
+                  .sell-upload-box__delete__box
+                    = check_box '', '', {class: "sell-upload-box__delete__btn0"}, true, false
+                    削除
+                  .sell-upload-box__delete__box
+                    = check_box '', '', {class: "sell-upload-box__delete__btn1"}, true, false
+                    削除
+                  .sell-upload-box__delete__box
+                    = check_box '', '', {class: "sell-upload-box__delete__btn2"}, true, false
+                    削除
+                  .sell-upload-box__delete__box
+                    = check_box '', '', {class: "sell-upload-box__delete__btn3"}, true, false
+                    削除
+                  .sell-upload-box__delete__box
+                    = check_box '', '', {class: "sell-upload-box__delete__btn4"}, true, false
+                    削除
               .sell-upload-box__change 画像を変更する
-              .image-form__hidden
-                = f.fields_for :images, @item.images do |img|
+              = f.fields_for :images, @item.images do |img|
+                = img.check_box :remove_image, class: "remove-box"
+                .image-form__hidden
                   = img.file_field :image, type: "file", class:"image-form"
-                  -# = link_to '削除',img.object, method: :delete, data: { confirm: "写真を削除します"}
               .sell-content
                 .form-group
                   %label 商品名
@@ -43,7 +59,7 @@
                     .category-select__wrapper
                       = fa_icon "chevron-down", class: "arrow_icon"
                       .category-select__fake=  @item.category.parent.name
-                    = f.collection_select :id, @item.category.root.siblings, :id, :name, {include_blank: '---'}, class: 'category-select__box', id: 'parent-edit'
+                    = f.collection_select :id, @item.category.root.siblings, :id, :name, {include_blank: '---'}, class: 'category-select__box', id: 'parent-edit' 
                     = f.collection_select :id, @item.category.parent.siblings, :id, :name, {include_blank: '---'}, class: 'category-select__box', id: 'child-edit'
                     = f.collection_select :category_id, @item.category.siblings, :id, :name, {}, class: 'category-select__box', id: 'grand-edit'
                     = f.number_field :category_id,class:'form_edit_category' ,type:'form'
@@ -61,7 +77,7 @@
                   .form-group
                     %label 配送料の負担
                     %span.required 必須
-                    = f.collection_select :delivery_cost_id, DeliveryCost.all, :id, :cost, {prompt: "---"} , class: 'category-select__box'
+                    = f.collection_select :delivery_cost_id, DeliveryCost.all, :id, :cost, {prompt: "---"} , class: 'category-select__box' 
                   .form-group-under
                     %label 配送の方法
                     %span.required 必須
@@ -84,7 +100,7 @@
                       %span.required 必須
                       .price-box
                         .price-box__left ¥
-                        = f.number_field :price, placeholder: "例) 300  ", class: "price-box__right", id: "price-input"
+                        = f.text_field :price, placeholder: "例) 300  ", class: "price-box__right", id: "price-input"
                   %li.center-box.clearfix
                     .left-box 販売手数料(10%)
                     #fee.right-box

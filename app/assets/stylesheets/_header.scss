@@ -231,9 +231,10 @@
 .category-index{
   width: 770px;
   float: bottom;
-  // display: none;
+  display: none;
   position: absolute;
   z-index: 20;
+  background: $white;
   margin-left: 90px;
   top: 90px;
   &__parents{
@@ -256,16 +257,14 @@
   &__children{
     width: 30%;
     height: 100%;
-    background: $white;
+    background: red;
     float: left;
-    display: none;
   }
   &__grandchildren{
     width: 40%;
     height: 100%;
-    background: $white;
+    background: yellow;
     float: left;
-    display: none;
   }
 }
 .content{

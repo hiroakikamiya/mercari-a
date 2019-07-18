@@ -33,6 +33,7 @@ class ItemsController < ApplicationController
   end
 
   def update
+    
     if @item.update(item_params)
       redirect_to root_path
     else
@@ -118,7 +119,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :explain, :status_id, :delivery_cost_id, :delivery_way_id, :delivery_date_id, :price, :category_id, :prefecture_id, :seller_id, images_attributes:[:id, :image])
+    params.require(:item).permit(:name, :explain, :status_id, :delivery_cost_id, :delivery_way_id, :delivery_date_id, :price, :category_id, :prefecture_id, :seller_id, images_attributes:[:id, :image, :id, :remove_image])
   end
   def seller_set
     @seller = current_user.id
