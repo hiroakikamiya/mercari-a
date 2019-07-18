@@ -32,8 +32,10 @@ Rails.application.routes.draw do
   get "user/card", :to => "users/registrations#card"
   end
 
-  resources :users, only: [:index, :show, :edit]
   resources :users do
+    collection do
+      get "item", to: "users#item", as: "item"
+    end
     member do
       get 'logout'
     end
