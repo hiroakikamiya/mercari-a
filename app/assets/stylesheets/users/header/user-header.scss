@@ -14,12 +14,14 @@
     display: inline-block;
     vertical-align: top;
     padding: 40px 0 0 44px;
-    &--process li {
+    li {
       display: inline-block;
       font-size: 12px;
       list-style: none;
+      max-width: 100%;
+      margin-right: 40px;
       position: relative;
-      width: 100px;
+      z-index: 1;
       .process-status {
         width: 12px;
         height: 12px;
@@ -27,17 +29,45 @@
         border-radius: 50%;
         margin: 8px auto 0;
       }
+      .active {
+        background-color: $red;
+      }
+      .completed {
+        background-color: $red;
+      }
     }
-    .process-mark::after{
-      content: "";
+    .process-status:before, .process-status:after{
       position: absolute;
       bottom: 5px;
+      z-index: -1;
+      display: block;
+      content: '';
+      width: 100%;
       height: 2px;
       background: $signup-back;
-      width: 100px;
     }
-    .process-mark:last-child::after{
+    .process-status:before {
+      right: 50%;
+    }
+    .process-status:after {
+      left: 50%;
+    }
+    li:first-child .process-status:before {
       display: none;
+    }
+    li:last-child .process-status:after {
+      display: none;
+    }
+    .active:before {
+      background-color: $red;
+    }
+    .completed:before,
+    .completed:after {
+      background-color: $red;
+    }
+    li.active {
+      font-weight: 600;
+      color: $red;
     }
   }
 }

@@ -4,8 +4,7 @@ class UsersController < ApplicationController
     @nickname = current_user.nickname
   end
 
-  def show
-    @user = current_user.id
+  def item
     @items = Item.where(seller_id: current_user.id)
   end
 
