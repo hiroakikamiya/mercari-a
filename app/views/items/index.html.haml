@@ -11,10 +11,10 @@
   .main-content__pickup
     ピックアップカテゴリー
   - @parents.each do |parent|
-    .main-content__pickup__title
-      - category = Category.where('ancestry LIKE(?)', "#{parent.id}/%")
-      #top-page.ladies
-        - if Item.exists?(category_id: category.first.id..category.last.id)
+    - category = Category.where('ancestry LIKE(?)', "#{parent.id}/%")
+    - if Item.exists?(category_id: category.first.id..category.last.id)
+      .main-content__pickup__title
+        #top-page.ladies
           = link_to "#{parent.name}新着アイテム", root_path
     - @items = Item.where(category_id: category.first.id..category.last.id).order("id ASC").limit(8)
     .main-content__items__field__pickup
