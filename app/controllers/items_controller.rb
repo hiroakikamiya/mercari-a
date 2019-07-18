@@ -79,16 +79,20 @@ class ItemsController < ApplicationController
     @buyer_id = current_user.id
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    Payjp::Charge.create(
+    if Payjp::Charge.create(
     :amount => @item.price, 
     :customer => card.customer_id, 
     :currency => 'jpy', 
   ) 
+    else
+      redirect_to root_path
+    end
   redirect_to payed_items_path
   end
 
   def payed
     @buyed_item = Item.find(params[:id])
+    @buyed_item.update(buyer_id: current_user.id)
     card = Card.where(user_id: current_user.id).first
   end
 
