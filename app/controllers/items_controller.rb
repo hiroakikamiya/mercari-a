@@ -91,6 +91,8 @@ class ItemsController < ApplicationController
 
   def payed
     @buyed_item = Item.find(params[:id])
+    @buyer_id = current_user.id
+    @buyed_item.update(buyer_id: current_user.id)
     card = Card.where(user_id: current_user.id).first
   end
 

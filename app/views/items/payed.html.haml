@@ -5,6 +5,6 @@
 	.payed-message__bottom
 		購入が完了しました！
 	.payed-message__button
-		= form_for @buyed_item, url: update_items_path(@buyed_item),html: {method: "patch"} do |f|
-			= f.submit class:"buy-content__main__buy-button", value: "トップへ戻る"
+		-# = form_for @buyed_item, url: update_items_path(@buyed_item),html: {method: "patch"} do |f|
+		-# 	= f.submit class:"buy-content__main__buy-button", value: "トップへ戻る"
 = render 'items/sub-footer'
