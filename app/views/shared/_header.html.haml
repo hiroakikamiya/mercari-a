@@ -29,12 +29,10 @@
           %li.mypage-modal
             = fa_icon "user", class: "fas fa-user"
             = link_to "マイページ", users_path, class: "header_link"
-            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "user_sign_in__link"
       .header__row__mypage
         .header__row__mypage__box
           .header__row__mypage__box__top
-            .header__row__mypage__box__top__icon
-              -# =image_tag 'bbb.jpg'
+            =image_tag 'mypage-background.png'
           .header__row__mypage__box__middle
             .header__row__mypage__box__middle__name
               .header__row__mypage__box__middle__name__text
@@ -43,7 +41,7 @@
               .header__row__mypage__box__middle__user-menu__left
                 評価：０
               .header__row__mypage__box__middle__user-menu__right
-                出品数：１
+                出品数：1
             .header__row__mypage__box__middle__row
               %ul 
                 .header__row__mypage__box__middle__row__top
@@ -57,6 +55,7 @@
               %ul
                 .header__row__mypage__box__bottom__list__block
                   %li
+
                     いいね！一覧
                     %i.fa.fa-chevron-right
                 .header__row__mypage__box__bottom__list__block

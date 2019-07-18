@@ -1,4 +1,24 @@
-= render 'shared/registration-header'
+.registration-header
+  .registration-header__icon
+    = link_to root_path do
+      = image_tag 'merrcari.svg'
+  .registration-header__nav-bar
+    %ol.registration-header__nav-bar--process
+      %li.completed
+        会員情報
+        .process-status.completed
+      %li.completed
+        電話番号認証
+        .process-status.completed
+      %li.completed
+        お届け先住所
+        .process-status.completed
+      %li.active
+        支払い方法
+        .process-status.active
+      %li
+        完了
+        .process-status
 .center-card
   .registration-form.fourth-step
     .registration-form__header

@@ -1,8 +1,8 @@
 - breadcrumb :items_show
 = render 'shared/header'
 = render 'shared/breadcrumbs'
-.back{style: 'height: auto;'}
-  .box-main{style: 'margin-left: 528px; height: auto;'}
+.back
+  .box-main
     .box-main__name
       = @item.name
     .box-main__content
@@ -45,17 +45,6 @@
                   = link_to root_path do
                     = fa_icon "angle-right", class: "icon"
                     = @item.category.name
-          .table-main__brand
-            %tr
-              %th ブランド
-              %td
-                .table-main__brand__name
-                  NIKE
-          .table-main__item-status
-            %tr
-              %th 商品のサイズ
-              %td
-                M
           .table-main__item-status
             %tr
               %th 商品の状態
@@ -118,7 +107,7 @@
                 = link_to '削除', "/items/#{@item.id}", method: :delete
               %li#closeModal
                 キャンセル
-  .comment-box.box{style: 'margin-left: 528px; margin-bottom: 50px;'}
+  .comment-box.box
     .comment-box__top
       .comment-box__top__text
         相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。

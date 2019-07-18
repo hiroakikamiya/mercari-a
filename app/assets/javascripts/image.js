@@ -10,3 +10,9 @@ $(function(){
 			$('.main-content__items__field__pickup__items-box__sold').css('display', 'block');
 		});
 	});
+
+	$(function() {
+		$('.main-content__items__field__pickup__items-box').mouseover(function() {
+			$('.main-content__items__field__pickup__items-box__sold').css('display', 'block');
+		});
+	});	

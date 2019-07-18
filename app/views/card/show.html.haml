@@ -1,10 +1,26 @@
-%label 登録クレジットカード情報
-%br
-= "**** **** **** " + @default_card_information.last4
-%br
-- exp_month = @default_card_information.exp_month.to_s
-- exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-= exp_month + " / " + exp_year
-= form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
-  %input{ type: "hidden", name: "card_id", value: "" }
-  %button 削除する
+= render 'shared/header'
+.mypage
+  .left-side
+    = render 'shared/mypage-side-nav'
+  .right-side
+    .about-card
+      %h3.payment 支払い方法
+      .about-card__detail
+        .about-card__detail--info
+          %h3 登録クレジットカード情報
+          .card-list
+            = image_tag 'payment-icons/visa.svg'
+            .card-list__payment-num
+              = "**** **** **** " + @default_card_information.last4
+              %br
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
+            .card-list__delete-btn
+              = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
+                %input{ type: "hidden", name: "card_id", value: "" }
+                %button 削除する
+        .about-card__detail--about-payment
+          = link_to root_path do
+            支払い方法について
+            = fa_icon "chevron-right", class: "icon"

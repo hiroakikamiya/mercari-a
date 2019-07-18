@@ -6,10 +6,6 @@ class ItemsController < ApplicationController
     before_action :image_count, only: [:new, :edit]
   def index
     @parents = Category.where(ancestry: nil)
-    # @parents.each do |parent|
-    #   category = Category.where('ancestry LIKE(?)', "%#{parent.id}/%" )
-    #   @items = Item.where(category_id: category.first.id..category.last.id).order("id ASC").limit(5)
-    # end
   end
 
   def new
@@ -85,16 +81,20 @@ class ItemsController < ApplicationController
     @buyer_id = current_user.id
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    Payjp::Charge.create(
+    if Payjp::Charge.create(
     :amount => @item.price, 
     :customer => card.customer_id, 
     :currency => 'jpy', 
   ) 
+    else
+      redirect_to root_path
+    end
   redirect_to payed_items_path
   end
 
   def payed
     @buyed_item = Item.find(params[:id])
+    @buyed_item.update(buyer_id: current_user.id)
     card = Card.where(user_id: current_user.id).first
   end
 

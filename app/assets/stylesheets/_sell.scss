@@ -312,24 +312,27 @@
     margin-left: 9px;
       }
 }
-.payed-message{
+.buy-content__title__text__buyed{
   width: 100%;
-  height: 400px;
+  font-size: 25px;
+  font-weight: bold;
   text-align: center;
-  &__top{
-    font-size: 60px;
-    font-weight: bold;
-    margin-top: 35px;
+  padding-top: 20px;
+}
+.buy-content__main__button__top{
+  width: 300px;
+  height: 50px;
+  background: $red;
+  text-align: center;
+  font-weight: bold;
+  margin: 0 auto;
+  line-height: 50px;
+  margin-top: 20px;
+  a{
+    color: $white
   }
-  &__bottom{
-    font-size: 25px;
-    margin-top: 35px;
-  }
-  &__button{
-    margin-top: 40px;
-    input{
-      background: $red;
-      color: $white;
-    }
+  a:hover{
+    text-decoration: none;
+    color: $white;
   }
 }
