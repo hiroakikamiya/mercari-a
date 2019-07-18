@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   end
 
   def item
-    @user = current_user.id
     @items = Item.where(seller_id: current_user.id)
   end
 
