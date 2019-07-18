@@ -2,15 +2,9 @@ class ItemsController < ApplicationController
     before_action :parents_set, only: [:new]
     before_action :move_to_sign_in, except: [:show, :index]
     before_action :seller_set, only: [:new, :edit]
-    before_action :set_item, only: [:show, :edit, :update, :destroy]
+    before_action :set_item, only: [:show, :edit, :update, :destroy,:pay,:payed]
   def index
-    @items = Item.all.order("created_at DESC")
-    @items_ladies = Item.where(category: 7..61).order("id ASC")
-    @items_mens = Item.where(category: 75..108).order("id ASC")
-    # @items_parent = Category.where(ancestry: nil)
-    # @items_children = @items_parent.each do |parent|
-    #   Category.where{ancestry: inculude?(parent.id)} ここ２行はビューで定義、renderは1つずつに変更
-    # end
+    @parents = Category.where(ancestry: nil)
   end
 
   def new
@@ -69,6 +63,33 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id]) 
     @buyed_item = Item.find(params[:id])
     @buyer_id = current_user.id
+    card = Card.where(user_id: current_user.id).first
+
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    customer = Payjp::Customer.retrieve(card.customer_id)
+    @default_card_information = customer.cards.retrieve(card.card_id)
+  end
+
+  def pay
+    @buyed_item = Item.find(params[:id])
+    @buyer_id = current_user.id
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    if Payjp::Charge.create(
+    :amount => @item.price, 
+    :customer => card.customer_id, 
+    :currency => 'jpy', 
+  ) 
+    else
+      redirect_to root_path
+    end
+  redirect_to payed_items_path
+  end
+
+  def payed
+    @buyed_item = Item.find(params[:id])
+    @buyed_item.update(buyer_id: current_user.id)
+    card = Card.where(user_id: current_user.id).first
   end
 
   def buy_update

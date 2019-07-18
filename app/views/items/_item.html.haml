@@ -1,15 +1,14 @@
-- if item.seller_id.present?
-  .main-content__items__field__pickup__items-box
-    = link_to item_path(item.id) do
-      - if item.buyer_id.present?
-        .soldout-badge
-          .soldout-badge__text
-            SOLD
-      .main-content__items__field__pickup__items-box__photo
-        = image_tag(item.images[0].image.url)
-      .main-content__items__field__pickup__items-box__text
-        .main-content__items__field__pickup__items-box__text__title
-          = item.name
-        .main-content__items__field__pickup__items-box__text__price
-          ¥
-          = item.price
+.main-content__items__field__pickup__items-box
+  - if item.seller_id.present?
+    - if item.buyer_id.present?
+      .soldout-badge
+        .soldout-badge__text
+          SOLD
+    .main-content__items__field__pickup__items-box__photo
+      = link_to image_tag(item.images[0].image.url), item_path(item.id), class: "item_link"
+    .main-content__items__field__pickup__items-box__text
+      .main-content__items__field__pickup__items-box__text__title
+        = item.name
+      .main-content__items__field__pickup__items-box__text__price
+        ¥
+        = item.price
