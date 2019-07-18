@@ -21,7 +21,7 @@
         出品する
         = fa_icon "angle-right", class: "icon"
     %li.nav-item
-      = link_to users_path(@user) do
+      = link_to item_users_path(@user) do
         出品した商品 - 出品中
         = fa_icon "angle-right", class: "icon"
     %li.nav-item
@@ -77,7 +77,7 @@
         発送元・お届け先住所変更
         = fa_icon "angle-right", class: "icon"
     %li.nav-item
-      = link_to root_path do
+      = link_to card_path(current_user) do
         支払い方法
         = fa_icon "angle-right", class: "icon"
     %li.nav-item

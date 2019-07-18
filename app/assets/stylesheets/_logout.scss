@@ -2,11 +2,12 @@
   width: 700px;
   height: 180px;
   background: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   .logout-box {
     width: 320px;
     height: 48px;
-    margin: 0 auto;
-    padding-top: 66px;
     &__btn{
       background: $red;
       border: 1px solid $red;
@@ -18,6 +19,9 @@
       border: 1px solid transparent;
       cursor: pointer;
       text-align: center;
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 }

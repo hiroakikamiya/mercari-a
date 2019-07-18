@@ -5,5 +5,5 @@
   .right-side
     .logout-container
       .logout-box
-        %button.logout-box__btn{ type: "submit"} ログアウト
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-box__btn"
 = render 'shared/footer'
