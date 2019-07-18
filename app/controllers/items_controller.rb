@@ -5,10 +5,6 @@ class ItemsController < ApplicationController
     before_action :set_item, only: [:show, :edit, :update, :destroy,:pay,:payed]
   def index
     @parents = Category.where(ancestry: nil)
-    # @parents.each do |parent|
-    #   category = Category.where('ancestry LIKE(?)', "%#{parent.id}/%" )
-    #   @items = Item.where(category_id: category.first.id..category.last.id).order("id ASC").limit(5)
-    # end
   end
 
   def new
