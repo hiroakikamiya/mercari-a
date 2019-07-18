@@ -5,13 +5,10 @@ class ItemsController < ApplicationController
     before_action :set_item, only: [:show, :edit, :update]
     before_action :image_count, only: [:new, :edit]
   def index
-    @parents =  Category.where(ancestry: nil)
-    @items = Item.all.order("created_at DESC")
-    @items_ladies = Item.where(category: 7..61).order("id ASC")
-    @items_mens = Item.where(category: 75..108).order("id ASC")
-    # @items_parent = Category.where(ancestry: nil)
-    # @items_children = @items_parent.each do |parent|
-    #   Category.where{ancestry: inculude?(parent.id)} ここ２行はビューで定義、renderは1つずつに変更
+    @parents = Category.where(ancestry: nil)
+    # @parents.each do |parent|
+    #   category = Category.where('ancestry LIKE(?)', "%#{parent.id}/%" )
+    #   @items = Item.where(category_id: category.first.id..category.last.id).order("id ASC").limit(5)
     # end
   end
 
