@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :items_show do
-  link "これはテスト商品です", items_path
+  link "出品商品画面", items_path
   parent :root
 end
 
