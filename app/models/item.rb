@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  validates :name, :explain, :price, presence: true
   has_many :messages
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
