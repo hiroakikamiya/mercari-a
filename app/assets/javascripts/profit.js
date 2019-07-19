@@ -5,8 +5,8 @@ $(function(){
     if( 300 <= input && input <= 9999999) {
       var fee = Math.floor(input / 10);
       var total = (input - fee);
-      $("#fee").text(fee + "円");
-      $("#total").text(total + "円");
+      $("#fee").text(fee.toLocaleString('ja-JP', {"style":"currency", "currency":"JPY"}) + "円");
+      $("#total").text(total.toLocaleString('ja-JP', {"style":"currency", "currency":"JPY"}) + "円");
     }
     else{
       $("#fee").text("ー");

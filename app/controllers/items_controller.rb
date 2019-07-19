@@ -2,14 +2,16 @@ class ItemsController < ApplicationController
     before_action :parents_set, only: [:new]
     before_action :move_to_sign_in, except: [:show, :index]
     before_action :seller_set, only: [:new, :edit]
-    before_action :set_item, only: [:show, :edit, :update, :destroy,:pay,:payed]
+    before_action :set_item, only: [:show, :edit, :update]
+    before_action :image_count, only: [:new, :edit]
   def index
+    @item_user = Item.where(seller_id: current_user.id)
     @parents = Category.where(ancestry: nil)
   end
 
   def new
     @item = Item.new
-    10.times{@item.images.build}
+    image_count.times{@item.images.build}
   end 
 
   def create
@@ -21,18 +23,27 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @count = @item.images.length
+    (image_count - @count).times{@item.images.build}
+  end
+
   def update
+    
     if @item.update(item_params)
       redirect_to root_path
     else
       render :edit
     end
   end
-
+  
   def edit
+    @item_user = Item.where(seller_id: current_user.id)
   end
 
   def show
+    @item_user = Item.where(seller_id: current_user.id)
+    
   end
 
   def edit_category_children
@@ -64,10 +75,13 @@ class ItemsController < ApplicationController
     @buyed_item = Item.find(params[:id])
     @buyer_id = current_user.id
     card = Card.where(user_id: current_user.id).first
-
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    customer = Payjp::Customer.retrieve(card.customer_id)
-    @default_card_information = customer.cards.retrieve(card.card_id)
+    if card.blank?
+      redirect_to new_card_path
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
   end
 
   def pay
@@ -99,16 +113,10 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
-  def update
-    if @item.update(item_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
-  end
-
   def show
     @another_items = Item.where(seller_id: @item.seller_id).where.not(id: @item.id)
+    @item_user = Item.where(seller_id: current_user.id)
+    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def destroy
@@ -121,7 +129,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :explain, :status_id, :delivery_cost_id, :delivery_way_id, :delivery_date_id, :price, :category_id, :prefecture_id, :seller_id, images_attributes:[:image])
+    params.require(:item).permit(:name, :explain, :status_id, :delivery_cost_id, :delivery_way_id, :delivery_date_id, :price, :category_id, :prefecture_id, :seller_id, images_attributes:[:id, :image, :id, :remove_image])
   end
   def seller_set
     @seller = current_user.id
@@ -138,5 +146,8 @@ class ItemsController < ApplicationController
   end
   def move_to_sign_in
     redirect_to new_user_session_path unless user_signed_in?
+  end
+  def image_count
+    image_count = 5
   end
 end
