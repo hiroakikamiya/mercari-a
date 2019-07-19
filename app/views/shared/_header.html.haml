@@ -10,7 +10,7 @@
   .header__row
     .header__row__left
       %ul
-        %li
+        %li#category-box
           = fa_icon "list_ul", class: "fas fa-list-ul"
           カテゴリーから探す
         %li.brandlist
@@ -40,7 +40,8 @@
               .header__row__mypage__box__middle__user-menu__left
                 評価：０
               .header__row__mypage__box__middle__user-menu__right
-                出品数：1
+                出品数：
+                = @item_user.count
             .header__row__mypage__box__middle__row
               %ul 
                 .header__row__mypage__box__middle__row__top
@@ -54,13 +55,14 @@
               %ul
                 .header__row__mypage__box__bottom__list__block
                   %li
-
                     いいね！一覧
                     %i.fa.fa-chevron-right
+
                 .header__row__mypage__box__bottom__list__block
                   %li
                     出品した商品-出品中
                     %i.fa.fa-chevron-right
+
                 .header__row__mypage__box__bottom__list__block
                   %li
                     出品した商品-取引中
