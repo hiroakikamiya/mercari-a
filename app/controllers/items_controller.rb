@@ -5,8 +5,10 @@ class ItemsController < ApplicationController
     before_action :set_item, only: [:show, :edit, :update, :destroy,:pay,:payed]
   def index
     @items = Item.all.order("created_at DESC")
+    @item_user = Item.where(seller_id: current_user.id)
     @items_ladies = Item.where(category: 7..61).order("id ASC")
     @items_mens = Item.where(category: 75..108).order("id ASC")
+    @parents = Category.all.order("id ASC").limit(13)
     # @items_parent = Category.where(ancestry: nil)
     # @items_children = @items_parent.each do |parent|
     #   Category.where{ancestry: inculude?(parent.id)} ここ２行はビューで定義、renderは1つずつに変更
@@ -36,9 +38,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item_user = Item.where(seller_id: current_user.id)
   end
 
   def show
+    @item_user = Item.where(seller_id: current_user.id)
   end
 
   def edit_category_children
@@ -70,10 +74,13 @@ class ItemsController < ApplicationController
     @buyed_item = Item.find(params[:id])
     @buyer_id = current_user.id
     card = Card.where(user_id: current_user.id).first
-
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    customer = Payjp::Customer.retrieve(card.customer_id)
-    @default_card_information = customer.cards.retrieve(card.card_id)
+    if card.blank?
+      redirect_to new_card_path
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
   end
 
   def pay
@@ -115,6 +122,8 @@ class ItemsController < ApplicationController
 
   def show
     @another_items = Item.where(seller_id: @item.seller_id).where.not(id: @item.id)
+    @item_user = Item.where(seller_id: current_user.id)
+    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def destroy

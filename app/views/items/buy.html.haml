@@ -32,18 +32,28 @@
       .buy-content__middle__adless__title
         配送先
       .buy-content__middle__adless__text
-        〒000-0000
-        愛知県 名古屋市中区
+        = current_user. residence.post_code
+        = current_user. residence.city
+        = current_user. residence.address
+        = current_user. residence.detail
       .buy-content__middle__adless__name
-        テストタロウ
+        = current_user.name_kanji
       .buy-content__middle__adless__change
         変更する＞
   .buy-content__row
     .buy-content__row__pay-type
       .buy-content__row__pay-type__title
         支払い方法
-      .buy-content__row__pay-type__text
-        選択されていません
+        %br
+        %br
+        登録クレジットカード情報
+        %br
+        %br
+        = "**** **** **** " + @default_card_information.last4
+        %br
+        - exp_month = @default_card_information.exp_month.to_s
+        - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+        = exp_month + " / " + exp_year
       .buy-content__row__pay-type__change
         変更する＞   
 = render 'items/sub-footer'

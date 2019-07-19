@@ -10,7 +10,7 @@
   .header__row
     .header__row__left
       %ul
-        %li
+        %li#category-box
           = fa_icon "list_ul", class: "fas fa-list-ul"
           カテゴリーから探す
         %li.brandlist
@@ -43,7 +43,8 @@
               .header__row__mypage__box__middle__user-menu__left
                 評価：０
               .header__row__mypage__box__middle__user-menu__right
-                出品数：1
+                出品数：
+                = @item_user.count
             .header__row__mypage__box__middle__row
               %ul 
                 .header__row__mypage__box__middle__row__top
@@ -57,13 +58,14 @@
               %ul
                 .header__row__mypage__box__bottom__list__block
                   %li
-
                     いいね！一覧
                     %i.fa.fa-chevron-right
+
                 .header__row__mypage__box__bottom__list__block
                   %li
                     出品した商品-出品中
                     %i.fa.fa-chevron-right
+
                 .header__row__mypage__box__bottom__list__block
                   %li
                     出品した商品-取引中
@@ -90,3 +92,24 @@
             = link_to "新規会員登録", user_path , method: :get, class: "new_user_create__link"
           %li.user_sign_in
             = link_to "ログイン", new_user_session_path, method: :get, class: "user_sign_in__link"
+.category-index
+
+  .category-index__parents#parents-box
+    %ul.category-index__parents__ul
+      - @parents.each do |parent|
+        %li.category-index__parents__list#parents-list
+          = parent.name
+          #hidden
+            = parent.id
+
+        .category-index__parents__children#children-box
+          %ul.category-index__children__ul
+            - parent.children.each do |child|
+              %li.category-index__children__list#children-list
+                = child.name
+
+              .category-index__parents__children__grandchildren#grandchildren-box
+                %ul.category-index__grandchildren__ul
+                  - child.children.each do |grandchild|
+                    %li.category-index__grandchildren__list#grandchildren-list
+                      = grandchild.name
