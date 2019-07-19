@@ -5,7 +5,9 @@ class ItemsController < ApplicationController
     before_action :set_item, only: [:show, :edit, :update]
     before_action :image_count, only: [:new, :edit]
   def index
-    @item_user = Item.where(seller_id: current_user.id)
+    if user_signed_in?
+      @item_user = Item.where(seller_id: current_user.id)
+    end
     @parents = Category.where(ancestry: nil)
   end
 
