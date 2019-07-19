@@ -14,7 +14,7 @@
                 %p 最大10枚までアップロードできます
                 #image-preview
                 .sell-upload-box__preview
-                  - @item_index.images.each do |i|
+                  - @item.images.each do |i|
                     = image_tag i.image.url, id: "image-form"
                 .sell-upload-box__delete
                   .sell-upload-box__delete__box

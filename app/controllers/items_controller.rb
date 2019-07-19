@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
     before_action :move_to_sign_in, except: [:show, :index]
     before_action :seller_set, only: [:new, :edit]
     before_action :set_item, only: [:show, :edit, :update]
-    before_action :set_item_index, only: [:edit]
     before_action :image_count, only: [:new, :edit]
   def index
     @parents = Category.where(ancestry: nil)
@@ -134,9 +133,6 @@ class ItemsController < ApplicationController
   end
   def set_item
     @item = Item.find(params[:id])
-  end
-  def set_item_index
-    @item_index = Item.find(params[:id])
   end
   def move_to_sign_in
     redirect_to new_user_session_path unless user_signed_in?
