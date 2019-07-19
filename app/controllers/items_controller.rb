@@ -4,15 +4,8 @@ class ItemsController < ApplicationController
     before_action :seller_set, only: [:new, :edit]
     before_action :set_item, only: [:show, :edit, :update, :destroy,:pay,:payed]
   def index
-    @items = Item.all.order("created_at DESC")
     @item_user = Item.where(seller_id: current_user.id)
-    @items_ladies = Item.where(category: 7..61).order("id ASC")
-    @items_mens = Item.where(category: 75..108).order("id ASC")
-    @parents = Category.all.order("id ASC").limit(13)
-    # @items_parent = Category.where(ancestry: nil)
-    # @items_children = @items_parent.each do |parent|
-    #   Category.where{ancestry: inculude?(parent.id)} ここ２行はビューで定義、renderは1つずつに変更
-    # end
+    @parents = Category.where(ancestry: nil)
   end
 
   def new

@@ -76,8 +76,9 @@
                 = @item.delivery_date.date
     .price-box
       %span.price-box__price
-        = @item.price
         ¥
+        = @item.price
+
       %span.price-box__tax     (税込)
       %span.price-box__status  送料込み
     - if @item.seller_id && @item.buyer_id.present?

@@ -1,0 +1,59 @@
+.right-side {
+  .about-card {
+    background-color: white;
+    h3.payment {
+      margin: 0;
+      font-size: 24px;
+      padding: 8px 24px;
+      text-align: center;
+      border-bottom: 1px solid $background;
+    }
+    &__detail {
+      border-top: 1px solid $background;
+      padding: 64px;
+      &--info {
+        max-width: 320px;
+        margin: 0 auto;
+        h3 {
+          font-size: 16px;
+          margin: 0;
+        }
+        .card-list {
+          position: relative;
+          padding: 14px 0 24px;
+          border-bottom: 1px solid #eee;
+          img {
+            height: 10%;
+            width: 15%;
+          }
+          &__payment-num {
+            font-size: 16px;
+          }
+          &__delete-btn {
+            button {
+              position: absolute;
+              top: 23%;
+              right: 10%;
+              padding: 4px 6px;
+              background: #fff;
+              border-radius: 3px;
+              border: 1px solid $red;
+              color: $red;
+            }
+          }
+        }
+      }
+      &--about-payment {
+        display: block;
+        margin: 40px 0 0;
+        text-align: right;
+        a {
+          @include bright-Uline-hover();
+          &:hover {
+            color: $blue;
+          }
+        }
+      }
+    }
+  }
+}

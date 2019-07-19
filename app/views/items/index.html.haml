@@ -10,16 +10,16 @@
         = image_tag 'top3.png'
   .main-content__pickup
     ピックアップカテゴリー
-  .main-content__pickup__title
-    #top-page.ladies
-      = link_to "レディース新着アイテム", root_path
+  - @parents.each do |parent|
+    - category = Category.where('ancestry LIKE(?)', "#{parent.id}/%")
+    - if Item.exists?(category_id: category.first.id..category.last.id)
+      .main-content__pickup__title
+        #top-page.ladies
+          = link_to "#{parent.name}新着アイテム", root_path
+    - @items = Item.where(category_id: category.first.id..category.last.id).order("id ASC").limit(8)
     .main-content__items__field__pickup
-      = render partial: 'item', collection: @items_ladies, as: :item
-  .main-content__pickup__title
-    #top-page.mens
-      = link_to "メンズ新着アイテム", root_path
-    .main-content__items__field__pickup
-      = render partial: 'item', collection: @items_mens, as: :item
+      - @items.each do |item|
+        = render partial: 'item', locals: {item: item}
 .under-content
   =image_tag 'undercontent.png'
 = render'shared/footer'
