@@ -12,4 +12,6 @@ class Item < ApplicationRecord
   belongs_to :buyer, class_name: "User", foreign_key: :buyer_id, optional: true
   belongs_to :prefecture
   belongs_to :user,optional: true
+  validates :name,    length: { minimum: 6 }
+  validates :name,    length: { maximum: 40}
 end
