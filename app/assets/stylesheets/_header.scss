@@ -1,12 +1,14 @@
-.main-header{
+header {
   background: $white;
+  .main-header{
+    max-width: 1060px;
+    margin: 0 auto;
+  }
 }
 .header{
   &__top{
-    margin: 0 auto;
     display: flex;
     align-items: center;
-    width: calc(100% - 200px);
     &__left{
       padding-top: 8px;
       img{
@@ -46,19 +48,16 @@
       }
     }
   &__row{
-    margin: 0 auto;
     margin-top: 5px;
-    display: flex;
-    width: calc(100% - 200px);
-    height: 60px;
     line-height: 60px;
+    display: flex;
+    justify-content: space-between;
     &__left{
       float: left;
       ul{
         margin-bottom: 0;
         font-size: 14px;
         padding-left: 0px;
-        list-style: none;
         display: flex;
         font-weight: bold;
         // margin-top: 20px;
@@ -76,16 +75,13 @@
       }
     }
     &__right{
-      margin-right: 0;
-      margin-left: auto;
       ul{
-        list-style: none;
         display: flex;
         color: $gray;
         font-size: 14px;
-        // margin-top: 20px;
+        margin-bottom: 0;
         li{
-          margin-left: 35px;
+          margin-left: 10px;
           .fa{
             font-size: 17px;
             color: $gray;
@@ -135,7 +131,6 @@
           height: 110px;
           width: 100%;
           text-align: center;
-          // margin-top: 25px;
           &__name{
             font-size: 18px;
           }
@@ -143,7 +138,6 @@
             width: 200px;
             height: 20px;
             margin: 0 auto;
-            // padding-top: 5px;
             display: flex;
             font-size: 15px;
             &__left{
@@ -160,7 +154,6 @@
             margin-top: 25px;
             background: $gray;
             font-size: 14px;
-
             &__top{
               height: 35px;
               width: 100%;
@@ -265,35 +258,27 @@
 .content{
   height: 900px;
 }
-.new_user_cretae{
-  height: 30px;
-  width: 100px;
-  background-color: $red;
-  border: solid $red ;
-  border-radius: 2px;
-}
 .header__row__right{
   height: 60px;
+  display: flex;
+  align-items: center;
   .new{
     .new_user_create{
+      margin: 0;
       height: 34px;
       width: 110px;
       background-color: $red;
       text-align: center;
-      margin-top: 13px;
-      margin-bottom: 0;
       position: relative;
       border-radius: 3px;
       &__link{
         width: 100%;
-        height: 100%;
         text-decoration: none;
         color: $white;
-        vertical-align: middle;
         position: absolute;
-        top: -16px;
+        top: 0px;
         left: 0px;
-        line-height: 70px;
+        line-height: 35px;
         font-size: 15px;
       }
     }
@@ -301,20 +286,17 @@
       height: 34px;
       width: 95px;
       text-align: center;
-      margin-top: 13px;
       margin-bottom: 0;
       position: relative;
       border: $blue solid 1px;
       border-radius: 3px;
       &__link{
         width: 100%;
-        height: 100%;
         text-decoration: none;
-        vertical-align: middle;
         position: absolute;
-        top: -18px;
+        top: 0px;
         left: 0px;
-        line-height: 70px;
+        line-height: 35px;
         font-size: 15px;
       }
     }
