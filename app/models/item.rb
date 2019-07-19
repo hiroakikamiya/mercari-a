@@ -1,13 +1,5 @@
 class Item < ApplicationRecord
-  validates :name, presence: true
-  validates :explain, presence: true
-  validates :status_id, presence: true
-  validates :category_id, presence: true
-  validates :delivery_cost_id, presence: true
-  validates :delivery_date_id, presence: true
-  validates :price, presence: true
-  validates :prefecture_id, presence: true
-  validates :seller_id, presence: true
+  validates :name, :explain, :price, presence: true
   has_many :messages
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
