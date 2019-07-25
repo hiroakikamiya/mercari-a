@@ -1,6 +1,7 @@
 class CardController < ApplicationController
-
+  
   require "payjp"
+  before_action :move_to_sign_in
 
   def new
     redirect_to action: "show" if Card.exists?(user_id: current_user.id)
@@ -50,5 +51,12 @@ class CardController < ApplicationController
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
   end
+
+  private
+
+  def move_to_sign_in
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
 end
 
