@@ -16,7 +16,7 @@
       .main-content__pickup__title
         #top-page.ladies
           = link_to "#{parent.name}新着アイテム", root_path
-    - @items = Item.where(category_id: category.first.id..category.last.id).order("id ASC").limit(4)
+    - @items = Item.where(category_id: category.first.id..category.last.id).order("id DESC").limit(4)
     .main-content__items__field__pickup
       - @items.each do |item|
         = render partial: 'item', locals: {item: item}
