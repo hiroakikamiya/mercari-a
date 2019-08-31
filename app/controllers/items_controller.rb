@@ -43,11 +43,6 @@ class ItemsController < ApplicationController
     @item_user = Item.where(seller_id: current_user.id)
   end
 
-  def show
-    @item_user = Item.where(seller_id: current_user.id)
-    
-  end
-
   def edit_category_children
     @edit_children = Category.find(params[:parent_id]).children
   end
@@ -116,8 +111,10 @@ class ItemsController < ApplicationController
   end
 
   def show
+    if user_signed_in?
+      @item_user = Item.where(seller_id: current_user.id)
+    end
     @another_items = Item.where(seller_id: @item.seller_id).where.not(id: @item.id)
-    @item_user = Item.where(seller_id: current_user.id)
     @parents = Category.all.order("id ASC").limit(13)
   end
 
